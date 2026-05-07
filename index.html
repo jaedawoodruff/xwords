@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Play the daily crossword!">
+        <title id="tabTitle">Home</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <!--Header and Nav Bars-->
+        <div id="pageHeader">
+            <h1 id="pageTitle">Good Word!</h1>
+        </div>
+        <div id="pageNavBar">
+            <a id="homeButton" class="button" href="https://jaedawoodruff.github.io/xwords/gui.html">Today</a>
+            <a id="puzzleHomeButton" class="button" href="https://jaedawoodruff.github.io/xwords/index.html">All Puzzles</a>
+            <a id="aboutButton" class="button" href="https://jaedawoodruff.github.io/xwords/about.html">About</a>
+        </div>
+        <!--Main page-->
+        <div id="pageMain">
+            <a href="https://jaedawoodruff.github.io/xwords/gui.html">
+                <div id="todayPuzzle" class="button">
+                    <div id="todayPuzzleDate">Sunday April 19, 2026</div>
+                    <div id="todayPuzzleTitle">"Pros and Cons"</div>
+                    <div id="gridIcon">
+                        <div class="blackCell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="blackCell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="blackCell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div id="todayPuzzleAuthor">By Jaeda Woodruff</div>
+                </div>
+            </a>
+            <div id="olderPuzzleBucket">
+                <div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Saturday 4/18</div>
+                        <div class="puzzleTitle">"Wells Wells Wells"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Friday 4/17</div>
+                        <div class="puzzleTitle">"Back Burner"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Thursday 4/16</div>
+                        <div class="puzzleTitle">"Wow Mom, A Racecar!"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Wednesday 4/15</div>
+                        <div class="puzzleTitle">"Tech Support"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Tuesday 4/14</div>
+                        <div class="puzzleTitle">"Stargazer"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Friday 4/13</div>
+                        <div class="puzzleTitle">"And They're Off"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Thursday 4/12</div>
+                        <div class="puzzleTitle">"Special Considerations"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                    <div class="olderPuzzle">
+                        <div class="puzzleDate">Wednesday 4/11</div>
+                        <div class="puzzleTitle">"Fruit Of The Doom"</div>
+                        <div class="puzzleAuthor">By Jaeda Woodruff</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!--
+
+// MISSION 9: WEBPAGE
+
+// DONE: Homepage css (todays puzzle)
+// DONE: Download github
+// DONE: New temporary site name
+// DONE: Quick publish site to github
+// DONE: Now how to make site connection secure? -> default on github yay!
+// DONE: Now link multiple pages together (nav bar)
+// DONE: Update tab names in each file
+// DONE: Make the default page ('index.html?') the 'all puzzles' homepage? instead of a random blank page?
+// DONE: Ok and add a filler about page for now
+// DONE: Now add link to today's puzzle div from "all puzzles"
+
+// DONE: Archive xword_allpuzzles.html file
+// DONE: In file explorer move all the xword files into one folder??
+// Now make sure github has those updates
+
+// Best practice for updating code on githb? directly in the editor? integrate vscode? do it in vscode separately and then re upload??
+// Auto update the "today" button href (x2 on main page) to whatever's ACTUALLY today's puzzle
+// Get host url + test access on phone. Now test on someone else's computer to see if it's accessible
+
+// Ok also need to change the actual crossword bc this isalready published on the princetonian website
+
+// Automate the homepage content fill using js/python (push current puzzle to archive, add new puzzle to todayPuzzle slot)
+// Upload one puzzle to homepage (python script?? given cfp create new subpage and link to it in the css block)
+// Check for special characters/manually fix? Some auto fix/python flag system??
+// Now write quick python code bit to get the answers string, puzzle info array (title/date/author) automatically
+// Python full script to easily publish new puzzles to the page
+// Now upload another puzzle to homepage
+// Now link each old puzzle on "all puzzles" page
+
+// Ok now if more than x amount of puzzles, only load if you actually get down to the bottom!
+// Ok now add an option to specify (FULL PUZZLE) or else whatever the puzzle size is using the python/js. And standardize different format for minis vs full puzzles? (eg minis dont need names)
+// Way to mark if a puzzle has been completed
+
+// Now test in different browsers (edge, chrome, firefox, safari, duckduckgo, etc)
+
+// Now save progress + time on reload
+// Now save progress + time on close and reopen
+// Also check this works if you accidentally hit ctrl R
+// Now autosave user's list of completed puzzles
+
+// Add celebration animation (confetti??) and/or popup (IF all cells filled AND all cells match answers array)
+
+// Research...is my timer method legit lmao?? will user computer settings fuck this up??
+// Now stress test performance! How much memory is this taking? Can I have other tabs/apps open?
+// And stress test what if you do keyboard shortcuts is your progress saved?
+
+// MISSION 10: MINIS
+
+// Sketch layout for minis
+// Now test with a real mini!
+// Write separate CSS for minis OR adapt existing CSS to adjust for grid size?
+
+-->

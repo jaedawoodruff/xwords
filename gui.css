@@ -1,0 +1,396 @@
+:root {
+    --n: 15;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    min-width: 90vw;
+    place-content: center;
+    place-self: center;
+}
+#pageHeader {
+    position: absolute;
+    display: flex;
+    place-items: end;
+    place-content: center;
+    height: 115px;
+    width: 100%;
+}
+#pageTitle {
+    user-select: none;
+    position: absolute;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    font-family: 'Fjalla One';
+    font-weight: lighter;
+    font-size: 70px;
+}
+#pageNavBar {
+    position: absolute;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    height: 50px;
+    width: 90%;
+    top: 115px;
+    border: solid gray;
+    border-width: 1px 0 1px 0;
+    font-family: Helvetica, sans-serif;
+    font-size: x-small;
+}
+#puzzleInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    place-content: center;
+    height: 80px;
+    width: 90%;
+    top: 165px;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: grey;
+    font-size: 12px;
+}
+#puzzleTitle {
+    color: black;
+    font-size: 20px;
+}
+#puzzleNavBar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: right;
+    height: 40px;
+    width: 90%;
+    top: 245px;
+    border: solid gray;
+    border-width: 1px 0 0 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+#checkMenu {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 148px;
+    width: 62px;
+    right: 0px;
+    top: 39px;
+    z-index: 1000;
+    border: 1px solid gray;
+    background-color: white;
+}
+#pageMain {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    top: 285px;
+}
+#grid {
+    user-select: none;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(var(--n), 1fr);
+    grid-template-rows: repeat(var(--n), 1fr);
+    width: 50%;
+    border: 1px solid black;
+    aspect-ratio: 1 / 1;
+}
+.cell {
+    position: relative;
+    width: 100%;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+    border: 1px solid black;
+    background-color: white;
+}
+.blackCell {
+    position: relative;
+    background-color: black;
+}
+.userFill {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    font-size: 2vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#cluesBucket {
+    user-select: none;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    right: 0%;
+}
+.cluesBucketClass {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}
+.cluesHeader {
+    position: absolute;
+    align-content: center;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: lightgray;
+}
+.clues {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 40px);
+    top: 40px;
+    left: 0;
+    overflow-y: scroll;
+}
+.clueBox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px 10px 10px;
+}
+.clueIndicator {
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    top: 0px;
+    left: 0px;
+}
+.clueNum {
+    position: relative;
+    display: flex;
+    width: 30px;
+    left: 0;
+    justify-content: right;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 8px 0 0;
+}
+.clueText {
+    position: relative;
+    width: calc(100% - 30px);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+}
+#footer {
+    position: relative;
+    height: 10dvw;
+    width: 100%;
+    top: 45dvw;
+}
+
+/*Button formatting*/
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    font-weight: 700;
+    display: block;
+}
+.button {
+    user-select: none;
+    position: relative;
+    place-content: center;
+    height: 100%;
+    padding: 0 10px 0 10px;
+}
+.button:hover {
+    background-color: lightgray;
+}
+.button:active {
+    background-color: lightblue;
+}
+#timer {
+    position: absolute;
+    left: 0px;
+}
+
+/*Popup formatting*/
+.pageMainBlur {
+    user-select: none; 
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    place-content: center;
+    place-items: center;
+    backdrop-filter: blur(8px);
+    background-color: rgba(173, 216, 230, 0.5);
+}
+.popupBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    max-width: 300px;
+    max-height: 150px;
+    place-items: center;
+    background-color: white;
+    border-radius: 20px;
+}
+.popupQuestion {
+    position: relative;
+    width: 80%;
+    height: 60%;
+    padding: 10px;
+    text-align: center;
+    place-content: center;
+}
+#ccButtonsBox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    place-items: center;
+    place-content: center;
+}
+#ccClear {
+    border-radius: 0 0 0 20px;
+}
+#ccCancel {
+    border-radius: 0 0 20px 0;
+}
+.ccButtons {
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    place-items: center;
+    place-content: center;
+    border-top: 1px solid gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+.ccButtons:hover {
+    background-color: lightgray;
+}
+.ccButtons:active {
+    background-color: lightblue;
+}
+#tmContinue {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    place-items: center;
+    place-content: center;
+    border-radius: 0 0 20px 20px;
+    border-top: 1px solid gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+#tmContinue:hover {
+    background-color: lightgray;
+}
+#tmContinue:active {
+    background-color: lightblue;
+}
+#stPageMainBlur {
+    visibility: visible;
+}
+#stStart {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    place-items: center;
+    place-content: center;
+    border-radius: 0 0 20px 20px;
+    border-top: 1px solid gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+#stStart:hover {
+    background-color: lightgray;
+}
+#stStart:active {
+    background-color: lightblue;
+}
+
+/*Blur page + warning message if zoom/window too small*/
+#fullPageBlur {
+    user-select: none;
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    place-content: center;
+    place-items: center;
+    font-size: 4dvh;
+    text-align: center;
+    padding: 0 30px 0 30px;
+    backdrop-filter: blur(8px);
+    background-color: rgba(173, 216, 230, 0.5);
+}
+
+/*Computer full window dynamic sizing*/
+@media only screen and (min-width: 900px) {
+    #pageMain {
+        width: 80%;
+    }
+    #pageNavBar {
+        width: 80%;
+    }
+    #puzzleNavBar {
+        width: 80%;
+    }
+    #puzzleInfo {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    body {
+        visibility: hidden;
+        overflow: hidden;
+    }
+    #stPageMainBlur {
+        visibility: hidden;
+        overflow: hidden;
+    }
+    #stPopupBox {
+        visibility: hidden;
+        overflow: hidden;
+    }
+    #fullPageBlur {
+        visibility: visible;
+    }
+}
