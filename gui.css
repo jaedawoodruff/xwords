@@ -1,6 +1,3 @@
-:root {
-    --n: 15;
-}
 * {
     margin: 0;
     padding: 0;
@@ -96,16 +93,6 @@ body {
     flex-direction: row;
     width: 90%;
     top: 285px;
-}
-#grid {
-    user-select: none;
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(var(--n), 1fr);
-    grid-template-rows: repeat(var(--n), 1fr);
-    width: 50%;
-    border: 1px solid black;
-    aspect-ratio: 1 / 1;
 }
 .cell {
     position: relative;
