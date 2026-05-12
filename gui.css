@@ -94,6 +94,14 @@ body {
     width: 90%;
     top: 285px;
 }
+#grid {
+    user-select: none;
+    position: absolute;
+    display: grid;
+    width: 50%;
+    border: 1px solid black;
+    aspect-ratio: 1 / 1;
+}
 .cell {
     position: relative;
     width: 100%;
@@ -132,6 +140,10 @@ body {
     height: 100%;
     background-color: white;
 }
+#phoneCluesHeader {
+    visibility: hidden;
+    width: 0px;
+}
 .cluesHeader {
     position: absolute;
     align-content: center;
@@ -144,6 +156,7 @@ body {
     background-color: lightgray;
 }
 .clues {
+    visibility: visible;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -152,6 +165,16 @@ body {
     top: 40px;
     left: 0;
     overflow-y: scroll;
+}
+#downClues {
+    visibility: visible;
+    z-index: 0;
+    background-color: white;
+}
+#acrossClues {
+    visibility: visible;
+    z-index: 0;
+    background-color: white;
 }
 .clueBox {
     position: relative;
@@ -184,12 +207,6 @@ body {
     width: calc(100% - 30px);
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 14px;
-}
-#footer {
-    position: relative;
-    height: 10dvw;
-    width: 100%;
-    top: 45dvw;
 }
 
 /*Button formatting*/
@@ -248,7 +265,7 @@ a {
     position: relative;
     width: 80%;
     height: 60%;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     place-content: center;
 }
@@ -338,6 +355,7 @@ a {
     visibility: hidden;
     position: absolute;
     display: flex;
+    top: 50px;
     width: 100%;
     height: 100vh;
     place-content: center;
@@ -364,10 +382,120 @@ a {
         width: 80%;
     }
 }
-@media only screen and (max-width: 400px) {
+/*CSS for mobile case*/
+@media only screen and (max-width: 450px) {
+
+    #pageMain {
+        flex-direction: column;
+    }
+    #grid {
+        position: relative;
+        width: 100%;
+    }
+    .cell {
+        font-size: 1.75vw;
+    }
+    .userFill {
+        font-size: 3.25vw;
+    }
+    #cluesBucket {
+        position: relative; /**********************************/
+        display: flex;
+        flex-direction: column;
+        width: 100%; /**********************************/
+        aspect-ratio: 1 / 1;
+    }
+    .cluesBucketClass {
+        position: absolute; /**********************************/
+        display: flex;
+        flex-direction: column;
+        width: 100%; /**********************************/
+        height: 50%;
+        background-color: white;
+    }
+    .cluesHeader {
+        visibility: hidden;
+    }
+    #phoneCluesHeader {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: 0px;
+        width: 100%;
+        height: 40px;
+        visibility: visible;
+        background-color: lightgray;
+        z-index: 1;
+    }
+    #phoneAcrossCluesHeader {
+        position: absolute;
+        display: flex;
+        left: 0px;
+        width: 50%;
+        height: 100%;
+        padding: 10px;
+        align-content: center;
+        justify-content: left;
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+    }
+    #phoneDownCluesHeader {
+        position: absolute;
+        display: flex;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        padding: 10px;
+        align-content: center;
+        justify-content: right;
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: gray;
+    }
+    #acrossClues {
+        visibility: visible;
+        z-index: 1;
+    }
+    #downClues {
+        visibility: hidden;
+        z-index: 1;
+    }
+    .clueIndicator {
+        visibility: hidden;
+    }
+    .pageMainBlur {
+        aspect-ratio: 1 / 1.5;
+        z-index: 2;
+    }
+    .popupBox {
+        height: 20%;
+    }
+
+    /*
+    // DONE: Show checkMenu on CLICK, not HOVER
+    // DONE: Fix visibility so when change across/down clues visible then resize, there's not a big blank clue bucket
+    // DONE: When click across or down header, highlight 1across or 1down
+    // DONE: When click across clues header --> down clues header = gray, across clues header = light blue, down clues bucket = hidden, across clues bucket = visible
+    // DONE: When click down clues header --> across clues header = gray, down clues header = light blue, across clues bucket = hidden, down clues bucket = visible
+    // Pull up keyboard on mobile
+    
+    // Clean up mobile css
+    // Update all dependent files! html, css, js, etc
+    // Clean up all dependent files
+    */
+    
+}
+/*CSS for screen too small case*/
+@media only screen and (max-width: 305px) {
     body {
         visibility: hidden;
         overflow: hidden;
+    }
+    #phoneCluesHeader {
+        visibility: hidden;
     }
     #stPageMainBlur {
         visibility: hidden;

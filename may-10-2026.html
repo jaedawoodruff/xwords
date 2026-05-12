@@ -15,14 +15,8 @@
 				--n: 15;
 			}
 			#grid {
-				user-select: none;
-				position: absolute;
-				display: grid;
 				grid-template-columns: repeat(var(--n), 1fr);
 				grid-template-rows: repeat(var(--n), 1fr);
-				width: 50%;
-				border: 1px solid black;
-				aspect-ratio: 1 / 1;
 			}
 		</style>
         <!--Header and Nav Bars-->
@@ -51,7 +45,7 @@
             <div id="timer" class="button">00:00</div>
         </div>
         <!--Grid and Clues-->
-        <div id="pageMain">
+        <div id="pageMain"  tabindex="0" onclick="this.focus()">
             <div id="grid">
 				<div id="1" class="cell 1across 1down">1
 					<div id="fill_1" class="userFill"></div>
@@ -730,6 +724,10 @@
 				</div>
 			</div>
             <div id="cluesBucket">
+				<div id="phoneCluesHeader">
+					<div id="phoneAcrossCluesHeader">Across</div>
+					<div id="phoneDownCluesHeader">Down</div>
+				</div>
                 <div id="acrossCluesBucket" class="cluesBucketClass">
                     <div id="acrossCluesHeader" class="cluesHeader">Across</div>
                     <div id="acrossClues" class="clues">
@@ -1132,7 +1130,6 @@
                     <div id="stStart">Begin</div>
                 </div>
             </div>
-            <div id="footer"></div>
         </div>
         <!--Scripts-->
         <script src="xword_gui_functions.js"></script>
@@ -1397,7 +1394,7 @@
                     // Show new popup
                     showDiv("ccPageMainBlur");
                     showDiv("ccButtonsBox");
-                    newCCPopupQuestion.textContent = "Are you sure you want to clear the puzzle?";
+                    newCCPopupQuestion.textContent = "Are you sure?";
                     // Hide old popups
                     hideDiv("tmPageMainBlur");
                     hideDiv("tmContinue");
@@ -1415,20 +1412,54 @@
                 hideDiv("ccButtonsBox");
             });
 
-            // Check button
+            // Check button (desktop)
             newCheckButton.addEventListener("mouseenter", function () {
-                showDiv("checkMenu");
+				if (window.matchMedia("(min-width: 450px)").matches) {
+                	showDiv("checkMenu");
+				}
             });
             newCheckButton.addEventListener("mouseleave", function () {
-                hideDiv("checkMenu");
+                if (window.matchMedia("(min-width: 450px)").matches) {
+                	hideDiv("checkMenu");
+				}
             });
-            // Check menu
+            // Check menu (desktop)
             newCheckMenu.addEventListener("mouseenter", function () {
-                showDiv("checkMenu");
+                if (window.matchMedia("(min-width: 450px)").matches) {
+					showDiv("checkMenu");
+				}
             });
             newCheckMenu.addEventListener("mouseleave", function () {
-                hideDiv("checkMenu");
+                if (window.matchMedia("(min-width: 450px)").matches) {
+					hideDiv("checkMenu");
+				}
             });
+
+            // Check button and check menu (mobile)
+			var checkMenuOn = false;
+			// Show/hide check menu on main button click
+			newCheckButton.addEventListener("click", function () {
+				if (!window.matchMedia("(min-width: 450px)").matches) {
+					if (!checkMenuOn) {
+						checkMenuOn = true;
+						showDiv("checkMenu");
+					}
+					else {
+						checkMenuOn = false;
+						hideDiv("checkMenu");
+					}
+				}
+			});
+			// Hide check menu on menu button click
+			newCheckMenu.addEventListener("click", function () {
+				if (!window.matchMedia("(min-width: 450px)").matches) {
+					if (checkMenuOn) {
+						hideDiv("checkMenu");
+						checkMenuOn = false;
+					}
+				}
+			});
+
             
             // Check letter
             newCheckLetterButton.addEventListener("click", function () {
@@ -1467,6 +1498,41 @@
                     newAutoCheckButton.style.backgroundColor = "transparent";
                 }
             });
+
+			// Show across clues (mobile)
+			phoneAcrossCluesHeader.addEventListener("click", function() {
+				if (!window.matchMedia("(min-width: 450px)").matches) {
+					document.getElementById("phoneAcrossCluesHeader").style.color = "black";
+					document.getElementById("phoneDownCluesHeader").style.color = "gray";
+					document.getElementById("acrossClues").style.visibility = "visible";
+					document.getElementById("downClues").style.visibility = "hidden";
+
+					activeDirection = "across";
+					handleCellClick("1");
+				}
+			});
+			// Show down clues (mobile)
+			phoneDownCluesHeader.addEventListener("click", function() {
+				if (!window.matchMedia("(min-width: 450px)").matches) {
+					document.getElementById("phoneDownCluesHeader").style.color = "black";
+					document.getElementById("phoneAcrossCluesHeader").style.color = "gray";
+					document.getElementById("downClues").style.visibility = "visible";
+					document.getElementById("acrossClues").style.visibility = "hidden";
+
+					activeDirection = "down";
+					handleCellClick("1");
+				}
+			});
+			window.addEventListener("resize", function() {
+				document.getElementById("acrossClues").style.visibility = "visible";
+				document.getElementById("downClues").style.visibility = "visible";
+			});
+
+			// Pull up keyboard (mobile)
+			document.getElementById("pageMain").addEventListener("click", function() {
+				const input = document.getElementById("userInput");
+				input.focus();
+			});
 
         </script>
         <div id="fullPageBlur">Please adjust window size or zoom level to play.</div>
