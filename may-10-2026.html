@@ -48,7 +48,7 @@
         <div id="pageMain">
             <div id="grid">
 				<div id="1" class="cell 1across 1down">1
-					<div id="fill_1" class="userFill"></div>
+					<div id="fill_1" class="userFill" tabindex="1" onclick="this.focus()"></div>
 				</div>
 				<div id="2" class="cell 1across 2down">2
 					<div id="fill_2" class="userFill"></div>
@@ -1526,12 +1526,6 @@
 			window.addEventListener("resize", function() {
 				document.getElementById("acrossClues").style.visibility = "visible";
 				document.getElementById("downClues").style.visibility = "visible";
-			});
-
-			// Pull up keyboard (mobile)
-			document.getElementsByClassName("cell").addEventListener("click", function() {
-				const input = document.getElementsByClassName("userFill");
-				input.focus();
 			});
 
         </script>
