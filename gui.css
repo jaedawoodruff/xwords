@@ -490,7 +490,7 @@ a {
     .userFill {
         font-size: 2.25em;
     }
-    input {
+    input, textarea, select {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
