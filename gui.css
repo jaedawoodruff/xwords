@@ -490,6 +490,12 @@ a {
     .userFill {
         font-size: 2.25em;
     }
+    input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+    }
 }
 /*CSS for screen too small case*/
 @media only screen and (max-width: 305px) {
