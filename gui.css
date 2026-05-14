@@ -208,6 +208,24 @@ body {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 14px;
 }
+.userFill {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+}
+input {
+    background-color: rgba(173, 216, 230, 0);
+    outline: none;
+    border: 0px solid black;
+    place-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    place-content: center;
+    caret-color: transparent;
+}
 
 /*Button formatting*/
 a {
@@ -365,6 +383,7 @@ a {
     padding: 0 30px 0 30px;
     backdrop-filter: blur(8px);
     background-color: rgba(173, 216, 230, 0.5);
+    z-index: 10;
 }
 
 /*Computer full window dynamic sizing*/
@@ -399,19 +418,14 @@ a {
         font-size: 3.25vw;
     }
     #cluesBucket {
-        position: relative; /**********************************/
-        display: flex;
+        position: relative;
         flex-direction: column;
-        width: 100%; /**********************************/
-        aspect-ratio: 1 / 1;
+        width: 100%;
     }
     .cluesBucketClass {
-        position: absolute; /**********************************/
-        display: flex;
-        flex-direction: column;
-        width: 100%; /**********************************/
+        position: absolute;
+        width: 100%;
         height: 50%;
-        background-color: white;
     }
     .cluesHeader {
         visibility: hidden;
@@ -473,20 +487,9 @@ a {
     .popupBox {
         height: 20%;
     }
-
-    /*
-    // DONE: Show checkMenu on CLICK, not HOVER
-    // DONE: Fix visibility so when change across/down clues visible then resize, there's not a big blank clue bucket
-    // DONE: When click across or down header, highlight 1across or 1down
-    // DONE: When click across clues header --> down clues header = gray, across clues header = light blue, down clues bucket = hidden, across clues bucket = visible
-    // DONE: When click down clues header --> across clues header = gray, down clues header = light blue, across clues bucket = hidden, down clues bucket = visible
-    // Pull up keyboard on mobile
-    
-    // Clean up mobile css
-    // Update all dependent files! html, css, js, etc
-    // Clean up all dependent files
-    */
-    
+    .userFill {
+        font-size: 2.25em;
+    }
 }
 /*CSS for screen too small case*/
 @media only screen and (max-width: 305px) {
@@ -495,6 +498,12 @@ a {
         overflow: hidden;
     }
     #phoneCluesHeader {
+        visibility: hidden;
+    }
+    #acrossClues {
+        visibility: hidden;
+    }
+    #downClues {
         visibility: hidden;
     }
     #stPageMainBlur {

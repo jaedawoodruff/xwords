@@ -97,7 +97,7 @@ function getActiveWordLength(activeCellID) {
 function clearGrid() {
     const allWhiteCells = document.querySelectorAll(".userFill");
     allWhiteCells.forEach(element => {
-        element.textContent = ""
+        element.value = ""
     });
 }
 
@@ -363,36 +363,12 @@ function nextWord(activeCellID, downWordNums, downWordIDs) {
 
 /////////////////////////////////
 
-// Fill cell with letter
-function fillCell(activeCellID, eventKey, downWordNums, downWordIDs) {
-    
-    // Fill letter (in pen or pencil)
-    document.getElementById("fill_" + activeCellID).textContent = eventKey.toUpperCase();
-    document.getElementById("fill_" + activeCellID).style.color = fillColor;
-
-    // Move to next cell
-    if (activeDirection === "across") {
-        activeCellID = moveRight(activeCellID);
-    }
-    else {
-        activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-    }
-
-    // Handle new cell
-    handleCellClick(activeCellID);
-
-    return activeCellID;
-
-}
-
-/////////////////////////////////
-
 // Check current cell
 function checkCell(activeCellID, answers) {
 
     // Check if it's correct
     correctLetter = answers[parseInt(activeCellID) - 1];
-    userLetter = document.getElementById("fill_" + activeCellID).textContent;
+    userLetter = document.getElementById("fill_" + activeCellID).value.toUpperCase();
     correct = correctLetter === userLetter;
 
     // Mark incorrect cells
@@ -484,36 +460,27 @@ function incrementTimer() {
 
 /////////////////////////////////
 
-// If word is full, gray out clue and skip
-function grayClues(activeCellID, activeDirection) {
+// Show across clues
+function showAcrossCluesMobile() {
+    if (!window.matchMedia("(min-width: 450px)").matches) {
+        document.getElementById("phoneAcrossCluesHeader").style.color = "black";
+        document.getElementById("phoneDownCluesHeader").style.color = "gray";
+        document.getElementById("acrossClues").style.visibility = "visible";
+        document.getElementById("downClues").style.visibility = "hidden";
 
-    // Decide to gray out or not
-    fillCount = 0;
-    if (activeDirection === "across") {
-        firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[1])[0].id;
-        activeWordLength = getActiveWordLength(activeCellID);
-        for (i = 0; i < activeWordLength; i++) {
-            tempID = parseInt(firstLetter) + i;
-            fillCount = fillCount + document.getElementById("fill_" + tempID).textContent.length;
-        }
-        activeClueBox = document.getElementById(firstLetter).classList[1];
+        activeDirection = "across";
+        handleCellClick(activeCellID);
     }
-    else {
-        firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[2])[0].id;
-        activeWordLength = getActiveWordLength(activeCellID);
-        for (i = 0; i < activeWordLength; i++) {
-            tempID = parseInt(firstLetter) + (i*n);
-            fillCount = fillCount + document.getElementById("fill_" + tempID).textContent.length;
-        }
-        activeClueBox = document.getElementById(firstLetter).classList[2];
-    }
+}
+// Show down clues
+function showDownCluesMobile() {
+    if (!window.matchMedia("(min-width: 450px)").matches) {
+        document.getElementById("phoneDownCluesHeader").style.color = "black";
+        document.getElementById("phoneAcrossCluesHeader").style.color = "gray";
+        document.getElementById("downClues").style.visibility = "visible";
+        document.getElementById("acrossClues").style.visibility = "hidden";
 
-    // Update clue color
-    if (fillCount === activeWordLength) {
-        document.getElementById(activeClueBox + "Clue").style.color = "gray";
+        activeDirection = "down";
+        handleCellClick(activeCellID);
     }
-    else {
-        document.getElementById(activeClueBox + "Clue").style.color = "black";
-    }
-
 }
