@@ -336,6 +336,15 @@ input {
 
 /*CSS for mobile case*/
 @media only screen and (max-width: 450px) {
+    #pageNavBar, #puzzleInfo, #puzzleNavBar, #pageMain {
+        width: 100%;
+    }
+    #puzzleInfo {
+        padding: 20px;
+    }
+    #puzzleNavBar, #pageNavbar {
+        height: 50px;
+    }
     #cluesBucket {
         display: none;
     }
@@ -347,7 +356,9 @@ input {
         font-size: 1.75vw;
     }
     .userFill {
-        font-size: 3.25vw;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 20%;
     }
     .pageMainBlur {
         aspect-ratio: 1 / 1;
@@ -371,7 +382,7 @@ input {
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 10px;
+        padding: 2px;
         font-family: Arial, Helvetica, sans-serif;
         background-color: whitesmoke;
     }
@@ -382,7 +393,7 @@ input {
         position: relative;
         display: flex;
         flex-direction: row;
-        height: 30px;
+        height: 40px;
         place-content: center;
         gap: 2px;
         padding-bottom: 2px;
@@ -413,12 +424,16 @@ input {
         display: flex;
         flex-direction: row;
         width: 100%;
-        min-height: 40px;
+        min-height: 50px;
     }
     #prevWord, #nextWord {
+        display: flex;
         position: relative;
         height: inherit;
         min-height: 40px;
+        width: 50px;
+        place-content: center;
+        align-items: center;
         background-color: lightgray;
     }
     #activeClue {
@@ -452,6 +467,13 @@ input {
     }
     #nextWord:active, #prevWord:active, #activeClue:active {
         background-color: lightblue;
+    }
+    input {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 }
 
