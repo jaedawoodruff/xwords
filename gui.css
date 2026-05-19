@@ -403,7 +403,7 @@ input {
         display: flex;
         place-content: center;
         place-items: center;
-        width: 30px;
+        width: 40px;
         background-color: white;
         border-radius: 2px;
     }
