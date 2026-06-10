@@ -1271,12 +1271,6 @@
 					// Switch direction + show correct clues on double click
 					if (activeCellID === allCell.id) {
 						switchActiveDirection();
-						if (activeDirection === "across") {
-							showAcrossCluesMobile();
-						}
-						else {
-							showDownCluesMobile();
-						}
 					}
 
 					// Highlight word
@@ -1289,7 +1283,7 @@
 
 			/////////////////////////////////////
 
-			// PART 2: HANDLE CLUEBOX CLICKS (DESKTOP)
+			// PART 2: HANDLE CLUEBOX CLICKS
 
 			// Add event listener for across + down clue boxes
 			const allClueBoxes = document.querySelectorAll(".clueBox");
@@ -1406,70 +1400,6 @@
 				}
 
 			});
-			
-			// Listen for keystrokes (mobile)
-			const allKeyboardKeys = document.querySelectorAll(".keyboardKey");
-			allKeyboardKeys.forEach((allKeyboardKey) => {
-				allKeyboardKey.addEventListener("click", function() {
-					// If special
-					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
-						// If delete
-						if (allKeyboardKey.id === "delete") {
-							// Fill cell with blank
-							document.getElementById("fill_" + activeCellID).value = "";
-							// Move back
-							if (activeDirection === "across") {
-								activeCellID = moveLeft(activeCellID);
-							}
-							else {
-								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
-							}
-							// Handle cell click
-							handleCellClick(activeCellID);
-						}
-						if (allKeyboardKey.id === "deleteAlt") {
-							// Fill cell with blank
-							document.getElementById("fill_" + activeCellID).value = "";
-							// Move back
-							if (activeDirection === "across") {
-								activeCellID = moveLeft(activeCellID);
-							}
-							else {
-								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
-							}
-							// Handle cell click
-							handleCellClick(activeCellID);
-						}
-						// If moreOptions
-						if (allKeyboardKey.id === "moreOptions") {
-							document.getElementById("keyboardMain").style.display = "none";
-							document.getElementById("keyboardAlt").style.display = "flex";
-						}
-						if (allKeyboardKey.id === "moreOptionsAlt") {
-							document.getElementById("keyboardMain").style.display = "flex";
-							document.getElementById("keyboardAlt").style.display = "none";
-						}
-					}
-					// If letter
-					else {
-						document.getElementById("fill_" + activeCellID).style.color = fillColor;
-						document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
-						document.getElementById("fill_" + activeCellID).focus();
-						if (activeDirection === "across") {
-							activeCellID = moveRight(activeCellID);
-							handleCellClick(activeCellID);
-						}
-						else {
-							activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-							handleCellClick(activeCellID);
-						}
-						// Autocheck if on!
-						if (autocheckOn === true) {
-							checkGrid(answers);
-						}
-					}
-				});
-			});
 
 			// Prevent pasting input (is this needed??)
 			const allUserFills = document.querySelectorAll(".userFill");
@@ -1570,30 +1500,7 @@
 				}
             });
 
-			// Check button (mobile)
-			newCheckButton.addEventListener("click", function () {
-				if (!window.matchMedia("(min-width: 450px)").matches) {
-					if (!checkMenuOn) {
-						checkMenuOn = true;
-						showDiv("checkMenu");
-					}
-					else {
-						checkMenuOn = false;
-						hideDiv("checkMenu");
-					}
-				}
-			});
-			// Check menu (mobile)
-			newCheckMenu.addEventListener("click", function () {
-				if (!window.matchMedia("(min-width: 450px)").matches) {
-					if (checkMenuOn) {
-						hideDiv("checkMenu");
-						checkMenuOn = false;
-					}
-				}
-			});
-
-            // Check letter
+			// Check letter
             newCheckLetterButton.addEventListener("click", function () {
                 checkCell(activeCellID, answers);
             });
@@ -1631,30 +1538,6 @@
                 }
             });
 
-			// Change direction (mobile)
-			newActiveClue.addEventListener("click", function() {
-				
-				// Switch direction + show correct clues on double click
-				switchActiveDirection();
-
-				// Highlight word
-				handleCellClick(activeCellID);
-				document.getElementById("fill_" + activeCellID).focus();
-
-			});
-			// Next word event listener (mobile)
-			newNextWord.addEventListener("click", function() {
-				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
-				handleCellClick(activeCellID);
-			});
-			// Previous word event listener (mobile)
-			newPrevWord.addEventListener("click", function() {
-				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
-				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
-				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
-				handleCellClick(activeCellID);
-			});
-			
         </script>
     </body>
 </html>
