@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     width: 100%;
     place-items: center;
-    background-color: blue;
+    background-color: white;
 }
 #pageHeader {
     position: relative;
