@@ -24,7 +24,7 @@ body {
     place-content: center;
     width: 100%;
     padding: 8px 0 8px 0;
-    background-color: blue;
+    background-color: white;
 }
 #pageTitle {
     position: relative;
