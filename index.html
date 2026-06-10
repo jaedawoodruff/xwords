@@ -89,60 +89,48 @@
 </html>
 <!--
 
-// MISSION 11: DUST BUNNIES
+// MISSION 12: DUST BUNNIES I
 
-// Ok also need to change the actual crossword bc this isalready published on the princetonian website
-// Ok now if more than x amount of puzzles, only load if you actually get down to the bottom!
-// Ok now add an option to specify (FULL PUZZLE) or else whatever the puzzle size is using the python/js. And standardize different format for minis vs full puzzles? (eg minis dont need names)
-// Way to mark if a puzzle has been completed
-// Lol make about page more obvious of a placeholder. eg add some text like ipsum dolor sit amet...
-// Oh standardize page heights between today and all puzzles and about tabs
+// Save mobile 15x15 version of all scripts to github branch
+// Purge mobile references from LIVE version of the code
 
-// Ok fix css to accomodate phone size (e.g. shrink text size, make buttons change color on click, auto pull up a keyboard if on phone etc, redo full css layout specifically for mobile? eg clues below grid instead of next to it? or save for post pitch?)
-// Now also test on an ipad!
-// Now test in different browsers (edge, chrome, firefox, safari, duckduckgo, etc)
-// Now send to jeffery hey can you access this + type and when you click buttons do they change color etc? also is there any text that's overflowing/looks ugly and if so what type of phone do you have
-// Also @jeffery could you give general feedback eg if text looks too small, if anythings taking an annoyingly long time to load, if any of the buttons are unclear/unintuitive
-// @jeffery also any graphic design advice lol...i did Not add colors
-// Now send to carrie mira ally mom dad hey does any of hte text look weird or buttons not work or anything else preventing you from entering answers or like text too small etc
+// When load page, have first word highlighted already
+// If check cell/word/grid and is correct, turn that word blue forever and disable changes
+// Fix popups design/sizing
+// Add "reveal puzzle" button + confirmation "are you sure?" popup (html, css, js)
 
-// Now save progress + time on reload
-// Now save progress + time on close and reopen
-// Also check this works if you accidentally hit ctrl R
-// Now autosave user's list of completed puzzles
+// MISSION 13: SAVE USER DATA
 
-// How to make my code immune to some rando beautifulsouping it?
-// Block web scraping?
-// ALSO need to add a way to delete specific puzzle from the website? eg if publish same puzzle twice? or just delete the html file form the repository and manually edit index/about? idk
-// Also set up a warning in the xword_publisher if the title, date, or link is already in the html!
+// Save current time on reload
+// Save userfill string on reload
+// Check current time and userfill still save ok using ctrl R
+// Save current time on close and reopen
+// Save userfill string on close and reopen
 
-// Make sure all the updates above have been incorporated into the python publisher tool! i.e. that html string we're building
+// MISSION 14: MINIS
 
-// Add celebration animation (confetti??) and/or popup (IF all cells filled AND all cells match answers array)
+// Sketch layout for minis (maxi vs mini tab? maxi vs mini html structure? no names for minis? rename all puzzles tab to be minis tab? reformat index tab to be rows of 5?)
+// Save desktop only user data 15x15 version of all scripts to github branch
+// Reword LIVE scripts to focus only on minis (html x3, css x2, js, ipynb) (css dynamic to grid size? as opposed to hardcoded? or no?)
+// Test xword_publisher.ipynb with real minis x5! x10! x15!
+// Now re-upload all my xword_gui files so all the changes transfer to github!
 
-// Research...is my timer method legit lmao?? will user computer settings fuck this up??
-// Now stress test performance! How much memory is this taking? Can I have other tabs/apps open?
-// And stress test what if you do keyboard shortcuts is your progress saved?
+// MISSION 15: DUST BUNNIES II
 
-// MISSION 12: MINIS
+// Fill in the about page so it's not blank >> update ipynb too, css as needed
+// Add completion "yay you did it" popup with your final time (only check IF userfill string is full AND matches answers string exactly) >> update ipynb too, css as needed
 
-// Sketch layout for minis
-// Now test with a real mini!
-// Write separate CSS for minis OR adapt existing CSS to adjust for grid size?
-// Ok now instead of assuming we're always gonna have a 15x15 grid, make it flexible so if the cfp file says a different nxn then we update generate_grid.js, gui.css, etc etc as needed. so it can publish any grid of any size just based on the cfp file.check each code file to make sure we gottem all
+// Look up basic performance tests for js/html/css
+// Run performance tests
+// List areas of max potention for performance improvements
+// Fix performance AOMP
 
-////////////////////////////////////////////////////////
+// Test css and functionality in all different browsers (edge, chrome, firefox, safari, duckduckgo)
+// Note anything weird on any of these browsers?
+// Fix + repeat tests as needed
+// Add warning message? Recommended browsers = xyz. This is not a recommended browser and bugs may be present?
 
-// POST PITCH
-
-// Automate publishing process from running python -> seeing it updated on the github page or real website
-// Add scheduled publish option?
-// Autocheck cfp file format matches the reference?
-// More robust checks for special characters? Autofix? Option to manually fix anything new? Actually I think it's ok now but keep checking!
-
-// Draft out a github publishing workflow (run xword_publisher.py but through the terminal?) (about.html, index.html will be updated. month-DD-YYYY.html will be new but the old ones will remain as is. css and js files will stay the same.)
-// Github publish (STARTER) - upload first puzzle + supporting pages (i.e. the tabs open in vscode)
-// Github publish (UPDATE 1) - push a new puzzle to the site
-// Now publish 3 or 4 more puzzles using same workflow and actually different cfps
+// Now send to carrie mira ally jeff mom dad >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small?
+// Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
 
 -->
