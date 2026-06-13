@@ -1,0 +1,4 @@
+device: pc //
+css: 15x15 supported, nxn functional but not pretty //
+features: local storage (userfill, time, userfill color), reveal buttons //
+usability: usable
