@@ -1238,7 +1238,7 @@
 				// USERFILL
 
 				// Pull saved userfill string + colors from storage, if available (else use defaults)
-				if (userfill !== null || userfillColors !== null) {
+				if (userfill !== null && userfillColors !== null) {
 					userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
 					userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
 				}
