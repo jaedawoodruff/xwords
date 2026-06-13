@@ -1212,75 +1212,48 @@
 
             /////////////////////////////////////
 
-			// PART 1: POPULATE PROGRESS
+			// PART 1: POPULATE PROGRESS (TIMER, USERFILL, USERFILL COLOR)
 
-			// TEST: reset local storage (for debugging)
-			// Increment timer and save userfill string
-			var clearStorage = false;
-			if (clearStorage === false) {
-
-				// TIMER
-
-				// Pull saved time from storage
-				timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
-				// If saved time exists in local storage, update start time bits and update timer value
-				if (timeToSave !== null) {
-					// Break saved time into useful bits
-					timeToSaveSplit = timeToSave.split("_");
-					totalSeconds = parseInt(timeToSaveSplit[1]);
-					totalMinutes = parseInt(timeToSaveSplit[2]);
-					totalHours = parseInt(timeToSaveSplit[3]);
-					totalDays = parseInt(timeToSaveSplit[4]);
-					// Update timer value
-					document.getElementById("timer").textContent = timeToSaveSplit[0];
-				}
-
-				// USERFILL
-
-				// Pull saved userfill string + colors from storage, if available (else use defaults)
-				var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
-				var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
-				if (userfillStored !== null && userfillColorsStored !== null) {
-
-					// Pull stored info
-					userfill = userfillStored;
-					userfillColors = userfillColorsStored;
-
-					// Fill cells + color using userfill
-					var userfill_i = null;
-					var userfillColors_i = null;
-					for (let i = 1; i < (n*n)+1; i++) {
-						userfill_i = userfill[i-1];
-						userfillColors_i = userfillColors[i-1];
-						if (userfill_i === ".") {
-							document.getElementById("fill_" + i).value = "";
-						}
-						else {
-							document.getElementById("fill_" + i).value = userfill_i;
-						}
-						document.getElementById("fill_" + i).style.color = userfillColors_i;
-					}
-				}
-
-			}
-			else {
+			// Pull saved time from storage
+			timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
+			// If saved time exists in local storage, update start time bits and update timer value
+			if (timeToSave !== null) {
 				
-				// TIMER
+				// Break saved time into useful bits
+				timeToSaveSplit = timeToSave.split("_");
+				totalSeconds = parseInt(timeToSaveSplit[1]);
+				totalMinutes = parseInt(timeToSaveSplit[2]);
+				totalHours = parseInt(timeToSaveSplit[3]);
+				totalDays = parseInt(timeToSaveSplit[4]);
+				
+				// Update timer value
+				document.getElementById("timer").textContent = timeToSaveSplit[0];
+				
+			}
 
-				// Reset timer
-				localStorage.setItem(puzzleTimeID, JSON.stringify("00:00_-1_0_0_0"));
-				// Populate sec/min/hr/day
-				totalSeconds = -1;
-				totalMinutes = 0;
-				totalHours = 0;
-				totalDays = 0;
+			// Pull saved userfill string + colors from storage, if available (else use defaults)
+			var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
+			var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+			if (userfillStored !== null && userfillColorsStored !== null) {
 
-				// USERFILL
+				// Pull stored info
+				userfill = userfillStored;
+				userfillColors = userfillColorsStored;
 
-				// Reset userfill + colors
-				localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
-				localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
-
+				// Fill cells + color using userfill
+				var userfill_i = null;
+				var userfillColors_i = null;
+				for (let i = 1; i < (n*n)+1; i++) {
+					userfill_i = userfill[i-1];
+					userfillColors_i = userfillColors[i-1];
+					if (userfill_i === ".") {
+						document.getElementById("fill_" + i).value = "";
+					}
+					else {
+						document.getElementById("fill_" + i).value = userfill_i;
+					}
+					document.getElementById("fill_" + i).style.color = userfillColors_i;
+				}
 			}
 
 			// Start timer
