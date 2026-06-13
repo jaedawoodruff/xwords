@@ -1238,11 +1238,13 @@
 				// USERFILL
 
 				// Pull saved userfill string + colors from storage, if available (else use defaults)
-				if (userfill !== null && userfillColors !== null) {
+				var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
+				var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+				if (userfillStored !== null && userfillColorsStored !== null) {
 
 					// Pull stored info
-					userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
-					userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+					userfill = userfillStored;
+					userfillColors = userfillColorsStored;
 
 					// Fill cells + color using userfill
 					var userfill_i = null;
