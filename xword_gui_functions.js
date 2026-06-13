@@ -456,22 +456,24 @@ function checkGrid(answers) {
 // Reveal current cell
 function revealCell(activeCellID, answers, userfill, puzzleUserfillID) {
 
-    i = parseInt(activeCellID) - 1;
+    j = parseInt(activeCellID) - 1;
 
     // Get correct answer
-    correctLetter = answers[i];
+    correctLetter = answers[j];
 
     // Fill cell with correct answer
     document.getElementById("fill_" + activeCellID).value = correctLetter;
     document.getElementById("fill_" + activeCellID).style.color = "darkblue";
 
     // Update userfill
-    userfill = userfill.substring(0,i) + correctLetter + userfill.substring(parseInt(activeCellID));
+    userfill = userfill.substring(0,j) + correctLetter + userfill.substring(parseInt(activeCellID));
     localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
     
     // Update userfill colors
-    userfillColors[i] = "darkblue";
+    userfillColors[j] = "darkblue";
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+    return [userfill, userfillColors];
 }
 
 // Reveal current word
@@ -481,22 +483,22 @@ function revealWord(activeCellID, answers, userfill, puzzleUserfillID) {
         firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[1])[0].id;
         for (let i = 0; i < activeWordLength; i++) {
             endCellID = (parseInt(firstLetter) + i).toString();
-            revealCell(endCellID, answers, userfill, puzzleUserfillID);
+            [userfill, userfillColors] = revealCell(endCellID, answers, userfill, puzzleUserfillID);
         }
     }
     else {
         firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[2])[0].id;
         for (let i = 0; i < activeWordLength; i++) {
             endCellID = (parseInt(firstLetter) + (i*n)).toString();
-            revealCell(endCellID, answers, userfill, puzzleUserfillID);
+            [userfill, userfillColors] = revealCell(endCellID, answers, userfill, puzzleUserfillID);
         }
     }
 }
 
 // Reveal grid
-function revealGrid(answers, userfill, puzzleUserfillID) {
+function revealGrid(answers, puzzleUserfillID) {
     for (let i = 1; i < (n*n) + 1; i++) {
-        revealCell(i.toString(), answers, userfill, puzzleUserfillID);
+        [userfill, userfillColors] = revealCell(i.toString(), answers, userfill, puzzleUserfillID);
     }
 }
 

@@ -1216,7 +1216,7 @@
 
 			// TEST: reset local storage (for debugging)
 			// Increment timer and save userfill string
-			var clearStorage = true;
+			var clearStorage = false;
 			if (clearStorage === false) {
 
 				// TIMER
@@ -1412,7 +1412,7 @@
 				// Fill cell with letter and move on
 				else if (event.key.length === 1) {
 
-					i = parseInt(activeCellID) - 1;
+					var k = parseInt(activeCellID) - 1;
 
 					// Fill cell
 					document.getElementById("fill_" + activeCellID).style.color = fillColor;
@@ -1421,12 +1421,12 @@
 
 					// Update userfill + colors
 					if (event.key === " ") {
-						userfill = userfill.substring(0,i) + "." + userfill.substring(parseInt(activeCellID));
-						userfillColors[i] = "black";
+						userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
+						userfillColors[k] = "black";
 					}
 					else {
-						userfill = userfill.substring(0,i) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
-						userfillColors[i] = fillColor;
+						userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
+						userfillColors[k] = fillColor;
 					}
 					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
@@ -1646,13 +1646,13 @@
 			// Reveal letter/word/grid
             newRVReveal.addEventListener("click", function () {
 				if (activeRevealSelection === "Letter") {
-                	revealCell(activeCellID, answers, userfill, puzzleUserfillID);
+                	[userfill, userfillColors] = revealCell(activeCellID, answers, userfill, puzzleUserfillID);
 				}
 				else if (activeRevealSelection === "Word") {
                 	revealWord(activeCellID, answers, userfill, puzzleUserfillID);
 				}
 				else if (activeRevealSelection === "Grid") {
-                	revealGrid(answers, userfill, puzzleUserfillID);
+                	revealGrid(answers, puzzleUserfillID);
 				}
                 hideDiv("rvPageMainBlur");
                 hideDiv("rvButtonsBox");
