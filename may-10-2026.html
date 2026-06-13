@@ -1236,10 +1236,12 @@
 				}
 
 				// USERFILL
-				
-				// Pull saved userfill string + colors from storage
-				userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
-				userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+
+				// Pull saved userfill string + colors from storage, if available (else use defaults)
+				if (timeToSave !== null) {
+					userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
+					userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+				}
 
 				// Fill cells + color using userfill
 				var userfill_i = null;
