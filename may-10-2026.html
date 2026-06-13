@@ -1239,23 +1239,25 @@
 
 				// Pull saved userfill string + colors from storage, if available (else use defaults)
 				if (userfill !== null && userfillColors !== null) {
+
+					// Pull stored info
 					userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
 					userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
-				}
 
-				// Fill cells + color using userfill
-				var userfill_i = null;
-				var userfillColors_i = null;
-				for (let i = 1; i < (n*n)+1; i++) {
-					userfill_i = userfill[i-1];
-					userfillColors_i = userfillColors[i-1];
-					if (userfill_i === ".") {
-						document.getElementById("fill_" + i).value = "";
+					// Fill cells + color using userfill
+					var userfill_i = null;
+					var userfillColors_i = null;
+					for (let i = 1; i < (n*n)+1; i++) {
+						userfill_i = userfill[i-1];
+						userfillColors_i = userfillColors[i-1];
+						if (userfill_i === ".") {
+							document.getElementById("fill_" + i).value = "";
+						}
+						else {
+							document.getElementById("fill_" + i).value = userfill_i;
+						}
+						document.getElementById("fill_" + i).style.color = userfillColors_i;
 					}
-					else {
-						document.getElementById("fill_" + i).value = userfill_i;
-					}
-					document.getElementById("fill_" + i).style.color = userfillColors_i;
 				}
 
 			}
