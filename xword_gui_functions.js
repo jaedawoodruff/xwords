@@ -94,11 +94,22 @@ function getActiveWordLength(activeCellID) {
 }
 
 // Clear grid
-function clearGrid() {
+function clearGrid(n) {
+
+    // Clear grid
     const allWhiteCells = document.querySelectorAll(".userFill");
     allWhiteCells.forEach(element => {
         element.value = ""
     });
+
+    // Update userfill
+    userfill = ".".repeat(n*n);
+    localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+
+    // Update userfill colors
+    userfillColors = Array(n*n).fill("black");
+    localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
 }
 
 // Toggle pencil
@@ -389,17 +400,28 @@ function previousWord(activeCellID, downWordNums, downWordIDs) {
 /////////////////////////////////
 
 // Check current cell
+var i = null;
 function checkCell(activeCellID, answers) {
 
+    i = parseInt(activeCellID) - 1;
+
     // Check if it's correct
-    correctLetter = answers[parseInt(activeCellID) - 1];
+    correctLetter = answers[i];
     userLetter = document.getElementById("fill_" + activeCellID).value.toUpperCase();
     correct = correctLetter === userLetter;
 
     // Mark incorrect cells
     if (!correct) {
         document.getElementById("fill_" + activeCellID).style.color = "red";
+        userfillColors[i] = "red";
     }
+    // Mark correct cells
+    else {
+        document.getElementById("fill_" + activeCellID).style.color = "darkblue";
+        userfillColors[i] = "darkblue";
+    }
+
+    localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 
 }
 
@@ -431,9 +453,58 @@ function checkGrid(answers) {
 
 /////////////////////////////////
 
+// Reveal current cell
+function revealCell(activeCellID, answers, userfill, puzzleUserfillID) {
+
+    i = parseInt(activeCellID) - 1;
+
+    // Get correct answer
+    correctLetter = answers[i];
+
+    // Fill cell with correct answer
+    document.getElementById("fill_" + activeCellID).value = correctLetter;
+    document.getElementById("fill_" + activeCellID).style.color = "darkblue";
+
+    // Update userfill
+    userfill = userfill.substring(0,i) + correctLetter + userfill.substring(parseInt(activeCellID));
+    localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+    
+    // Update userfill colors
+    userfillColors[i] = "darkblue";
+    localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+}
+
+// Reveal current word
+function revealWord(activeCellID, answers, userfill, puzzleUserfillID) {
+    activeWordLength = getActiveWordLength(activeCellID);
+    if (activeDirection === "across") {
+        firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[1])[0].id;
+        for (let i = 0; i < activeWordLength; i++) {
+            endCellID = (parseInt(firstLetter) + i).toString();
+            revealCell(endCellID, answers, userfill, puzzleUserfillID);
+        }
+    }
+    else {
+        firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[2])[0].id;
+        for (let i = 0; i < activeWordLength; i++) {
+            endCellID = (parseInt(firstLetter) + (i*n)).toString();
+            revealCell(endCellID, answers, userfill, puzzleUserfillID);
+        }
+    }
+}
+
+// Reveal grid
+function revealGrid(answers, userfill, puzzleUserfillID) {
+    for (let i = 1; i < (n*n) + 1; i++) {
+        revealCell(i.toString(), answers, userfill, puzzleUserfillID);
+    }
+}
+
+/////////////////////////////////
+
 // Pad digits
 function pad(m) {
-    if (m <= 9) {
+    if (parseInt(m) <= 9) {
         return "0" + m;
     }
     else {
@@ -442,13 +513,7 @@ function pad(m) {
 }
 
 // Increment timer
-var timerBucket = setInterval(incrementTimer, 1000);
-var totalSeconds = -1;
-var totalMinutes = 0;
-var totalHours = 0;
-var totalDays = 0;
-var timeToShow = null;
-function incrementTimer() {
+function incrementTimer(puzzleTimeID) {
 
     if (timerPaused === false) {
 
@@ -468,7 +533,7 @@ function incrementTimer() {
         totalSeconds = totalSeconds + 1;
 
         // Adjust visible digits
-        timeToShow = pad(totalMinutes) + ":" + pad(totalSeconds);
+        var timeToShow = pad(totalMinutes) + ":" + pad(totalSeconds);
         if (totalDays === 365) {
             totalSeconds = totalMinutes = totalHours = totalDays = 0;
         }
@@ -479,6 +544,11 @@ function incrementTimer() {
             timeToShow = pad(totalHours) + ":" + timeToShow;
         }
         document.getElementById("timer").textContent = timeToShow;
-    
+
+        // Save current time bits to local storage
+        var timeToSave = [timeToShow, totalSeconds, totalMinutes, totalHours, totalDays].join("_");
+        localStorage.setItem(puzzleTimeID, JSON.stringify(timeToSave));
+        
     }
+    
 }

@@ -36,13 +36,21 @@
         <div id="puzzleNavBar">
             <div id="pencilButton" class="fa fa-pencil button"></div>
             <div id="clearButton" class="button">Clear</div>
-            <div id="checkButton" class="button">Check</div>
-				<div id="checkMenu">
+			<div id="revealButton" class="button">Reveal
+				<div id="revealMenu" class="navBarMenu">
+					<div id="revealLetterButton" class="checkSubButton button">Letter</div>
+					<div id="revealWordButton" class="checkSubButton button">Word</div>
+					<div id="revealGridButton" class="checkSubButton button">Grid</div>
+				</div>
+			</div>
+            <div id="checkButton" class="button">Check
+				<div id="checkMenu" class="navBarMenu">
 					<div id="checkLetterButton" class="checkSubButton button">Letter</div>
 					<div id="checkWordButton" class="checkSubButton button">Word</div>
 					<div id="checkGridButton" class="checkSubButton button">Grid</div>
 					<div id="autocheckButton" class="checkSubButton button">Auto</div>
 				</div>
+			</div>
             <div id="timer" class="button">00:00</div>
         </div>
         <!--Grid and Clues-->
@@ -1107,88 +1115,6 @@
 						</div>
 					</div>
 				</div>
-				<div id="phoneCluesBucket">
-					<div id="phoneClueFeature">
-						<div id="prevWord" class="fa-solid fa-angle-left button"></div>
-						<div id="activeClue" class="button">
-							<div id="activeClueNum">1A</div>
-							<div id="activeClueText">Case of emergency?</div>
-						</div>
-						<div id="nextWord" class="fa-solid fa-angle-right button"></div>
-					</div>
-					<div id="keyboardMain" class="keyboard">
-						<div id="keyboardRow1" class="keyboardRow">
-							<div id="keyQ" class="keyboardKey">Q</div>
-							<div id="keyW" class="keyboardKey">W</div>
-							<div id="keyE" class="keyboardKey">E</div>
-							<div id="keyR" class="keyboardKey">R</div>
-							<div id="keyT" class="keyboardKey">T</div>
-							<div id="keyY" class="keyboardKey">Y</div>
-							<div id="keyU" class="keyboardKey">U</div>
-							<div id="keyI" class="keyboardKey">I</div>
-							<div id="keyO" class="keyboardKey">O</div>
-							<div id="keyP" class="keyboardKey">P</div>
-						</div>
-						<div id="keyboardRow2" class="keyboardRow">
-							<div id="keyA" class="keyboardKey">A</div>
-							<div id="keyS" class="keyboardKey">S</div>
-							<div id="keyD" class="keyboardKey">D</div>
-							<div id="keyF" class="keyboardKey">F</div>
-							<div id="keyG" class="keyboardKey">G</div>
-							<div id="keyH" class="keyboardKey">H</div>
-							<div id="keyJ" class="keyboardKey">J</div>
-							<div id="keyK" class="keyboardKey">K</div>
-							<div id="keyL" class="keyboardKey">L</div>
-						</div>
-						<div id="keyboardRow3" class="keyboardRow">
-							<div id="moreOptions" class="keyboardKey keyboardKeySpecial">MORE</div>
-							<div id="keyZ" class="keyboardKey">Z</div>
-							<div id="keyX" class="keyboardKey">X</div>
-							<div id="keyC" class="keyboardKey">C</div>
-							<div id="keyV" class="keyboardKey">V</div>
-							<div id="keyB" class="keyboardKey">B</div>
-							<div id="keyN" class="keyboardKey">N</div>
-							<div id="keyM" class="keyboardKey">M</div>
-							<div id="delete" class="keyboardKey keyboardKeySpecial">DEL</div>
-						</div>
-					</div>
-					<div id="keyboardAlt" class="keyboard">
-						<div id="keyboardAltRow1" class="keyboardRow">
-							<div id="key1" class="keyboardKey">1</div>
-							<div id="key2" class="keyboardKey">2</div>
-							<div id="key3" class="keyboardKey">3</div>
-							<div id="key4" class="keyboardKey">4</div>
-							<div id="key5" class="keyboardKey">5</div>
-							<div id="key6" class="keyboardKey">6</div>
-							<div id="key7" class="keyboardKey">7</div>
-							<div id="key8" class="keyboardKey">8</div>
-							<div id="key9" class="keyboardKey">9</div>
-							<div id="key0" class="keyboardKey">0</div>
-						</div>
-						<div id="keyboardAltRow2" class="keyboardRow">
-							<div id="key~" class="keyboardKey">~</div>
-							<div id="key!" class="keyboardKey">!</div>
-							<div id="key@" class="keyboardKey">@</div>
-							<div id="key#" class="keyboardKey">#</div>
-							<div id="key$" class="keyboardKey">$</div>
-							<div id="key%" class="keyboardKey">%</div>
-							<div id="key^" class="keyboardKey">^</div>
-							<div id="key&" class="keyboardKey">&</div>
-							<div id="key*" class="keyboardKey">*</div>
-						</div>
-						<div id="keyboardAltRow3" class="keyboardRow">
-							<div id="moreOptionsAlt" class="keyboardKey keyboardKeySpecial">MORE</div>
-							<div id="key-" class="keyboardKey">-</div>
-							<div id="key+" class="keyboardKey">+</div>
-							<div id="key=" class="keyboardKey">=</div>
-							<div id="key/" class="keyboardKey">/</div>
-							<div id="key?" class="keyboardKey">?</div>
-							<div id="key." class="keyboardKey">.</div>
-							<div id="key," class="keyboardKey">,</div>
-							<div id="deleteAlt" class="keyboardKey keyboardKeySpecial">DEL</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div id="ccPageMainBlur" class="pageMainBlur">
 				<div id="ccPopupBox" class="popupBox">
@@ -1196,6 +1122,15 @@
 					<div id="ccButtonsBox">
 						<div id="ccClear" class="ccButtons popupAnswer">Clear Puzzle</div>
 						<div id="ccCancel" class="ccButtons popupAnswer">Cancel</div>
+					</div>
+				</div>
+			</div>
+			<div id="rvPageMainBlur" class="pageMainBlur">
+				<div id="rvPopupBox" class="popupBox">
+					<div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
+					<div id="rvButtonsBox">
+						<div id="rvReveal" class="ccButtons popupAnswer">Reveal</div>
+						<div id="rvCancel" class="ccButtons popupAnswer">Cancel</div>
 					</div>
 				</div>
 			</div>
@@ -1227,17 +1162,25 @@
             var downWordNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 25, 28, 31, 32, 33, 34, 35, 37, 41, 42, 43, 44, 48, 49, 50, 51, 52, 53, 54, 58, 59, 60];
             var downWordIDs = [1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 51, 56, 61, 62, 63, 84, 97, 98, 103, 104, 105, 109, 125, 126, 130, 131, 147, 153, 158, 159, 166, 167, 172, 193, 194, 195];
             var answers = "GOBAG.PDFS.LGBTPROVE.EYRE.IRISSCOOT.PLAN.MEEK...WAYSANDMEANSROTATEIN.SORT..EMILIA..HOLI...HAS.PROSANDCONSANNA..LOL..KNEEBITSANDBOBS.CPA...BLUE..ACTUAL..SEGA.ABWHEELSNUTSANDBOLTS...OBIT.CODA.ITALORENO.EMUS.CEDARIRKS.DELT.KREME";
-        
+			var userfill = ".................................................................................................................................................................................................................................";
+			var userfillColors = ["black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black"];
+
             // Global variables
-            var newCell = null;
             var activeDirection = "across";
             var activeCellID = null;
-            var clueID = null;
-            var newClueBox = null;
-            var initialActiveCellID = null;
+			var firstActiveCellID = null;
             var autocheckOn = false;
-			var checkMenuOn = false;
 			var timerPaused = true;
+			var activeRevealSelection = null;
+			var puzzleTimeID = "may102026_time";
+			var puzzleUserfillID = "may102026_userfill";
+			var puzzleUserfillColorsID = "may102026_userfillColors"
+			var timeToSave = null;
+			var timeToSaveSplit = null;
+			var totalSeconds = -1;
+			var totalMinutes = 0;
+			var totalHours = 0;
+			var totalDays = 0;
 
             // Buttons and popups
             var newSTStart = document.getElementById("stStart");
@@ -1258,10 +1201,89 @@
 			var newNextWord = document.getElementById("nextWord");
 			var newPrevWord = document.getElementById("prevWord");
 			var newActiveClue = document.getElementById("activeClue");
+			var newRevealButton = document.getElementById("revealButton");
+            var newRevealMenu = document.getElementById("revealMenu");
+            var newRevealLetterButton = document.getElementById("revealLetterButton");
+            var newRevealWordButton = document.getElementById("revealWordButton");
+            var newRevealGridButton = document.getElementById("revealGridButton");
+            var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
+            var newRVReveal = document.getElementById("rvReveal");
+            var newRVCancel = document.getElementById("rvCancel");
 
             /////////////////////////////////////
 
-			// PART 1: HANDLE CELL CLICKS
+			// PART 1: POPULATE PROGRESS
+
+			// TEST: reset local storage (for debugging)
+			// Increment timer and save userfill string
+			var clearStorage = false;
+			if (clearStorage === false) {
+
+				// TIMER
+
+				// Pull saved time from storage
+				timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
+				// If saved time exists in local storage, update start time bits and update timer value
+				if (timeToSave !== null) {
+					// Break saved time into useful bits
+					timeToSaveSplit = timeToSave.split("_");
+					totalSeconds = parseInt(timeToSaveSplit[1]);
+					totalMinutes = parseInt(timeToSaveSplit[2]);
+					totalHours = parseInt(timeToSaveSplit[3]);
+					totalDays = parseInt(timeToSaveSplit[4]);
+					// Update timer value
+					document.getElementById("timer").textContent = timeToSaveSplit[0];
+				}
+
+				// USERFILL
+				
+				// Pull saved userfill string + colors from storage
+				userfill = JSON.parse(localStorage.getItem(puzzleUserfillID));
+				userfillColors = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+
+				// Fill cells + color using userfill
+				var userfill_i = null;
+				var userfillColors_i = null;
+				for (let i = 1; i < (n*n)+1; i++) {
+					userfill_i = userfill[i-1];
+					userfillColors_i = userfillColors[i-1];
+					if (userfill_i === ".") {
+						document.getElementById("fill_" + i).value = "";
+					}
+					else {
+						document.getElementById("fill_" + i).value = userfill_i;
+					}
+					document.getElementById("fill_" + i).style.color = userfillColors_i;
+				}
+
+			}
+			else {
+				
+				// TIMER
+
+				// Reset timer
+				localStorage.setItem(puzzleTimeID, JSON.stringify("00:00_-1_0_0_0"));
+				// Populate sec/min/hr/day
+				totalSeconds = -1;
+				totalMinutes = 0;
+				totalHours = 0;
+				totalDays = 0;
+
+				// USERFILL
+
+				// Reset userfill + colors
+				localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+				localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+			}
+
+			// Start timer
+			var timerBucket = setInterval(incrementTimer, 1000, puzzleTimeID);
+			incrementTimer(puzzleTimeID);
+
+			/////////////////////////////////////
+
+			// PART 2: HANDLE CELL CLICKS
 			
 			var lastActiveCellID;
 			const allCells = document.querySelectorAll(".cell");
@@ -1283,7 +1305,7 @@
 
 			/////////////////////////////////////
 
-			// PART 2: HANDLE CLUEBOX CLICKS
+			// PART 3: HANDLE CLUEBOX CLICKS
 
 			// Add event listener for across + down clue boxes
 			const allClueBoxes = document.querySelectorAll(".clueBox");
@@ -1296,7 +1318,7 @@
 
 			/////////////////////////////////////
 			
-			// PART 3: HANDLE KEYSTROKES
+			// PART 4: HANDLE KEYSTROKES
 
 			// Listen for keystrokes (desktop)
 			document.addEventListener("keydown", function(event) {
@@ -1358,7 +1380,15 @@
 
                     // Fill cell with blank
                     document.getElementById("fill_" + activeCellID).value = "";
-                    
+
+					// Update userfill
+					userfill = userfill.substring(0,parseInt(activeCellID) - 1) + "." + userfill.substring(parseInt(activeCellID));
+					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+					
+					// Update userfill colors
+					userfillColors[i] = "black";
+					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+					
                     // Move back
                     if (activeDirection === "across") {
                         activeCellID = moveLeft(activeCellID);
@@ -1381,9 +1411,27 @@
 
 				// Fill cell with letter and move on
 				else if (event.key.length === 1) {
+
+					i = parseInt(activeCellID) - 1;
+
+					// Fill cell
 					document.getElementById("fill_" + activeCellID).style.color = fillColor;
 					document.getElementById("fill_" + activeCellID).value = event.key;
 					document.getElementById("fill_" + activeCellID).focus();
+
+					// Update userfill + colors
+					if (event.key === " ") {
+						userfill = userfill.substring(0,i) + "." + userfill.substring(parseInt(activeCellID));
+						userfillColors[i] = "black";
+					}
+					else {
+						userfill = userfill.substring(0,i) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
+						userfillColors[i] = fillColor;
+					}
+					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+					// Move on
 					if (activeDirection === "across") {
 						activeCellID = moveRight(activeCellID);
 						handleCellClick(activeCellID);
@@ -1411,18 +1459,23 @@
 
             /////////////////////////////////////
 
-			// PART 4: OTHER EVENT LISTENERS
+			// PART 5: OTHER EVENT LISTENERS
 
 			// Start puzzle popup
             newSTStart.addEventListener("click", function () {
-                hideDiv("stPageMainBlur");
+                
+				// Set in motion
+				hideDiv("stPageMainBlur");
                 hideDiv("stStart");
-				showDiv("phoneCluesBucket");
                 timerPaused = false;
-            });
 
-			// Start timer
-            incrementTimer();
+				// Highlight first cell
+				firstActiveCellID = document.getElementsByClassName("cell")[0].id;
+				handleCellClick(firstActiveCellID);
+				document.getElementById("fill_" + firstActiveCellID).focus();
+				activeCellID = firstActiveCellID;
+
+            });
 
             // Timer button
             newTimerButton.addEventListener("click", function () {
@@ -1434,14 +1487,14 @@
                     // Hide old popups
                     hideDiv("ccPageMainBlur");
                     hideDiv("ccButtonsBox");
-					hideDiv("phoneCluesBucket");
+					hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
                     timerPaused = true;
                 }
             });
             newTMContinue.addEventListener("click", function () {
                 hideDiv("tmPageMainBlur");
                 hideDiv("tmContinue");
-				showDiv("phoneCluesBucket");
                 timerPaused = false;
             });
 
@@ -1460,44 +1513,35 @@
                     // Hide old popups
                     hideDiv("tmPageMainBlur");
                     hideDiv("tmContinue");
-					hideDiv("phoneCluesBucket");
+					hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
                 }
             });
             // Confirm clear
             newCCClear.addEventListener("click", function () {
-                clearGrid();
+                clearGrid(n);
                 hideDiv("ccPageMainBlur");
                 hideDiv("ccButtonsBox");
-				showDiv("phoneCluesBucket");
             });
             // Confirm clear cancel
             newCCCancel.addEventListener("click", function () {
                 hideDiv("ccPageMainBlur");
                 hideDiv("ccButtonsBox");
-				showDiv("phoneCluesBucket");
             });
 
-            // Check button (desktop)
+            // Check button
             newCheckButton.addEventListener("mouseenter", function () {
-				if (window.matchMedia("(min-width: 450px)").matches) {
-                	showDiv("checkMenu");
-				}
+				showDiv("checkMenu");
             });
             newCheckButton.addEventListener("mouseleave", function () {
-                if (window.matchMedia("(min-width: 450px)").matches) {
-                	hideDiv("checkMenu");
-				}
+                hideDiv("checkMenu");
             });
-            // Check menu (desktop)
+            // Check menu
             newCheckMenu.addEventListener("mouseenter", function () {
-                if (window.matchMedia("(min-width: 450px)").matches) {
-					showDiv("checkMenu");
-				}
+                showDiv("checkMenu");
             });
             newCheckMenu.addEventListener("mouseleave", function () {
-                if (window.matchMedia("(min-width: 450px)").matches) {
-					hideDiv("checkMenu");
-				}
+				hideDiv("checkMenu");
             });
 
 			// Check letter
@@ -1538,6 +1582,87 @@
                 }
             });
 
+			// Reveal button
+            newRevealButton.addEventListener("mouseenter", function () {
+				showDiv("revealMenu");
+            });
+            newRevealButton.addEventListener("mouseleave", function () {
+                hideDiv("revealMenu");
+            });
+            // Reveal menu
+            newRevealMenu.addEventListener("mouseenter", function () {
+                showDiv("revealMenu");
+            });
+            newRevealMenu.addEventListener("mouseleave", function () {
+				hideDiv("revealMenu");
+            });
+
+            // Reveal letter button
+            newRevealLetterButton.addEventListener("click", function () {
+				activeRevealSelection = "Letter";
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Letter";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal word button
+            newRevealWordButton.addEventListener("click", function () {
+				activeRevealSelection = "Word";
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Word";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal grid button
+            newRevealGridButton.addEventListener("click", function () {
+				activeRevealSelection = "Grid";
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Grid";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            
+			// Reveal letter/word/grid
+            newRVReveal.addEventListener("click", function () {
+				if (activeRevealSelection === "Letter") {
+                	revealCell(activeCellID, answers, userfill, puzzleUserfillID);
+				}
+				else if (activeRevealSelection === "Word") {
+                	revealWord(activeCellID, answers, userfill, puzzleUserfillID);
+				}
+				else if (activeRevealSelection === "Grid") {
+                	revealGrid(answers, userfill, puzzleUserfillID);
+				}
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+            // Reveal cancel
+            newRVCancel.addEventListener("click", function () {
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+			
         </script>
     </body>
 </html>
