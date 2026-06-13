@@ -79,17 +79,25 @@ body {
     position: absolute;
     left: 0px;
 }
-#checkMenu {
+.navBarMenu {
     visibility: hidden;
     position: absolute;
     display: flex;
     flex-direction: column;
-    height: 148px;
-    width: 62px;
     top: 39px;
     border: 1px solid gray;
     z-index: 1;
     background-color: white;
+}
+#checkMenu {
+    right: 0px;
+    height: 148px;
+    width: 62px;
+}
+#revealMenu {
+    right: 0px;
+    height: 111px;
+    width: 65px;
 }
 #pageMain {
     position: relative;
@@ -213,9 +221,6 @@ input {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 14px;
 }
-#phoneCluesBucket {
-    display: none;
-}
 
 /* Button formatting */
 .button {
@@ -250,7 +255,7 @@ input {
 #stPageMainBlur {
     visibility: visible;
 }
-#ccButtonsBox {
+#ccButtonsBox, #rvButtonsBox {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -265,8 +270,8 @@ input {
     flex-direction: column;
     width: 50%;
     max-width: 300px;
-    height: auto;
-    min-height: 100px;
+    height: 50%;
+    max-height: 120px;
     place-items: center;
     background-color: white;
     border-radius: 20px;
@@ -293,10 +298,10 @@ input {
     font-size: 14px;
     font-weight: bold;
 }
-#ccClear {
+#ccClear, #rvReveal {
     border-radius: 0 0 0 20px;
 }
-#ccCancel {
+#ccCancel, #rvCancel {
     border-radius: 0 0 20px 0;
 }
 .ccButtons {
