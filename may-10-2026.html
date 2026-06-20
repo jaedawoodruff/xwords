@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="Play the daily crossword!">
         <title id="tabTitle">Sunday Crossword, May 10, 2026</title>
+		<link rel="icon" href="favicon1.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville">
         <link rel="stylesheet" href="gui.css">
@@ -1115,35 +1116,117 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div id="ccPageMainBlur" class="pageMainBlur">
-				<div id="ccPopupBox" class="popupBox">
-					<div id="ccPopupQuestion" class="popupQuestion"></div>
-					<div id="ccButtonsBox" class="buttonsBox">
-						<div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
-						<div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+				<div id="ccPageMainBlur" class="pageMainBlur">
+					<div id="ccPopupBox" class="popupBox">
+						<div id="ccPopupQuestion" class="popupQuestion"></div>
+						<div id="ccButtonsBox" class="buttonsBox">
+							<div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
+							<div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="rvPageMainBlur" class="pageMainBlur">
-				<div id="rvPopupBox" class="popupBox">
-					<div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
-					<div id="rvButtonsBox" class="buttonsBox">
-						<div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
-						<div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+				<div id="rvPageMainBlur" class="pageMainBlur">
+					<div id="rvPopupBox" class="popupBox">
+						<div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
+						<div id="rvButtonsBox" class="buttonsBox">
+							<div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
+							<div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="tmPageMainBlur" class="pageMainBlur">
-				<div id="tmPopupBox" class="popupBox">
-					<div id="tmPopupQuestion" class="popupQuestion"></div>
-					<div id="tmContinue" class="popupAnswer">Continue</div>
+				<div id="tmPageMainBlur" class="pageMainBlur">
+					<div id="tmPopupBox" class="popupBox">
+						<div id="tmPopupQuestion" class="popupQuestion"></div>
+						<div id="tmContinue" class="popupAnswer">Continue</div>
+					</div>
 				</div>
-			</div>
-			<div id="stPageMainBlur" class="pageMainBlur">
-				<div id="stPopupBox" class="popupBox">
-					<div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
-					<div id="stStart" class="popupAnswer">Begin</div>
+				<div id="stPageMainBlur" class="pageMainBlur">
+					<div id="stPopupBox" class="popupBox">
+						<div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
+						<div id="stStart" class="popupAnswer">Begin</div>
+					</div>
+				</div>
+				<div id="phoneCluesBucket">
+					<div id="phoneClueFeature">
+						<div id="prevWord" class="fa-solid fa-angle-left button"></div>
+						<div id="activeClue" class="button">
+							<div id="activeClueNum">1A</div>
+							<div id="activeClueText">Case of emergency?</div>
+						</div>
+						<div id="nextWord" class="fa-solid fa-angle-right button"></div>
+					</div>
+					<div id="keyboardMain" class="keyboard">
+						<div id="keyboardRow1" class="keyboardRow">
+							<div id="keyQ" class="keyboardKey">Q</div>
+							<div id="keyW" class="keyboardKey">W</div>
+							<div id="keyE" class="keyboardKey">E</div>
+							<div id="keyR" class="keyboardKey">R</div>
+							<div id="keyT" class="keyboardKey">T</div>
+							<div id="keyY" class="keyboardKey">Y</div>
+							<div id="keyU" class="keyboardKey">U</div>
+							<div id="keyI" class="keyboardKey">I</div>
+							<div id="keyO" class="keyboardKey">O</div>
+							<div id="keyP" class="keyboardKey">P</div>
+						</div>
+						<div id="keyboardRow2" class="keyboardRow">
+							<div id="keyA" class="keyboardKey">A</div>
+							<div id="keyS" class="keyboardKey">S</div>
+							<div id="keyD" class="keyboardKey">D</div>
+							<div id="keyF" class="keyboardKey">F</div>
+							<div id="keyG" class="keyboardKey">G</div>
+							<div id="keyH" class="keyboardKey">H</div>
+							<div id="keyJ" class="keyboardKey">J</div>
+							<div id="keyK" class="keyboardKey">K</div>
+							<div id="keyL" class="keyboardKey">L</div>
+						</div>
+						<div id="keyboardRow3" class="keyboardRow">
+							<div id="moreOptions" class="keyboardKey keyboardKeySpecial">MORE</div>
+							<div id="keyZ" class="keyboardKey">Z</div>
+							<div id="keyX" class="keyboardKey">X</div>
+							<div id="keyC" class="keyboardKey">C</div>
+							<div id="keyV" class="keyboardKey">V</div>
+							<div id="keyB" class="keyboardKey">B</div>
+							<div id="keyN" class="keyboardKey">N</div>
+							<div id="keyM" class="keyboardKey">M</div>
+							<div id="delete" class="keyboardKey keyboardKeySpecial">DEL</div>
+						</div>
+					</div>
+					<div id="keyboardAlt" class="keyboard">
+						<div id="keyboardAltRow1" class="keyboardRow">
+							<div id="key1" class="keyboardKey">1</div>
+							<div id="key2" class="keyboardKey">2</div>
+							<div id="key3" class="keyboardKey">3</div>
+							<div id="key4" class="keyboardKey">4</div>
+							<div id="key5" class="keyboardKey">5</div>
+							<div id="key6" class="keyboardKey">6</div>
+							<div id="key7" class="keyboardKey">7</div>
+							<div id="key8" class="keyboardKey">8</div>
+							<div id="key9" class="keyboardKey">9</div>
+							<div id="key0" class="keyboardKey">0</div>
+						</div>
+						<div id="keyboardAltRow2" class="keyboardRow">
+							<div id="key~" class="keyboardKey">~</div>
+							<div id="key!" class="keyboardKey">!</div>
+							<div id="key@" class="keyboardKey">@</div>
+							<div id="key#" class="keyboardKey">#</div>
+							<div id="key$" class="keyboardKey">$</div>
+							<div id="key%" class="keyboardKey">%</div>
+							<div id="key^" class="keyboardKey">^</div>
+							<div id="key&" class="keyboardKey">&</div>
+							<div id="key*" class="keyboardKey">*</div>
+						</div>
+						<div id="keyboardAltRow3" class="keyboardRow">
+							<div id="moreOptionsAlt" class="keyboardKey keyboardKeySpecial">MORE</div>
+							<div id="key-" class="keyboardKey">-</div>
+							<div id="key+" class="keyboardKey">+</div>
+							<div id="key=" class="keyboardKey">=</div>
+							<div id="key/" class="keyboardKey">/</div>
+							<div id="key?" class="keyboardKey">?</div>
+							<div id="key(" class="keyboardKey">(</div>
+							<div id="key)" class="keyboardKey">)</div>
+							<div id="deleteAlt" class="keyboardKey keyboardKeySpecial">DEL</div>
+						</div>
+					</div>
 				</div>
 			</div>
         </div>
@@ -1209,6 +1292,10 @@
             var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
             var newRVReveal = document.getElementById("rvReveal");
             var newRVCancel = document.getElementById("rvCancel");
+			
+			var newNextWord = document.getElementById("nextWord");
+			var newPrevWord = document.getElementById("prevWord");
+			var newActiveClue = document.getElementById("activeClue");
 
             /////////////////////////////////////
 
@@ -1228,7 +1315,7 @@
 				
 				// Update timer value
 				document.getElementById("timer").textContent = timeToSaveSplit[0];
-				
+
 			}
 
 			// Pull saved userfill string + colors from storage, if available (else use defaults)
@@ -1641,7 +1728,132 @@
                 hideDiv("rvPageMainBlur");
                 hideDiv("rvButtonsBox");
             });
+
+			////////////////////////////////////
+
+			// PART 6: MOBILE
+
+			// Listen for keystrokes (mobile)
+			const allKeyboardKeys = document.querySelectorAll(".keyboardKey");
+			allKeyboardKeys.forEach((allKeyboardKey) => {
+				allKeyboardKey.addEventListener("click", function() {
+
+					var k = parseInt(activeCellID) - 1;
+
+					// If special
+					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
+						// If delete
+						if (allKeyboardKey.id === "delete") {
+							// Fill cell with blank
+							document.getElementById("fill_" + activeCellID).value = "";
+							// Move back
+							if (activeDirection === "across") {
+								activeCellID = moveLeft(activeCellID);
+							}
+							else {
+								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+							}
+							// Handle cell click
+							handleCellClick(activeCellID);
+						}
+						if (allKeyboardKey.id === "deleteAlt") {
+							// Fill cell with blank
+							document.getElementById("fill_" + activeCellID).value = "";
+							// Move back
+							if (activeDirection === "across") {
+								activeCellID = moveLeft(activeCellID);
+							}
+							else {
+								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+							}
+							// Handle cell click
+							handleCellClick(activeCellID);
+						}
+						// If moreOptions
+						if (allKeyboardKey.id === "moreOptions") {
+							document.getElementById("keyboardMain").style.display = "none";
+							document.getElementById("keyboardAlt").style.display = "flex";
+						}
+						if (allKeyboardKey.id === "moreOptionsAlt") {
+							document.getElementById("keyboardMain").style.display = "flex";
+							document.getElementById("keyboardAlt").style.display = "none";
+						}
+					}
+					// If letter
+					else {
+						document.getElementById("fill_" + activeCellID).style.color = fillColor;
+						document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
+						document.getElementById("fill_" + activeCellID).focus();
+						if (activeDirection === "across") {
+							activeCellID = moveRight(activeCellID);
+							handleCellClick(activeCellID);
+						}
+						else {
+							activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+							handleCellClick(activeCellID);
+						}
+						// Autocheck if on!
+						if (autocheckOn === true) {
+							checkGrid(answers);
+						}
+					}
+
+					// Update userfill + colors
+					userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(parseInt(activeCellID));
+					userfillColors[k] = fillColor;
+					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+					
+				});
+			});
 			
+			// Check button (mobile)
+			newCheckButton.addEventListener("click", function () {
+				if (!window.matchMedia("(min-width: 500px)").matches) {
+					if (!checkMenuOn) {
+						checkMenuOn = true;
+						showDiv("checkMenu");
+					}
+					else {
+						checkMenuOn = false;
+						hideDiv("checkMenu");
+					}
+				}
+			});
+			// Check menu (mobile)
+			newCheckMenu.addEventListener("click", function () {
+				if (!window.matchMedia("(min-width: 500px)").matches) {
+					if (checkMenuOn) {
+						hideDiv("checkMenu");
+						checkMenuOn = false;
+					}
+				}
+			});
+
+			// Change direction (mobile)
+			newActiveClue.addEventListener("click", function() {
+				
+				// Switch direction + show correct clues on double click
+				switchActiveDirection();
+
+				// Highlight word
+				handleCellClick(activeCellID);
+				document.getElementById("fill_" + activeCellID).focus();
+
+			});
+			// Next word event listener (mobile)
+			newNextWord.addEventListener("click", function() {
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID);
+			});
+			// Previous word event listener (mobile)
+			newPrevWord.addEventListener("click", function() {
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID);
+			});
+
         </script>
     </body>
 </html>

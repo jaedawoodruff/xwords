@@ -7,6 +7,7 @@
   <title id="tabTitle">
    Home
   </title>
+  <link rel="icon" href="favicon1.png">
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville" rel="stylesheet"/>
   <link href="index.css" rel="stylesheet"/>
  </head>
@@ -89,40 +90,45 @@
 </html>
 <!--
 
-// MISSION 12: DUST BUNNIES I
+// MISSION 14: DUST BUNNIES II
 
-// Save mobile 15x15 version of all scripts to github branch
-// Purge mobile references from LIVE version of the code
+// Thin screen no touch (laptop side window)
+// Wide screen no touch (laptop)
+// Thin screen mobile (phone)
+// Wide screen mobile (ipad/touch screen laptop)
 
-// When load page, have first word highlighted already
-// If check cell/word/grid and is correct, turn that word blue forever and disable changes
-// Fix popups design/sizing
-// Add "reveal puzzle" button + confirmation "are you sure?" popup (html, css, js)
+// DONE: Now show keyboard only if touch is available (not size based)
+// Hm now ipad option? (if touchscreen AND wider than x)
+// Now make this stuff NOT visible if there's no touch screen? OR force you to use a button if you want it?
+// Add simple button/toggle to show/hide keyboard
 
-// MISSION 13: SAVE USER DATA
-
-// Save current time on reload
-// Save userfill string on reload
-// Check current time and userfill still save ok using ctrl R
-// Save current time on close and reopen
-// Save userfill string on close and reopen
-
-// MISSION 14: MINIS
-
-// Sketch layout for minis (maxi vs mini tab? maxi vs mini html structure? no names for minis? rename all puzzles tab to be minis tab? reformat index tab to be rows of 5?)
-// Save desktop only user data 15x15 version of all scripts to github branch
-// Reword LIVE scripts to focus only on minis (html x3, css x2, js, ipynb) (css dynamic to grid size? as opposed to hardcoded? or no?)
-// Test xword_publisher.ipynb with real minis x5! x10! x15!
-// Now re-upload all my xword_gui files so all the changes transfer to github!
-
-// MISSION 15: DUST BUNNIES II
+// Now redo keyboard sizing to match ios default/accessibility standards/be more useful??
+// Change menu keys from hover to click (if touch available) >> then second click turns it off
+// Hm fix the taps??
+// Update from px to em (all)?
+// Revisit do we actually need full page blur if the width is too small to type?
+// Revisit zooms
+// Redo css as mobile first
+// Now test on actual phone
+// Now test on actual ipad
+// If someone tries to access website on mobile (touchscreen-only device?) just send message saying "mobile (phones/tablets) website under construction. use computer to play??
 
 // Fill in the about page so it's not blank >> update ipynb too, css as needed
 // Add completion "yay you did it" popup with your final time (only check IF userfill string is full AND matches answers string exactly) >> update ipynb too, css as needed
+// Skip filled cells?
+// In python script make sure to add a warning function for if the date has already been used so we're not accidentally overwriting sql tables
+// Match css of index.html to the daily page (e.g. GOOD WORD header is diff sizes rn??)
 
+// Add checkmarks to index.html based on whether the puzzle is completed?
+
+// Find unused vars, orphaned css descriptors, etc and clean up
+// Renumber code sections
+
+// Omg check ctrl+i issues tab for ideas! eg diff browser issues
 // Look up basic performance tests for js/html/css
 // Run performance tests
-// List areas of max potention for performance improvements
+// List areas of max potential for performance improvements
+// Why github deployments takng so long?
 // Fix performance AOMP
 
 // Test css and functionality in all different browsers (edge, chrome, firefox, safari, duckduckgo)
@@ -132,5 +138,14 @@
 
 // Now send to carrie mira ally jeff mom dad >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small?
 // Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
+
+// MISSION 15: MINIS
+
+// Sketch layout for minis (maxi vs mini tab? maxi vs mini html structure? no names for minis? rename all puzzles tab to be minis tab? reformat index tab to be rows of 5?)
+// Save desktop only user data 15x15 version of all scripts to github branch
+// Reword LIVE scripts to focus only on minis (html x3, css x2, js, ipynb) (css dynamic to grid size? as opposed to hardcoded? or no?)
+// Test xword_publisher.ipynb with real minis x5! x10! x15!
+// Make sure ipynb script is updated to include the localstorage things
+// Now re-upload all my xword_gui files so all the changes transfer to github!
 
 -->

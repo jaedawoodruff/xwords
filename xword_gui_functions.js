@@ -165,7 +165,7 @@ function handleCellClick(activeCellID) {
     document.getElementById(inactiveClueBox + "_INDICATOR").style.backgroundColor = "lightblue";
 
     // Move selected clue to top
-    if (window.matchMedia("(min-width: 450px)").matches) {
+    if (window.matchMedia("(min-width: 500px)").matches) {
         document.getElementById(activeDirection + "Clues").scrollTop = document.getElementById(activeClueBox).offsetTop;
     }
     else {
