@@ -35,7 +35,8 @@
             <h3 id="puzzleAuthor">By Jaeda Woodruff / Edited by Jaeda Woodruff</h3>
         </div>
         <div id="puzzleNavBar">
-            <div id="pencilButton" class="fa fa-pencil button"></div>
+            <div id="showKeyboardButton" class="fa fa-keyboard button"></div>
+			<div id="pencilButton" class="fa fa-pencil button"></div>
             <div id="clearButton" class="button">Clear</div>
 			<div id="revealButton" class="button">Reveal
 				<div id="revealMenu" class="navBarMenu">
@@ -1264,6 +1265,9 @@
 			var totalMinutes = 0;
 			var totalHours = 0;
 			var totalDays = 0;
+			var keyboardOn = false;
+			var checkMenuOn = false;
+			var revealMenuOn = false;
 
             // Buttons and popups
             var newSTStart = document.getElementById("stStart");
@@ -1292,6 +1296,12 @@
             var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
             var newRVReveal = document.getElementById("rvReveal");
             var newRVCancel = document.getElementById("rvCancel");
+
+			var newShowKeyboardButton = document.getElementById("showKeyboardButton");
+			var newAcrossCluesHeader = document.getElementById("acrossCluesHeader");
+			var newDownCluesHeader = document.getElementById("downCluesHeader");
+			var newAcrossClues = document.getElementById("acrossClues");
+			var newDownClues = document.getElementById("downClues");
 			
 			var newNextWord = document.getElementById("nextWord");
 			var newPrevWord = document.getElementById("prevWord");
@@ -1362,7 +1372,7 @@
 					}
 
 					// Highlight word
-					handleCellClick(allCell.id);
+					handleCellClick(allCell.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					document.getElementById("fill_" + allCell.id).focus();
 					activeCellID = allCell.id;
 
@@ -1377,7 +1387,7 @@
 			const allClueBoxes = document.querySelectorAll(".clueBox");
 			allClueBoxes.forEach((allClueBox) => {
 				allClueBox.addEventListener("click", function() {
-					activeCellID = handleClueBoxClick(this.id);
+					activeCellID = handleClueBoxClick(this.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					document.getElementById("fill_" + activeCellID).focus();
 				});
 			});
@@ -1393,7 +1403,7 @@
 				if (event.key === "ArrowRight") {
 					if (activeDirection === "across") {
 						activeCellID = moveRight(activeCellID);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 					else {
 						switchActiveDirection();
@@ -1406,7 +1416,7 @@
 				else if (event.key === "ArrowLeft") {
 					if (activeDirection === "across") {
 						activeCellID = moveLeft(activeCellID);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 					else {
 						switchActiveDirection();
@@ -1419,7 +1429,7 @@
 				else if (event.key === "ArrowUp") {
 					if (activeDirection === "down") {
 						activeCellID = moveUp(activeCellID);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 					else {
 						switchActiveDirection();
@@ -1432,7 +1442,7 @@
 				else if (event.key === "ArrowDown") {
 					if (activeDirection === "down") {
 						activeCellID = moveDown(activeCellID);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 					else {
 						switchActiveDirection();
@@ -1464,7 +1474,7 @@
                     }
 
                     // Handle cell click
-                    handleCellClick(activeCellID);
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 
                 }
 
@@ -1472,7 +1482,7 @@
                 else if (event.key === "Enter" || event.key === "Tab") {
                     event.preventDefault();
                     activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
-                    handleCellClick(activeCellID);
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
                 }
 
 				// Fill cell with letter and move on
@@ -1500,11 +1510,11 @@
 					// Move on
 					if (activeDirection === "across") {
 						activeCellID = moveRight(activeCellID);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 					else {
 						activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-						handleCellClick(activeCellID);
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					}
 
 					// Autocheck if on!
@@ -1525,7 +1535,7 @@
 
             /////////////////////////////////////
 
-			// PART 5: OTHER EVENT LISTENERS
+			// PART 5: OTHER EVENT LISTENERS (ALL)
 
 			// Start puzzle popup
             newSTStart.addEventListener("click", function () {
@@ -1537,7 +1547,7 @@
 
 				// Highlight first cell
 				firstActiveCellID = document.getElementsByClassName("cell")[0].id;
-				handleCellClick(firstActiveCellID);
+				handleCellClick(firstActiveCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 				document.getElementById("fill_" + firstActiveCellID).focus();
 				activeCellID = firstActiveCellID;
 
@@ -1569,6 +1579,11 @@
                 togglePencil();
             });
 
+			// Show keyboard button
+			newShowKeyboardButton.addEventListener("click", function () {
+				toggleKeyboard();
+			});
+
             // Clear button
             newClearButton.addEventListener("click", function () {
                 if (timerPaused === false) {
@@ -1595,21 +1610,6 @@
                 hideDiv("ccButtonsBox");
             });
 
-            // Check button
-            newCheckButton.addEventListener("mouseenter", function () {
-				showDiv("checkMenu");
-            });
-            newCheckButton.addEventListener("mouseleave", function () {
-                hideDiv("checkMenu");
-            });
-            // Check menu
-            newCheckMenu.addEventListener("mouseenter", function () {
-                showDiv("checkMenu");
-            });
-            newCheckMenu.addEventListener("mouseleave", function () {
-				hideDiv("checkMenu");
-            });
-
 			// Check letter
             newCheckLetterButton.addEventListener("click", function () {
                 checkCell(activeCellID, answers);
@@ -1634,33 +1634,6 @@
                     autocheckOn = false;
                     newAutoCheckButton.style.backgroundColor = "transparent";
                 }
-            });
-            // Autocheck command (hover)
-            newAutoCheckButton.addEventListener("mouseenter", function () {
-                newAutoCheckButton.style.backgroundColor = "lightgray";
-            });
-            newAutoCheckButton.addEventListener("mouseleave", function () {
-                if (autocheckOn === true) {
-                    newAutoCheckButton.style.backgroundColor = "lightblue";
-                }
-                else {
-                    newAutoCheckButton.style.backgroundColor = "transparent";
-                }
-            });
-
-			// Reveal button
-            newRevealButton.addEventListener("mouseenter", function () {
-				showDiv("revealMenu");
-            });
-            newRevealButton.addEventListener("mouseleave", function () {
-                hideDiv("revealMenu");
-            });
-            // Reveal menu
-            newRevealMenu.addEventListener("mouseenter", function () {
-                showDiv("revealMenu");
-            });
-            newRevealMenu.addEventListener("mouseleave", function () {
-				hideDiv("revealMenu");
             });
 
             // Reveal letter button
@@ -1729,9 +1702,160 @@
                 hideDiv("rvButtonsBox");
             });
 
+            /////////////////////////////////////
+
+			// PART 6: OTHER EVENT LISTENERS (HOVER AVAILABLE)
+
+			// Update visible clue CSS on resize
+			window.addEventListener("resize", function () {
+
+				// If full screen, all visible with black text
+				if (window.matchMedia("(min-width: 500px)").matches) {
+					// Update across clue style
+					newAcrossCluesHeader.style.color = "black";
+					newAcrossClues.style.display = "block";
+					newAcrossClues.style.visibility = "visible";
+
+					// Update down clue style
+					newDownCluesHeader.style.color = "black";
+					newDownClues.style.display = "block";
+					newDownClues.style.visibility = "visible";
+				}
+				
+				// If thin screen, update visible clues
+				else {
+
+					// Update active clue header
+					switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+					
+					// Highlight word
+					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+					document.getElementById("fill_" + activeCellID).focus();
+
+				}
+
+			});
+
+			// Switch visible clues on click
+			newAcrossCluesHeader.addEventListener("click", function () {
+
+				if (window.matchMedia("(max-width: 500px)").matches) {
+					// Update activeDirection
+					activeDirection = "across";
+
+					// Update active clue header
+					updateClueHeaders(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+
+					// Highlight word
+					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+					document.getElementById("fill_" + activeCellID).focus();
+				}
+
+			});
+			newDownCluesHeader.addEventListener("click", function () {
+			
+				if (window.matchMedia("(max-width: 500px)").matches) {
+
+					// Update activeDirection
+					activeDirection = "down";
+
+					// Update active clue header
+					updateClueHeaders(newDownCluesHeader, newDownClues, newAcrossCluesHeader, newAcrossClues);
+
+					// Highlight word
+					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+					document.getElementById("fill_" + activeCellID).focus();
+				}
+				
+			});
+
+			// Add hover event listeners
+			if (window.matchMedia("(hover: hover)").matches) {
+
+				// Check button
+				newCheckButton.addEventListener("mouseenter", function () {
+					showDiv("checkMenu");
+				});
+				newCheckButton.addEventListener("mouseleave", function () {
+					hideDiv("checkMenu");
+				});
+				// Check menu
+				newCheckMenu.addEventListener("mouseenter", function () {
+					showDiv("checkMenu");
+				});
+				newCheckMenu.addEventListener("mouseleave", function () {
+					hideDiv("checkMenu");
+				});
+
+				// Autocheck command (hover)
+				newAutoCheckButton.addEventListener("mouseenter", function () {
+					newAutoCheckButton.style.backgroundColor = "lightgray";
+				});
+				newAutoCheckButton.addEventListener("mouseleave", function () {
+					if (autocheckOn === true) {
+						newAutoCheckButton.style.backgroundColor = "lightblue";
+					}
+					else {
+						newAutoCheckButton.style.backgroundColor = "transparent";
+					}
+				});
+
+				// Reveal button
+				newRevealButton.addEventListener("mouseenter", function () {
+					showDiv("revealMenu");
+				});
+				newRevealButton.addEventListener("mouseleave", function () {
+					hideDiv("revealMenu");
+				});
+				// Reveal menu
+				newRevealMenu.addEventListener("mouseenter", function () {
+					showDiv("revealMenu");
+				});
+				newRevealMenu.addEventListener("mouseleave", function () {
+					hideDiv("revealMenu");
+				});
+
+			}
+
 			////////////////////////////////////
 
-			// PART 6: MOBILE
+			// PART 7: MOBILE
+
+			// If touchscreen, turn keyboard on by default
+			if (window.matchMedia("(pointer: coarse)").matches) {
+				toggleKeyboard();
+			}
+
+			// If touchscreen, show check menus via click
+			if (window.matchMedia("(any-pointer: coarse)").matches) {
+				
+				// Show check menu
+				newCheckButton.addEventListener("click", function () {
+					if (!checkMenuOn) {
+						checkMenuOn = true;
+						showDiv("checkMenu");
+					}
+					else {
+						checkMenuOn = false;
+						document.getElementById("checkButton").style.backgroundColor = "white";
+						hideDiv("checkMenu");
+					}
+				});
+
+				// Show reveal menu
+				newRevealButton.addEventListener("click", function () {
+					if (!revealMenuOn) {
+						revealMenuOn = true;
+						showDiv("revealMenu");
+					}
+					else {
+						revealMenuOn = false;
+						document.getElementById("revealButton").style.backgroundColor = "white";
+						hideDiv("revealMenu");
+					}
+				});
+
+			}
 
 			// Listen for keystrokes (mobile)
 			const allKeyboardKeys = document.querySelectorAll(".keyboardKey");
@@ -1754,7 +1878,7 @@
 								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
 							}
 							// Handle cell click
-							handleCellClick(activeCellID);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 						}
 						if (allKeyboardKey.id === "deleteAlt") {
 							// Fill cell with blank
@@ -1767,7 +1891,7 @@
 								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
 							}
 							// Handle cell click
-							handleCellClick(activeCellID);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 						}
 						// If moreOptions
 						if (allKeyboardKey.id === "moreOptions") {
@@ -1786,11 +1910,11 @@
 						document.getElementById("fill_" + activeCellID).focus();
 						if (activeDirection === "across") {
 							activeCellID = moveRight(activeCellID);
-							handleCellClick(activeCellID);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 						}
 						else {
 							activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-							handleCellClick(activeCellID);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 						}
 						// Autocheck if on!
 						if (autocheckOn === true) {
@@ -1806,29 +1930,6 @@
 					
 				});
 			});
-			
-			// Check button (mobile)
-			newCheckButton.addEventListener("click", function () {
-				if (!window.matchMedia("(min-width: 500px)").matches) {
-					if (!checkMenuOn) {
-						checkMenuOn = true;
-						showDiv("checkMenu");
-					}
-					else {
-						checkMenuOn = false;
-						hideDiv("checkMenu");
-					}
-				}
-			});
-			// Check menu (mobile)
-			newCheckMenu.addEventListener("click", function () {
-				if (!window.matchMedia("(min-width: 500px)").matches) {
-					if (checkMenuOn) {
-						hideDiv("checkMenu");
-						checkMenuOn = false;
-					}
-				}
-			});
 
 			// Change direction (mobile)
 			newActiveClue.addEventListener("click", function() {
@@ -1837,21 +1938,21 @@
 				switchActiveDirection();
 
 				// Highlight word
-				handleCellClick(activeCellID);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 				document.getElementById("fill_" + activeCellID).focus();
 
 			});
 			// Next word event listener (mobile)
 			newNextWord.addEventListener("click", function() {
 				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
-				handleCellClick(activeCellID);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 			});
 			// Previous word event listener (mobile)
 			newPrevWord.addEventListener("click", function() {
 				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
 				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
 				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
-				handleCellClick(activeCellID);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 			});
 
         </script>

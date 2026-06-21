@@ -126,10 +126,26 @@ function togglePencil() {
     }
 }
 
+// Toggle keyboard
+function toggleKeyboard() {
+    if (keyboardOn === false) {
+        keyboardOn = true;
+        showDiv("phoneCluesBucket");
+        document.getElementById("phoneCluesBucket").style.display = "block";
+        document.getElementById("showKeyboardButton").style.backgroundColor = "lightblue";
+    }
+    else {
+        keyboardOn = false;
+        hideDiv("phoneCluesBucket");
+        document.getElementById("phoneCluesBucket").style.display = "none";
+        document.getElementById("showKeyboardButton").style.backgroundColor = "white";
+    }
+}
+
 ////////////////////////////////////
 
 // Handle cell click
-function handleCellClick(activeCellID) {
+function handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues) {
 
     // Unhighlight all cells + clue boxes
     unhighlightCells();
@@ -164,8 +180,13 @@ function handleCellClick(activeCellID) {
     inactiveClueBox = inactiveWordClass.match(/^[^a-zA-Z]*/)[0] + inactiveDirection + "Clue";
     document.getElementById(inactiveClueBox + "_INDICATOR").style.backgroundColor = "lightblue";
 
+    // Switch visible clues if needed
+    if (window.matchMedia("(max-width: 500px)").matches) {
+        switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+    }
+
     // Move selected clue to top
-    if (window.matchMedia("(min-width: 500px)").matches) {
+    if (!window.matchMedia("(pointer: coarse)").matches) {
         document.getElementById(activeDirection + "Clues").scrollTop = document.getElementById(activeClueBox).offsetTop;
     }
     else {
@@ -176,7 +197,7 @@ function handleCellClick(activeCellID) {
 }
 
 // Handle cluebox click
-function handleClueBoxClick(activeClueBox) {
+function handleClueBoxClick(activeClueBox, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues) {
 
     // Unhighlight all cells + clue boxes
     unhighlightCells();
@@ -215,10 +236,10 @@ function handleClueBoxClick(activeClueBox) {
     // Highlight other direction cluebox
     inactiveClueBox = inactiveWordClass.match(/^[^a-zA-Z]*/)[0] + inactiveDirection + "Clue";
     document.getElementById(inactiveClueBox + "_INDICATOR").style.backgroundColor = "lightblue";
-    
+
     // Move selected clue to top
     document.getElementById(activeDirection + "Clues").scrollTop = document.getElementById(activeClueBox).offsetTop;
-    
+
     return activeCellID;
 }
 
@@ -553,4 +574,30 @@ function incrementTimer(puzzleTimeID) {
         
     }
     
+}
+
+/////////////////////////////////
+
+// Update clue header visibility
+function updateClueHeaders(activeHeader, activeClues, inactiveHeader, inactiveClues) {
+    // Update active clue style
+    activeHeader.style.color = "black";
+    activeClues.style.display = "block";
+    activeClues.style.visibility = "visible";
+
+    // Update inactive clue style
+    inactiveHeader.style.color = "gray";
+    inactiveClues.style.display = "none";
+    inactiveClues.style.visibility = "hidden";
+}
+
+// Switch visible clue direction if no keyboard and vertical stacked grid/cluebox
+function switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues) {
+    if (activeDirection === "down") {
+        updateClueHeaders(newDownCluesHeader, newDownClues, newAcrossCluesHeader, newAcrossClues);
+    }
+    else {
+        activeDirection = "across";
+        updateClueHeaders(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+    }
 }
