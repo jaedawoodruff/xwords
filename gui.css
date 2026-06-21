@@ -22,7 +22,8 @@ input {
     appearance: none;
 }
 .userFill {
-    background-color: red;
+    background-color: lightgreen;
+    place-items: center;
 }
 #pageHeader {
     position: relative;
