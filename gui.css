@@ -20,8 +20,9 @@ body {
 input {
     -webkit-appearance: none;
     appearance: none;
-    padding: 0;
-    box-sizing: border-box;
+}
+.userFill {
+    background-color: red;
 }
 #pageHeader {
     position: relative;
