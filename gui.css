@@ -23,7 +23,8 @@ input {
 }
 .userFill {
     place-items: center;
-    padding: 0 5px 0 5px;
+    padding: 0 2vw 0 2vw;
+    background-color: lightgreen;
 }
 #pageHeader {
     position: relative;
