@@ -1,4 +1,4 @@
-/* Desktop version */
+/*Header + nav bar formatting*/
 * {
     margin: 0;
     padding: 0;
@@ -70,7 +70,6 @@ input {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: right;
     height: 40px;
     width: 90%;
     border: solid gray;
@@ -80,8 +79,17 @@ input {
     background-color: white;
 }
 #timer {
-    position: absolute;
-    left: 0px;
+    position: relative;
+    z-index: 1;
+}
+#puzzleNavBarButtons {
+    position: relative;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: right;
+    margin-left: auto;
 }
 .navBarMenu {
     visibility: hidden;
@@ -90,7 +98,7 @@ input {
     flex-direction: column;
     top: 39px;
     border: 1px solid gray;
-    z-index: 1;
+    z-index: 3;
     background-color: white;
 }
 #checkMenu {
@@ -103,6 +111,8 @@ input {
     height: 111px;
     width: 65px;
 }
+
+/*Main grid formatting*/
 #pageMain {
     position: relative;
     display: flex;
@@ -122,11 +132,11 @@ input {
     aspect-ratio: 1 / 1;
     border: 1px solid black;
     background-color: white;
+    z-index: 1;
 }
 .cell {
     position: relative;
     width: 100%;
-    /*font-size: 10px;*/
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1vw;
@@ -143,14 +153,8 @@ input {
     width: 100%;
     height: 100%;
     top: 20%;
-    left: 0;
     font-size: 2vw;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightpink;
-
-    display: -webkit-flex;
-    place-content: center;
-    -webkit-place-content: center;
 }
 input {
     background-color: rgba(173, 216, 230, 0);
@@ -162,6 +166,8 @@ input {
     place-content: center;
     caret-color: transparent;
 }
+
+/*Clues formatting*/
 #cluesBucket {
     position: absolute;
     display: flex;
@@ -170,6 +176,7 @@ input {
     right: 0%;
     aspect-ratio: 1 / 1;
     background-color: white;
+    z-index: 2;
 }
 .cluesBucketClass {
     position: relative;
@@ -239,7 +246,7 @@ input {
     position: relative;
     height: 100%;
     place-content: center;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
     font-weight: 700;
     background-color: white;
 }
@@ -249,8 +256,15 @@ input {
 .button:active {
     background-color: lightblue;
 }
+.textButton {
+    overflow-wrap: anywhere;
+    min-width: 30px;
+}
 
 /*Popup formatting*/
+#fullPageBlur {
+    display: none;
+}
 .pageMainBlur {
     visibility: hidden;
     position: absolute;
@@ -262,7 +276,7 @@ input {
     place-items: center;
     backdrop-filter: blur(8px);
     background-color: rgba(173, 216, 230, 0.5);
-    z-index: 2;
+    z-index: 3;
 }
 #stPageMainBlur {
     visibility: visible;
@@ -328,9 +342,13 @@ input {
     background-color: lightblue;
 }
 
-/*Hidden keyboard settings*/
+/*Keyboard formatting*/
 #phoneCluesBucket {
     display: none;
+    flex-direction: column;
+    position: sticky;
+    bottom: 0px;
+    z-index: 1;
 }
 .keyboard {
     position: relative;
@@ -349,7 +367,7 @@ input {
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 60px; /******************************/
+    height: 60px;
     place-content: center;
     gap: 2px;
     padding-bottom: 2px;
@@ -359,7 +377,7 @@ input {
     display: flex;
     place-content: center;
     place-items: center;
-    width: 100px; /******************************/
+    width: 100px;
     background-color: white;
     border-radius: 2px;
 }
@@ -427,7 +445,51 @@ input {
 
 /************************************************************/
 
-/*Thin window desktop option (computer side window)*/
+/*Wide window laptop*/
+#phoneCluesBucket {
+    position: relative;
+    width: 100%;
+    top: 90dvw;
+    z-index: 99;
+    background-color: aquamarine;
+}
+#phoneClueFeature {
+    display: none;
+}
+.keyboard {
+    visibility: hidden;
+    width: 100%;
+}
+
+/*Wide window touch screen layout (e.g. tablet)*/
+@media only screen and (pointer: coarse) and (min-width: 500px) {
+    
+    /*Permanent*/
+    #desktopBucket {
+        flex-direction: column;
+    }
+    #grid {
+        position: relative;
+        width: 100%;
+    }
+    .cell {
+        font-size: 2vw;
+    }
+    .userFill {
+        font-size: 4vw;
+    }
+    .pageMainBlur {
+        height: 100%;
+    }
+
+    /*Hide wide clues bucket*/
+    .cluesBucketClass, #cluesBucket {
+        display: none;
+    }
+
+}
+
+/*Thin window layout (desktop or mobile)*/
 @media only screen and (max-width: 500px) {
 
     /*Permanent*/
@@ -448,7 +510,90 @@ input {
         height: 100%;
     }
 
-    /*Clues bucket*/
+    /*Column clues bucket*/
+    #cluesBucket {
+        position: sticky;
+        width: 100%;
+        height: 25vh;
+        bottom: 0px;
+    }
+    .cluesBucketClass {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(173, 216, 230, 0); /************/
+    }
+    .clueIndicator {
+        visibility: hidden;
+    }
+    .cluesHeader {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        z-index: 2;
+    }
+    #acrossCluesHeader {
+        left: 0px;
+        justify-content: left;
+        color: black;
+    }
+    #downCluesHeader {
+        right: 0px;
+        justify-content: right;
+        color: gray;
+    }
+    #acrossClues {
+        visibility: visible;
+    }
+    #downClues {
+        display: none;
+    }
+
+}
+
+/************************************************************/
+
+/*Thin window touch screen option (phone)
+@media only screen and (pointer: coarse) and (max-width: 500px) {
+    /*Show mobile keyboard
+    .cluesBucketClass, #cluesBucket {
+        display: none;
+    }
+    #phoneCluesBucket {
+        visibility: visible;
+        display: flex;
+    }
+}
+
+/*Wide window touch screen option (phone/touchable tablet)
+@media only screen and (pointer: coarse) and (min-width: 500px) {
+    /*Show mobile keyboard
+    .cluesBucketClass, #cluesBucket {
+        display: none;
+    }
+}*/
+
+/*Thin window desktop option (computer side window)
+@media only screen and (max-width: 500px) {
+
+    /*Permanent
+    #desktopBucket {
+        flex-direction: column;
+    }
+    #grid {
+        position: relative;
+        width: 100%;
+    }
+    .cell {
+        font-size: 2vw;
+    }
+    .userFill {
+        font-size: 4vw;
+    }
+    .pageMainBlur {
+        height: 100%;
+    }
+
+    /*Clues bucket
     #cluesBucket {
         position: sticky;
         width: 100%;
@@ -489,24 +634,21 @@ input {
 
 }
 
-/*Thin window touch screen option (phone)*/
+/*Thin window touch screen option (phone)
 @media only screen and (pointer: coarse) and (max-width: 500px) {
-    /*Show mobile keyboard*/
+    /*Show mobile keyboard
     .cluesBucketClass, #cluesBucket {
         display: none;
     }
     #phoneCluesBucket {
         visibility: visible;
         display: flex;
-        flex-direction: column;
-        position: sticky;
-        bottom: 0px;
     }
 }
 
-/*Wide window touch screen option (phone/touchable tablet)*/
+/*Wide window touch screen option (phone/touchable tablet)
 @media only screen and (pointer: coarse) and (min-width: 500px) {
-    /*Permanent*/
+    /*Permanent
     #desktopBucket {
         flex-direction: column;
     }
@@ -524,59 +666,14 @@ input {
         height: 100%;
     }
 
-    /*Show mobile keyboard*/
+    /*Show mobile keyboard
     .cluesBucketClass, #cluesBucket {
         display: none;
     }
-    #phoneCluesBucket {
-        visibility: visible;
-        display: flex;
-        flex-direction: column;
-        position: sticky;
-        bottom: 0px;
-    }
 }
-
-/*Wide window desktop*/
-/*.cluesBucketClass {
-    background-color: rgba(173, 216, 230, 0);
-}
-.clueIndicator {
-    visibility: visible;
-}
-.cluesHeader {
-    display: flex;
-    z-index: 2;
-    justify-content: left;
-    color: black;
-}
-#acrossClues {
-    visibility: visible;
-    display: block;
-}
-#downClues {
-    visibility: visible;
-    display: block;
-}*/
+*/
 
 /************************************************************/
-
-
-/*Blur page + warning message if zoom/window too small*/
-#fullPageBlur {
-    position: absolute;
-    display: flex;
-    visibility: hidden;
-    width: 100%;
-    height: 100vh;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    padding: 0 30px 0 30px;
-    z-index: 3;
-    backdrop-filter: blur(8px);
-    background-color: rgba(173, 216, 230, 0.5);
-}
 
 /*Computer full window dynamic sizing*/
 @media only screen and (min-width: 900px) {
@@ -591,6 +688,17 @@ input {
         overflow: hidden;
     }
     #fullPageBlur {
-        visibility: visible;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        place-content: center;
+        place-items: center;
+        text-align: center;
+        padding: 0 30px 0 30px;
+        z-index: 99;
+        backdrop-filter: blur(8px);
+        background-color: rgba(173, 216, 230, 0.5);
     }
 }
