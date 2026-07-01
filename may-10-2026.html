@@ -35,25 +35,27 @@
             <h3 id="puzzleAuthor">By Jaeda Woodruff / Edited by Jaeda Woodruff</h3>
         </div>
         <div id="puzzleNavBar">
-            <div id="showKeyboardButton" class="fa fa-keyboard button"></div>
-			<div id="pencilButton" class="fa fa-pencil button"></div>
-            <div id="clearButton" class="button">Clear</div>
-			<div id="revealButton" class="button">Reveal
-				<div id="revealMenu" class="navBarMenu">
-					<div id="revealLetterButton" class="checkSubButton button">Letter</div>
-					<div id="revealWordButton" class="checkSubButton button">Word</div>
-					<div id="revealGridButton" class="checkSubButton button">Grid</div>
+			<div id="timer" class="button">00:00</div>
+			<div id="puzzleNavBarButtons">
+				<div id="showKeyboardButton" class="fa fa-keyboard button iconButton"></div>
+				<div id="pencilButton" class="fa fa-pencil button iconButton"></div>
+				<div id="clearButton" class="button textButton">Clear</div>
+				<div id="revealButton" class="button textButton">Reveal
+					<div id="revealMenu" class="navBarMenu">
+						<div id="revealLetterButton" class="checkSubButton button">Letter</div>
+						<div id="revealWordButton" class="checkSubButton button">Word</div>
+						<div id="revealGridButton" class="checkSubButton button">Grid</div>
+					</div>
+				</div>
+				<div id="checkButton" class="button textButton">Check
+					<div id="checkMenu" class="navBarMenu">
+						<div id="checkLetterButton" class="checkSubButton button">Letter</div>
+						<div id="checkWordButton" class="checkSubButton button">Word</div>
+						<div id="checkGridButton" class="checkSubButton button">Grid</div>
+						<div id="autocheckButton" class="checkSubButton button">Auto</div>
+					</div>
 				</div>
 			</div>
-            <div id="checkButton" class="button">Check
-				<div id="checkMenu" class="navBarMenu">
-					<div id="checkLetterButton" class="checkSubButton button">Letter</div>
-					<div id="checkWordButton" class="checkSubButton button">Word</div>
-					<div id="checkGridButton" class="checkSubButton button">Grid</div>
-					<div id="autocheckButton" class="checkSubButton button">Auto</div>
-				</div>
-			</div>
-            <div id="timer" class="button">00:00</div>
         </div>
         <!--Grid and Clues-->
         <div id="pageMain">
@@ -1486,7 +1488,7 @@
                 }
 
 				// Fill cell with letter and move on
-				else if (event.key.length === 1) {
+				else if (event.key.length === 1 && !event.ctrlKey) {
 
 					var k = parseInt(activeCellID) - 1;
 
@@ -1867,7 +1869,7 @@
 					// If special
 					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
 						// If delete
-						if (allKeyboardKey.id === "delete") {
+						if (allKeyboardKey.id === "delete" || allKeyboardKey.id === "deleteAlt") {
 							// Fill cell with blank
 							document.getElementById("fill_" + activeCellID).value = "";
 							// Move back
@@ -1879,19 +1881,8 @@
 							}
 							// Handle cell click
 							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-						}
-						if (allKeyboardKey.id === "deleteAlt") {
-							// Fill cell with blank
-							document.getElementById("fill_" + activeCellID).value = "";
-							// Move back
-							if (activeDirection === "across") {
-								activeCellID = moveLeft(activeCellID);
-							}
-							else {
-								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
-							}
-							// Handle cell click
-							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							// Update userfill
+							userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
 						}
 						// If moreOptions
 						if (allKeyboardKey.id === "moreOptions") {
@@ -1920,10 +1911,11 @@
 						if (autocheckOn === true) {
 							checkGrid(answers);
 						}
+						// Update userfill
+						userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(k+1);
 					}
 
 					// Update userfill + colors
-					userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(parseInt(activeCellID));
 					userfillColors[k] = fillColor;
 					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
