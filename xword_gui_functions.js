@@ -133,12 +133,20 @@ function toggleKeyboard() {
         showDiv("phoneCluesBucket");
         document.getElementById("phoneCluesBucket").style.display = "block";
         document.getElementById("showKeyboardButton").style.backgroundColor = "lightblue";
+
+        if (window.matchMedia("(max-width: 500px)").matches) {
+            document.getElementById("cluesBucket").style.display = "none";
+        }
     }
     else {
         keyboardOn = false;
         hideDiv("phoneCluesBucket");
         document.getElementById("phoneCluesBucket").style.display = "none";
         document.getElementById("showKeyboardButton").style.backgroundColor = "white";
+
+        if (window.matchMedia("(max-width: 500px)").matches && !window.matchMedia("(pointer: coarse)").matches) {
+            document.getElementById("cluesBucket").style.display = "flex";
+        }
     }
 }
 
@@ -189,7 +197,9 @@ function handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, new
     if (!window.matchMedia("(pointer: coarse)").matches) {
         document.getElementById(activeDirection + "Clues").scrollTop = document.getElementById(activeClueBox).offsetTop;
     }
-    else {
+
+    // Update mobile cluebar if needed
+    if (document.getElementById("phoneClueFeature").style.display !== "none") {
         document.getElementById("activeClueNum").textContent = document.getElementById(activeClueBox + "_NUM").textContent + activeDirection[0].toUpperCase();
         document.getElementById("activeClueText").textContent = document.getElementById(activeClueBox + "_TEXT").textContent;
     }

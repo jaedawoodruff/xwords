@@ -118,12 +118,13 @@ input {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 0px;
 }
 #desktopBucket {
     position: relative;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    aspect-ratio: 2 / 1;
 }
 #grid {
     position: absolute;
@@ -175,7 +176,7 @@ input {
     width: 50%;
     right: 0%;
     aspect-ratio: 1 / 1;
-    background-color: white;
+    background-color: blue;
     z-index: 2;
 }
 .cluesBucketClass {
@@ -345,10 +346,10 @@ input {
 /*Keyboard formatting*/
 #phoneCluesBucket {
     display: none;
-    flex-direction: column;
     position: sticky;
-    bottom: 0px;
-    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
 }
 .keyboard {
     position: relative;
@@ -394,8 +395,8 @@ input {
     background-color: lightblue;
 }
 #phoneClueFeature {
+    display: none;
     position: relative;
-    display: flex;
     flex-direction: row;
     width: 100%;
     min-height: 50px;
@@ -443,23 +444,24 @@ input {
     background-color: lightblue;
 }
 
-/************************************************************/
-
-/*Wide window laptop*/
-#phoneCluesBucket {
-    position: relative;
-    width: 100%;
-    top: 90dvw;
-    z-index: 99;
-    background-color: aquamarine;
-}
-#phoneClueFeature {
+/*Userfill testing*/
+.pageMainBlur { /************/
     display: none;
 }
-.keyboard {
-    visibility: hidden;
-    width: 100%;
+
+.cell {
+    display: grid;
 }
+.userFill {
+    display: grid;
+    position: absolute;
+    width: 100%;
+    place-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/************************************************************/
 
 /*Wide window touch screen layout (e.g. tablet)*/
 @media only screen and (pointer: coarse) and (min-width: 500px) {
@@ -485,6 +487,11 @@ input {
     /*Hide wide clues bucket*/
     .cluesBucketClass, #cluesBucket {
         display: none;
+    }
+    
+    /*Phone clue feature on by default*/
+    #phoneClueFeature {
+        display: flex;
     }
 
 }
@@ -547,7 +554,19 @@ input {
     #downClues {
         display: none;
     }
+    
+    /*Phone clue feature on by default*/
+    #phoneClueFeature {
+        display: flex;
+    }
 
+}
+
+/*Thin window touch screen option (phone)*/
+@media only screen and (pointer: coarse) and (max-width: 500px) {
+    #cluesBucket {
+        display: none;
+    }
 }
 
 /************************************************************/
