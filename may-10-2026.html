@@ -1119,36 +1119,6 @@
 						</div>
 					</div>
 				</div>
-				<div id="ccPageMainBlur" class="pageMainBlur">
-					<div id="ccPopupBox" class="popupBox">
-						<div id="ccPopupQuestion" class="popupQuestion"></div>
-						<div id="ccButtonsBox" class="buttonsBox">
-							<div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
-							<div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
-						</div>
-					</div>
-				</div>
-				<div id="rvPageMainBlur" class="pageMainBlur">
-					<div id="rvPopupBox" class="popupBox">
-						<div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
-						<div id="rvButtonsBox" class="buttonsBox">
-							<div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
-							<div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
-						</div>
-					</div>
-				</div>
-				<div id="tmPageMainBlur" class="pageMainBlur">
-					<div id="tmPopupBox" class="popupBox">
-						<div id="tmPopupQuestion" class="popupQuestion"></div>
-						<div id="tmContinue" class="popupAnswer">Continue</div>
-					</div>
-				</div>
-				<div id="stPageMainBlur" class="pageMainBlur">
-					<div id="stPopupBox" class="popupBox">
-						<div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
-						<div id="stStart" class="popupAnswer">Begin</div>
-					</div>
-				</div>
 			</div>
 			<div id="phoneCluesBucket">
 				<div id="phoneClueFeature">
@@ -1230,6 +1200,36 @@
 						<div id="key)" class="keyboardKey">)</div>
 						<div id="deleteAlt" class="keyboardKey keyboardKeySpecial">DEL</div>
 					</div>
+				</div>
+			</div>
+			<div id="ccPageMainBlur" class="pageMainBlur">
+				<div id="ccPopupBox" class="popupBox">
+					<div id="ccPopupQuestion" class="popupQuestion"></div>
+					<div id="ccButtonsBox" class="buttonsBox">
+						<div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
+						<div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+					</div>
+				</div>
+			</div>
+			<div id="rvPageMainBlur" class="pageMainBlur">
+				<div id="rvPopupBox" class="popupBox">
+					<div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
+					<div id="rvButtonsBox" class="buttonsBox">
+						<div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
+						<div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+					</div>
+				</div>
+			</div>
+			<div id="tmPageMainBlur" class="pageMainBlur">
+				<div id="tmPopupBox" class="popupBox">
+					<div id="tmPopupQuestion" class="popupQuestion"></div>
+					<div id="tmContinue" class="popupAnswer">Continue</div>
+				</div>
+			</div>
+			<div id="stPageMainBlur" class="pageMainBlur">
+				<div id="stPopupBox" class="popupBox">
+					<div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
+					<div id="stStart" class="popupAnswer">Begin</div>
 				</div>
 			</div>
         </div>
@@ -1375,7 +1375,7 @@
 
 					// Highlight word
 					handleCellClick(allCell.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					document.getElementById("fill_" + allCell.id).focus();
+					//document.getElementById("fill_" + allCell.id).focus();
 					activeCellID = allCell.id;
 
 				})
@@ -1390,7 +1390,7 @@
 			allClueBoxes.forEach((allClueBox) => {
 				allClueBox.addEventListener("click", function() {
 					activeCellID = handleClueBoxClick(this.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				});
 			});
 
@@ -1411,7 +1411,7 @@
 						switchActiveDirection();
 						activeCellID = moveLeft(activeCellID);
 					}
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move left
@@ -1424,7 +1424,7 @@
 						switchActiveDirection();
 						activeCellID = moveRight(activeCellID);
 					}
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move up
@@ -1437,7 +1437,7 @@
 						switchActiveDirection();
 						activeCellID = moveDown(activeCellID);
 					}
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move down
@@ -1450,7 +1450,7 @@
 						switchActiveDirection();
 						activeCellID = moveUp(activeCellID);
 					}
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// If click backspace, clear cell and move back a space
@@ -1495,7 +1495,7 @@
 					// Fill cell
 					document.getElementById("fill_" + activeCellID).style.color = fillColor;
 					document.getElementById("fill_" + activeCellID).value = event.key;
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 
 					// Update userfill + colors
 					if (event.key === " ") {
@@ -1527,7 +1527,7 @@
 
 			});
 
-			// Prevent pasting input (is this needed??)
+			// Prevent pasting input
 			const allUserFills = document.querySelectorAll(".userFill");
 			allUserFills.forEach((allUserFill) => {
 				allUserFill.addEventListener("input", function(event) {
@@ -1550,7 +1550,7 @@
 				// Highlight first cell
 				firstActiveCellID = document.getElementsByClassName("cell")[0].id;
 				handleCellClick(firstActiveCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-				document.getElementById("fill_" + firstActiveCellID).focus();
+				//document.getElementById("fill_" + firstActiveCellID).focus();
 				activeCellID = firstActiveCellID;
 
             });
@@ -1744,7 +1744,7 @@
 					
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 
 				}
 
@@ -1762,7 +1762,7 @@
 
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 			});
@@ -1778,7 +1778,7 @@
 
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					document.getElementById("fill_" + activeCellID).focus();
+					//document.getElementById("fill_" + activeCellID).focus();
 				}
 				
 			});
@@ -1910,7 +1910,7 @@
 					else {
 						document.getElementById("fill_" + activeCellID).style.color = fillColor;
 						document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
-						document.getElementById("fill_" + activeCellID).focus();
+						//document.getElementById("fill_" + activeCellID).focus();
 						if (activeDirection === "across") {
 							activeCellID = moveRight(activeCellID);
 							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
@@ -1943,7 +1943,7 @@
 
 				// Highlight word
 				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-				document.getElementById("fill_" + activeCellID).focus();
+				//document.getElementById("fill_" + activeCellID).focus();
 
 			});
 			// Next word event listener (mobile)

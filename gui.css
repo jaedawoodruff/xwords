@@ -137,6 +137,7 @@ input {
 }
 .cell {
     position: relative;
+    display: grid;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -150,12 +151,15 @@ input {
 }
 .userFill {
     position: absolute;
-    display: flex;
+    display: grid;
     width: 100%;
     height: 100%;
     top: 20%;
     font-size: 2vw;
     font-family: Arial, Helvetica, sans-serif;
+    place-self: center;
+    justify-content: center;
+    text-align: center;
 }
 input {
     background-color: rgba(173, 216, 230, 0);
@@ -177,7 +181,7 @@ input {
     right: 0%;
     aspect-ratio: 1 / 1;
     background-color: blue;
-    z-index: 2;
+    z-index: 1;
 }
 .cluesBucketClass {
     position: relative;
@@ -272,12 +276,12 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
-    aspect-ratio: 2 / 1;
+    height: 100%;
     place-content: center;
     place-items: center;
     backdrop-filter: blur(8px);
     background-color: rgba(173, 216, 230, 0.5);
-    z-index: 3;
+    z-index: 4;
 }
 #stPageMainBlur {
     visibility: visible;
@@ -349,7 +353,7 @@ input {
     position: sticky;
     bottom: 0;
     width: 100%;
-    z-index: 99;
+    z-index: 2;
 }
 .keyboard {
     position: relative;
@@ -444,23 +448,6 @@ input {
     background-color: lightblue;
 }
 
-/*Userfill testing*/
-.pageMainBlur { /************/
-    display: none;
-}
-
-.cell {
-    display: grid;
-}
-.userFill {
-    display: grid;
-    position: absolute;
-    width: 100%;
-    place-self: center;
-    justify-content: center;
-    text-align: center;
-}
-
 /************************************************************/
 
 /*Wide window touch screen layout (e.g. tablet)*/
@@ -479,9 +466,6 @@ input {
     }
     .userFill {
         font-size: 4vw;
-    }
-    .pageMainBlur {
-        height: 100%;
     }
 
     /*Hide wide clues bucket*/
@@ -527,7 +511,6 @@ input {
     .cluesBucketClass {
         position: absolute;
         width: 100%;
-        background-color: rgba(173, 216, 230, 0); /************/
     }
     .clueIndicator {
         visibility: hidden;
@@ -571,129 +554,6 @@ input {
 
 /************************************************************/
 
-/*Thin window touch screen option (phone)
-@media only screen and (pointer: coarse) and (max-width: 500px) {
-    /*Show mobile keyboard
-    .cluesBucketClass, #cluesBucket {
-        display: none;
-    }
-    #phoneCluesBucket {
-        visibility: visible;
-        display: flex;
-    }
-}
-
-/*Wide window touch screen option (phone/touchable tablet)
-@media only screen and (pointer: coarse) and (min-width: 500px) {
-    /*Show mobile keyboard
-    .cluesBucketClass, #cluesBucket {
-        display: none;
-    }
-}*/
-
-/*Thin window desktop option (computer side window)
-@media only screen and (max-width: 500px) {
-
-    /*Permanent
-    #desktopBucket {
-        flex-direction: column;
-    }
-    #grid {
-        position: relative;
-        width: 100%;
-    }
-    .cell {
-        font-size: 2vw;
-    }
-    .userFill {
-        font-size: 4vw;
-    }
-    .pageMainBlur {
-        height: 100%;
-    }
-
-    /*Clues bucket
-    #cluesBucket {
-        position: sticky;
-        width: 100%;
-        height: 25vh;
-        bottom: 0px;
-    }
-    .cluesBucketClass {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(173, 216, 230, 0);
-    }
-    .clueIndicator {
-        visibility: hidden;
-    }
-    .cluesHeader {
-        display: flex;
-        flex-direction: row;
-        width: 50%;
-        z-index: 2;
-    }
-    #acrossCluesHeader {
-        left: 0px;
-        justify-content: left;
-        color: black;
-    }
-    #downCluesHeader {
-        right: 0px;
-        justify-content: right;
-        color: gray;
-    }
-    #acrossClues {
-        visibility: visible;
-    }
-    #downClues {
-        display: none;
-    }
-
-}
-
-/*Thin window touch screen option (phone)
-@media only screen and (pointer: coarse) and (max-width: 500px) {
-    /*Show mobile keyboard
-    .cluesBucketClass, #cluesBucket {
-        display: none;
-    }
-    #phoneCluesBucket {
-        visibility: visible;
-        display: flex;
-    }
-}
-
-/*Wide window touch screen option (phone/touchable tablet)
-@media only screen and (pointer: coarse) and (min-width: 500px) {
-    /*Permanent
-    #desktopBucket {
-        flex-direction: column;
-    }
-    #grid {
-        position: relative;
-        width: 100%;
-    }
-    .cell {
-        font-size: 2vw;
-    }
-    .userFill {
-        font-size: 4vw;
-    }
-    .pageMainBlur {
-        height: 100%;
-    }
-
-    /*Show mobile keyboard
-    .cluesBucketClass, #cluesBucket {
-        display: none;
-    }
-}
-*/
-
-/************************************************************/
-
 /*Computer full window dynamic sizing*/
 @media only screen and (min-width: 900px) {
     #pageNavBar, #puzzleInfo, #puzzleNavBar, #pageMain {
@@ -716,7 +576,7 @@ input {
         place-items: center;
         text-align: center;
         padding: 0 30px 0 30px;
-        z-index: 99;
+        z-index: 4;
         backdrop-filter: blur(8px);
         background-color: rgba(173, 216, 230, 0.5);
     }
