@@ -1,0 +1,90 @@
+/*Header + nav bar formatting*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+body {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    place-items: center;
+    background-color: white;
+}
+#pageHeader {
+    position: relative;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    width: 100%;
+    padding: 8px 0 8px 0;
+    background-color: white;
+}
+#pageTitle {
+    position: relative;
+    display: flex;
+    font-family: 'Fjalla One';
+    font-weight: lighter;
+    font-size: clamp(10px, 20vw, 70px);
+    background-color: white;
+}
+#pageNavBar {
+    position: relative;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    height: 50px;
+    width: 90%;
+    border: solid gray;
+    border-width: 1px 0 1px 0;
+    font-family: Helvetica, sans-serif;
+    background-color: white;
+}
+
+#pageMain {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 50vw;
+    width: 90%;
+    height: auto;
+    top: 10px;
+    place-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+#aboutText {
+    position: relative;
+    width: 90%;
+    padding: 10% 10%;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+    color: black;
+}
+
+/*Button formatting*/
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    display: block;
+}
+.button {
+    user-select: none;
+    position: relative;
+    place-content: center;
+    height: 100%;
+    padding: 0 10px 0 10px;
+}
+.button:hover {
+    background-color: lightgray;
+}
+.button:active {
+    background-color: lightblue;
+}

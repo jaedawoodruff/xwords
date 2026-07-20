@@ -90,62 +90,83 @@
 </html>
 <!--
 
-// MISSION 14: DUST BUNNIES II
+// MISSION 16: DUST BUNNIES
 
-// Thin screen no touch (laptop side window)
-// Wide screen no touch (laptop)
-// Thin screen mobile (phone)
-// Wide screen mobile (ipad/touch screen laptop)
+// Mobile update the other font sizes (use more vw?)(for ipad look!)
+// Start with cell 1 highlighted already (computer, mobile, all browsers etc) (does it do this already?)
+// Reveal grid black cells should be blank not period???
 
-// DONE: Now show keyboard only if touch is available (not size based)
-// Hm now ipad option? (if touchscreen AND wider than x)
-// Now make this stuff NOT visible if there's no touch screen? OR force you to use a button if you want it?
-// Add simple button/toggle to show/hide keyboard
+// MISSION 17: WORDS OF AFFIRMATION
 
-// Now redo keyboard sizing to match ios default/accessibility standards/be more useful??
-// Change menu keys from hover to click (if touch available) >> then second click turns it off
-// Hm fix the taps??
-// Update from px to em (all)?
-// Revisit do we actually need full page blur if the width is too small to type?
-// Revisit zooms
-// Redo css as mobile first
-// Now test on actual phone
-// Now test on actual ipad
-// If someone tries to access website on mobile (touchscreen-only device?) just send message saying "mobile (phones/tablets) website under construction. use computer to play??
+// Add completion "yay you did it" popup with your final time (only check IF userfill string is full AND matches answers string exactly)
+// If userfill string is complete but does NOT match answer key, add popup saying "rats! not quite"
+// If open finished puzzle, have "you did it + time" popup show automatically
 
-// Fill in the about page so it's not blank >> update ipynb too, css as needed
-// Add completion "yay you did it" popup with your final time (only check IF userfill string is full AND matches answers string exactly) >> update ipynb too, css as needed
-// Skip filled cells?
-// In python script make sure to add a warning function for if the date has already been used so we're not accidentally overwriting sql tables
-// Match css of index.html to the daily page (e.g. GOOD WORD header is diff sizes rn??)
+// MISSION 18: B(R)OWSER TESTS
 
-// Add checkmarks to index.html based on whether the puzzle is completed?
+// Firefox: Don't see clear reveal or check, but when you command F it does say it's there on the page. Just not showing.
+// Chrome: Word bank is hiding other options
+// Make list of major browsers by usage rates (edge, chrome, firefox, safari, duckduckgo, etc?)
+// Note anything weird on any of these browsers?
+// Fix + repeat tests as needed
+// Add warning message? Recommended browsers = xyz. This is not a recommended browser and bugs may be present? But try if you dare...
 
-// Find unused vars, orphaned css descriptors, etc and clean up
-// Renumber code sections
+// MISSION 19: MOBILE TESTS
+
+// Upload to github anew...
+// Revisit zooms (does page look ok at diff zoom levels on ipad? phone? comp?)
+// Computer full test (zoom, keyboard, buttons, reload userfill, change orientation)
+// Phone full test (zoom, keyboard, buttons, reload userfill, change orientation)
+// Ipad full test (zoom, keyboard, buttons, reload userfill, change orientation)
+// Touchscreen computer full test??? (zoom, keyboard, buttons, reload userfill, change orientation) >> does keyboard come up automatically? shouldnt
+
+// MISSION 20: NEWFANGLED IPYNB!
+
+// Update ipynb to match the new may-10-2026.html template :)
+// Add warning function + autopause for if the date, puzzle, or filepath has already been published before! So we're not overwriting anything by accident.
+// Add warning for if the clue is really long and will show up weird with the keyboard cluebar (depends on result above >> ok if clue is long the regular cluebox will be fine. but DO need an error if a single word is super long eg supercalifragilisticexpialoidoceious)
+// Now reupload the other test files! And make sure they work!
+// Draft out a github publishing workflow (run xword_publisher.py but through the terminal?) (about.html, index.html will be updated. month-DD-YYYY.html will be new but the old ones will remain as is. css and js files will stay the same.)(source: https://pieriantraining.com/using-github-with-python-a-stepbystep-guide/)
+
+// MISSION 21: PERFORMANCE...
 
 // Omg check ctrl+i issues tab for ideas! eg diff browser issues
 // Look up basic performance tests for js/html/css
 // Run performance tests
 // List areas of max potential for performance improvements
 // Why github deployments takng so long?
-// Fix performance AOMP
+// Fix performance AOMP: https://dev.to/alexeybashkirov/10-proven-ways-to-improve-javascript-performance-in-the-browser-59p0
 
-// Test css and functionality in all different browsers (edge, chrome, firefox, safari, duckduckgo)
-// Note anything weird on any of these browsers?
-// Fix + repeat tests as needed
-// Add warning message? Recommended browsers = xyz. This is not a recommended browser and bugs may be present?
+// Stress test performance! How much memory is this taking? Can I have other tabs/apps open?
+// Stress test make sure nobody can copy paste code into the input and screw things up! To test this write my own bug and defend against it !!
 
-// Now send to carrie mira ally jeff mom dad >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small?
-// Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
+// Check is user able to manually update their userfill string w malware by going to localStorage?
+// Check does my userdata save even if i shut down + restart my computer? Clear my safari history?
+// Check does userdata save if I update the code in github? (ideally it should...)
+// Check does pasting change the userfill?
 
-// MISSION 15: MINIS
+// MISSION 22: MINIS
 
 // Sketch layout for minis (maxi vs mini tab? maxi vs mini html structure? no names for minis? rename all puzzles tab to be minis tab? reformat index tab to be rows of 5?)
 // Save desktop only user data 15x15 version of all scripts to github branch
 // Reword LIVE scripts to focus only on minis (html x3, css x2, js, ipynb) (css dynamic to grid size? as opposed to hardcoded? or no?)
 // Test xword_publisher.ipynb with real minis x5! x10! x15!
-// Make sure ipynb script is updated to include the localstorage things
+// Make sure ipynb script is updated to include the localstorage things + everything else!
 // Now re-upload all my xword_gui files so all the changes transfer to github!
+
+// MISSION 23: POLISH THEM LOUBITINS
+
+// Use descriptive html instead of just divs (for accessibility)
+// Go back and clean up the z-indexes to the correct layer orders!
+// Clean up /***************************/ lines
+// Clean up css background-colors (only use AS NEEDED)
+// Clean up css competing refs/redundant lines!
+// Standardize between css and js css commands, ONLY keep in js if absolutely necessary!!
+// Find unused vars, orphaned css descriptors, etc and clean up
+// Renumber code sections
+// Clean up post pitch notes
+
+// Now send to carrie mira ally jeff mom dad >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small?
+// Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
 
 -->
