@@ -448,8 +448,14 @@ function checkCell(activeCellID, answers) {
     }
     // Mark correct cells
     else {
-        document.getElementById("fill_" + activeCellID).style.color = "darkblue";
-        userfillColors[i] = "darkblue";
+        if (document.getElementById(activeCellID).classList[0] === "blackCell") {
+            document.getElementById("fill_" + activeCellID).style.color = "black";
+            userfillColors[i] = "black";
+        }
+        else {
+            document.getElementById("fill_" + activeCellID).style.color = "darkblue";
+            userfillColors[i] = "darkblue";
+        }
     }
 
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
@@ -494,14 +500,24 @@ function revealCell(activeCellID, answers, userfill, puzzleUserfillID) {
 
     // Fill cell with correct answer
     document.getElementById("fill_" + activeCellID).value = correctLetter;
-    document.getElementById("fill_" + activeCellID).style.color = "darkblue";
+    if (document.getElementById(activeCellID).classList[0] === "blackCell") {
+        document.getElementById("fill_" + activeCellID).style.color = "black";
+    }
+    else {
+        document.getElementById("fill_" + activeCellID).style.color = "darkblue";
+    }
 
     // Update userfill
     userfill = userfill.substring(0,j) + correctLetter + userfill.substring(parseInt(activeCellID));
     localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
     
     // Update userfill colors
-    userfillColors[j] = "darkblue";
+    if (document.getElementById(activeCellID).classList[0] === "blackCell") {
+        userfillColors[j] = "black";
+    }
+    else {
+        userfillColors[j] = "darkblue";
+    }
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 
     return [userfill, userfillColors];

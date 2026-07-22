@@ -7,7 +7,8 @@
 }
 a {
     text-decoration: none;
-    color:}
+    color: black;
+}
 body {
     position: absolute;
     display: flex;
@@ -83,10 +84,10 @@ input {
 }
 #puzzleNavBarButtons {
     position: relative;
-    right: 0px;
+    right: 0;
     display: flex;
     flex-direction: row;
-    height: 40px;
+    height: 100%;
     justify-content: right;
     margin-left: auto;
 }
@@ -95,20 +96,18 @@ input {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 39px;
+    top: calc(100% - 1px);
     border: 1px solid gray;
     z-index: 3;
     background-color: white;
 }
 #checkMenu {
-    right: 0px;
-    height: 148px;
-    width: 62px;
+    right: 0;
+    width: 100%;
 }
 #revealMenu {
-    right: 0px;
-    height: 111px;
-    width: 65px;
+    right: 0;
+    width: 100%;
 }
 
 /*Main grid formatting*/
@@ -177,7 +176,7 @@ input {
     display: flex;
     flex-direction: row;
     width: 50%;
-    right: 0%;
+    right: 0;
     aspect-ratio: 1 / 1;
     background-color: blue;
     z-index: 1;
@@ -225,7 +224,7 @@ input {
     position: absolute;
     height: 100%;
     width: 10px;
-    top: 0px;
+    top: 0;
     left: 0px;
 }
 .clueNum {
@@ -263,6 +262,10 @@ input {
 .textButton {
     overflow-wrap: anywhere;
     min-width: 30px;
+}
+.checkSubButton {
+    width: 100%;
+    padding: 10px 0 10px 10px;
 }
 
 /*Popup formatting*/
@@ -451,7 +454,78 @@ input {
 
 /*Wide window touch screen layout (e.g. tablet)*/
 @media only screen and (pointer: coarse) and (min-width: 500px) {
-    
+
+    /*Font sizes*/
+    #pageTitle {
+        font-size: clamp(10px, 20vw, 90px);
+    }
+    #puzzleInfo {
+        font-size: 18px;
+        padding: 20px 0 20px 0;
+    }
+    #puzzleTitle {
+        font-size: 26px;
+    }
+    #pageNavBar {
+        height: 60px;
+    }
+    #puzzleNavBar {
+        height: 50px;
+    }
+    .cell {
+        font-size: 2vw;
+    }
+    .userFill {
+        font-size: 4vw;
+    }
+    .button {
+        font-size: 18px;
+    }
+    .pageNavBarButtons {
+        font-size: 20px;
+    }
+    .popupBox {
+        max-width: 320px;
+        max-height: 140px;
+    }
+    .popupAnswer {
+        font-size: 22px;
+    }
+    .popupQuestion {
+        font-size: 24px;
+    }
+    #phoneClueFeature {
+        min-height: 60px;
+    }
+    #prevWord, #nextWord {
+        min-height: 60px;
+        width: 60px;
+    }
+    #activeClue {
+        padding: 20px;
+    }
+    #activeClueNum {
+        font-size: 24px;
+        padding: 0 8px 0 0;
+    }
+    #activeClueText {
+        font-size: 26px;
+    }
+    .keyboard {
+        padding: 3px;
+    }
+    .keyboardRow {
+        height: 80px;
+        gap: 3px;
+        padding-bottom: 3px;
+    }
+    .keyboardKey {
+        font-size: 20px;
+    }
+    .keyboardKeySpecial {
+        font-size: 18px;
+    }
+
     /*Permanent*/
     #desktopBucket {
         flex-direction: column;
@@ -459,12 +533,6 @@ input {
     #grid {
         position: relative;
         width: 100%;
-    }
-    .cell {
-        font-size: 2vw;
-    }
-    .userFill {
-        font-size: 4vw;
     }
 
     /*Hide wide clues bucket*/
@@ -575,7 +643,7 @@ input {
         place-items: center;
         text-align: center;
         padding: 0 30px 0 30px;
-        z-index: 4;
+        z-index: 5;
         backdrop-filter: blur(8px);
         background-color: rgba(173, 216, 230, 0.5);
     }
