@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+	<!-- Head -->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,6 +11,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville">
         <link rel="stylesheet" href="gui.css">
     </head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-YRJZENQYR4');
+	</script>
+	<!-- Body -->
     <body>
 		<style>
 			:root {
@@ -1232,6 +1243,12 @@
 					<div id="stStart" class="popupAnswer">Begin</div>
 				</div>
 			</div>
+			<div id="yayPageMainBlur" class="pageMainBlur">
+				<div id="yayPopupBox" class="popupBox">
+					<div id="yayPopupQuestion" class="popupQuestion"></div>
+					<div id="yayView" class="popupAnswer"></div>
+				</div>
+			</div>
         </div>
         <!--Scripts-->
         <script src="xword_gui_functions.js"></script>
@@ -1261,6 +1278,7 @@
 			var puzzleTimeID = "may102026_time";
 			var puzzleUserfillID = "may102026_userfill";
 			var puzzleUserfillColorsID = "may102026_userfillColors"
+			var puzzleCompletenessID = "may102026_completeness";
 			var timeToSave = null;
 			var timeToSaveSplit = null;
 			var totalSeconds = -1;
@@ -1270,6 +1288,8 @@
 			var keyboardOn = false;
 			var checkMenuOn = false;
 			var revealMenuOn = false;
+			var finalTime = null;
+			var puzzleComplete = false;
 
             // Buttons and popups
             var newSTStart = document.getElementById("stStart");
@@ -1281,6 +1301,7 @@
             var newCCPopupQuestion = document.getElementById("ccPopupQuestion");
             var newCCClear = document.getElementById("ccClear");
             var newCCCancel = document.getElementById("ccCancel");
+			var newYayView = document.getElementById("yayView");
             var newCheckButton = document.getElementById("checkButton");
             var newCheckMenu = document.getElementById("checkMenu");
             var newCheckLetterButton = document.getElementById("checkLetterButton");
@@ -1352,6 +1373,18 @@
 						document.getElementById("fill_" + i).value = userfill_i;
 					}
 					document.getElementById("fill_" + i).style.color = userfillColors_i;
+				}
+			}
+
+			// Pull puzzle completeness status from storage
+			var puzzleCompleteStored = JSON.parse(localStorage.getItem(puzzleCompletenessID));
+			if (puzzleCompleteStored !== null) {
+				puzzleComplete = puzzleCompleteStored;
+				if (puzzleComplete === true) {
+					hideDiv("stPageMainBlur");
+					showDiv("yayPageMainBlur");
+					document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + timeToSaveSplit[0] + "<b>";
+        			document.getElementById("yayView").innerHTML = "See Puzzle";
 				}
 			}
 
@@ -1455,29 +1488,31 @@
 
 				// If click backspace, clear cell and move back a space
                 else if (event.key === "Backspace") {
+					if (puzzleComplete === false) {
 
-                    // Fill cell with blank
-                    document.getElementById("fill_" + activeCellID).value = "";
+						// Fill cell with blank
+						document.getElementById("fill_" + activeCellID).value = "";
 
-					// Update userfill
-					userfill = userfill.substring(0,parseInt(activeCellID) - 1) + "." + userfill.substring(parseInt(activeCellID));
-					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+						// Update userfill
+						userfill = userfill.substring(0,parseInt(activeCellID) - 1) + "." + userfill.substring(parseInt(activeCellID));
+						localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+						
+						// Update userfill colors
+						userfillColors[i] = "black";
+						localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+						
+						// Move back
+						if (activeDirection === "across") {
+							activeCellID = moveLeft(activeCellID);
+						}
+						else {
+							activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+						}
+
+						// Handle cell click
+						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
 					
-					// Update userfill colors
-					userfillColors[i] = "black";
-					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
-					
-                    // Move back
-                    if (activeDirection === "across") {
-                        activeCellID = moveLeft(activeCellID);
-                    }
-                    else {
-                        activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
-                    }
-
-                    // Handle cell click
-                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-
+					}
                 }
 
 				// If it's enter or tab, move to next word
@@ -1489,42 +1524,46 @@
 
 				// Fill cell with letter and move on
 				else if (event.key.length === 1 && !event.ctrlKey) {
+					if (puzzleComplete === false) {
 
-					var k = parseInt(activeCellID) - 1;
+						var k = parseInt(activeCellID) - 1;
 
-					// Fill cell
-					document.getElementById("fill_" + activeCellID).style.color = fillColor;
-					document.getElementById("fill_" + activeCellID).value = event.key;
-					//document.getElementById("fill_" + activeCellID).focus();
+						// Fill cell
+						document.getElementById("fill_" + activeCellID).style.color = fillColor;
+						document.getElementById("fill_" + activeCellID).value = event.key;
+						//document.getElementById("fill_" + activeCellID).focus();
 
-					// Update userfill + colors
-					if (event.key === " ") {
-						userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
-						userfillColors[k] = "black";
+						// Update userfill + colors
+						if (event.key === " ") {
+							userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
+							userfillColors[k] = "black";
+						}
+						else {
+							userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
+							userfillColors[k] = fillColor;
+						}
+						localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+						localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+						// Check if congrats are in order?
+						congrats(answers);
+
+						// Move on
+						if (activeDirection === "across") {
+							activeCellID = moveRight(activeCellID);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+						}
+						else {
+							activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+						}
+
+						// Autocheck if on!
+						if (autocheckOn === true) {
+							checkGrid(answers);
+						}
 					}
-					else {
-						userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
-						userfillColors[k] = fillColor;
-					}
-					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
-					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
-
-					// Move on
-					if (activeDirection === "across") {
-						activeCellID = moveRight(activeCellID);
-						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					}
-					else {
-						activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-						handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					}
-
-					// Autocheck if on!
-                    if (autocheckOn === true) {
-                        checkGrid(answers);
-                    }
 				}
-
 			});
 
 			// Prevent pasting input
@@ -1569,12 +1608,20 @@
                     hideDiv("rvButtonsBox");
                     timerPaused = true;
                 }
+				else if (timerPaused === true && puzzleComplete === true) {
+					showDiv("yayPageMainBlur");
+				}
             });
             newTMContinue.addEventListener("click", function () {
                 hideDiv("tmPageMainBlur");
                 hideDiv("tmContinue");
                 timerPaused = false;
             });
+
+			// Confirm congrats
+			newYayView.addEventListener("click", function () {
+				hideDiv("yayPageMainBlur");
+			});
 
             // Pencil button
             newPencilButton.addEventListener("click", function () {
@@ -1599,12 +1646,37 @@
 					hideDiv("rvPageMainBlur");
                     hideDiv("rvButtonsBox");
                 }
+				else if (timerPaused === true && puzzleComplete === true) {
+					// Show new popup
+                    showDiv("ccPageMainBlur");
+                    showDiv("ccButtonsBox");
+                    newCCPopupQuestion.textContent = "Are you sure? You will lose all progress on this puzzle.";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+					hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+				}
             });
             // Confirm clear
             newCCClear.addEventListener("click", function () {
+
+				// Clear grid and hide popup
                 clearGrid(n);
                 hideDiv("ccPageMainBlur");
                 hideDiv("ccButtonsBox");
+				
+				// Reset puzzle completeness vars
+				puzzleComplete = false;
+				localStorage.setItem(puzzleCompletenessID,JSON.stringify(puzzleComplete));
+				timeToSave = null;
+				timeToSaveSplit = null;
+				timerPaused = false;
+				totalSeconds = -1;
+				totalMinutes = 0;
+				totalHours = 0;
+				totalDays = 0;
+
             });
             // Confirm clear cancel
             newCCCancel.addEventListener("click", function () {
@@ -1641,7 +1713,7 @@
             // Reveal letter button
             newRevealLetterButton.addEventListener("click", function () {
 				activeRevealSelection = "Letter";
-                if (timerPaused === false) {
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
                     // Show new popup
                     showDiv("rvPageMainBlur");
                     showDiv("rvButtonsBox");
@@ -1656,7 +1728,7 @@
             // Reveal word button
             newRevealWordButton.addEventListener("click", function () {
 				activeRevealSelection = "Word";
-                if (timerPaused === false) {
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
                     // Show new popup
                     showDiv("rvPageMainBlur");
                     showDiv("rvButtonsBox");
@@ -1671,7 +1743,7 @@
             // Reveal grid button
             newRevealGridButton.addEventListener("click", function () {
 				activeRevealSelection = "Grid";
-                if (timerPaused === false) {
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
                     // Show new popup
                     showDiv("rvPageMainBlur");
                     showDiv("rvButtonsBox");
@@ -1688,12 +1760,15 @@
             newRVReveal.addEventListener("click", function () {
 				if (activeRevealSelection === "Letter") {
                 	[userfill, userfillColors] = revealCell(activeCellID, answers, userfill, puzzleUserfillID);
+					congrats(answers);
 				}
 				else if (activeRevealSelection === "Word") {
-                	revealWord(activeCellID, answers, userfill, puzzleUserfillID);
+                	[userfill, userfillColors] = revealWord(activeCellID, answers, userfill, puzzleUserfillID);
+					congrats(answers);
 				}
 				else if (activeRevealSelection === "Grid") {
-                	revealGrid(answers, puzzleUserfillID);
+                	[userfill, userfillColors] = revealGrid(answers, puzzleUserfillID);
+					congrats(answers);
 				}
                 hideDiv("rvPageMainBlur");
                 hideDiv("rvButtonsBox");
@@ -1882,19 +1957,21 @@
 					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
 						// If delete
 						if (allKeyboardKey.id === "delete" || allKeyboardKey.id === "deleteAlt") {
-							// Fill cell with blank
-							document.getElementById("fill_" + activeCellID).value = "";
-							// Move back
-							if (activeDirection === "across") {
-								activeCellID = moveLeft(activeCellID);
+							if (puzzleComplete === false) {
+								// Fill cell with blank
+								document.getElementById("fill_" + activeCellID).value = "";
+								// Move back
+								if (activeDirection === "across") {
+									activeCellID = moveLeft(activeCellID);
+								}
+								else {
+									activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+								}
+								// Handle cell click
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+								// Update userfill
+								userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
 							}
-							else {
-								activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
-							}
-							// Handle cell click
-							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-							// Update userfill
-							userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
 						}
 						// If moreOptions
 						if (allKeyboardKey.id === "moreOptions") {
@@ -1908,23 +1985,25 @@
 					}
 					// If letter
 					else {
-						document.getElementById("fill_" + activeCellID).style.color = fillColor;
-						document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
-						//document.getElementById("fill_" + activeCellID).focus();
-						if (activeDirection === "across") {
-							activeCellID = moveRight(activeCellID);
-							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+						if (puzzleComplete === false) {
+							document.getElementById("fill_" + activeCellID).style.color = fillColor;
+							document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
+							//document.getElementById("fill_" + activeCellID).focus();
+							if (activeDirection === "across") {
+								activeCellID = moveRight(activeCellID);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							else {
+								activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							// Autocheck if on!
+							if (autocheckOn === true) {
+								checkGrid(answers);
+							}
+							// Update userfill
+							userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(k+1);
 						}
-						else {
-							activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
-							handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-						}
-						// Autocheck if on!
-						if (autocheckOn === true) {
-							checkGrid(answers);
-						}
-						// Update userfill
-						userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(k+1);
 					}
 
 					// Update userfill + colors
@@ -1932,6 +2011,8 @@
 					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 					
+					// Check if congrats are in order?
+					congrats(answers);
 				});
 			});
 

@@ -288,6 +288,9 @@ input {
 #stPageMainBlur {
     visibility: visible;
 }
+#yayPageMainBlur { /*****************/
+    visibility: hidden;
+}
 .buttonsBox {
     display: flex;
     flex-direction: row;

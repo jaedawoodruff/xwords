@@ -152,6 +152,33 @@ function toggleKeyboard() {
 
 ////////////////////////////////////
 
+// Congrats message
+function congrats(answers) {
+
+    // If userfill is 100% correct
+    if (userfill === answers) {
+        // Pause timer
+        timerPaused = true;
+
+        // Show congrats message
+        showDiv("yayPageMainBlur");
+        finalTime = document.getElementById("timer").textContent;
+        document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + finalTime + "<b>";
+        document.getElementById("yayView").innerHTML = "See Puzzle";
+
+        // Mark puzzle as complete
+        puzzleComplete = true;
+    }
+    else {
+        timerPaused = false;
+        puzzleComplete = false;
+    }
+
+    // Save puzzle completeness status to local storage
+    localStorage.setItem(puzzleCompletenessID, JSON.stringify(puzzleComplete));
+
+}
+
 // Handle cell click
 function handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues) {
 
@@ -525,6 +552,8 @@ function revealCell(activeCellID, answers, userfill, puzzleUserfillID) {
 
 // Reveal current word
 function revealWord(activeCellID, answers, userfill, puzzleUserfillID) {
+
+    // Reveal current word
     activeWordLength = getActiveWordLength(activeCellID);
     if (activeDirection === "across") {
         firstLetter = document.getElementsByClassName(document.getElementById(activeCellID).classList[1])[0].id;
@@ -540,13 +569,21 @@ function revealWord(activeCellID, answers, userfill, puzzleUserfillID) {
             [userfill, userfillColors] = revealCell(endCellID, answers, userfill, puzzleUserfillID);
         }
     }
+
+    return [userfill, userfillColors];
+
 }
 
 // Reveal grid
 function revealGrid(answers, puzzleUserfillID) {
+
+    // Reveal grid
     for (let i = 1; i < (n*n) + 1; i++) {
         [userfill, userfillColors] = revealCell(i.toString(), answers, userfill, puzzleUserfillID);
     }
+
+    return [userfill, userfillColors];
+
 }
 
 /////////////////////////////////
