@@ -36,7 +36,7 @@ input {
     font-family: 'Fjalla One';
     font-weight: lighter;
     font-size: clamp(10px, 20vw, 70px);
-    background-color: white;
+    background-color: lightpink; /***********************/
 }
 #pageNavBar {
     position: relative;
