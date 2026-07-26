@@ -107,7 +107,7 @@ function clearGrid(n) {
     localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 
     // Update userfill colors
-    userfillColors = Array(n*n).fill("black");
+    userfillColors = "b".repeat(n*n);
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 
 }
@@ -471,21 +471,22 @@ function checkCell(activeCellID, answers) {
     // Mark incorrect cells
     if (!correct) {
         document.getElementById("fill_" + activeCellID).style.color = "red";
-        userfillColors[i] = "red";
+        userfillColors = userfillColors.slice(0, i) + "r" + userfillColors.slice(i + 1);
     }
     // Mark correct cells
     else {
         if (document.getElementById(activeCellID).classList[0] === "blackCell") {
             document.getElementById("fill_" + activeCellID).style.color = "black";
-            userfillColors[i] = "black";
+            userfillColors = userfillColors.slice(0, i) + "b" + userfillColors.slice(i + 1);
         }
         else {
             document.getElementById("fill_" + activeCellID).style.color = "darkblue";
-            userfillColors[i] = "darkblue";
+            userfillColors = userfillColors.slice(0, i) + "n" + userfillColors.slice(i + 1);
         }
     }
 
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+    
 
 }
 
@@ -540,10 +541,10 @@ function revealCell(activeCellID, answers, userfill, puzzleUserfillID) {
     
     // Update userfill colors
     if (document.getElementById(activeCellID).classList[0] === "blackCell") {
-        userfillColors[j] = "black";
+        userfillColors = userfillColors.slice(0, j) + "b" + userfillColors.slice(j + 1);
     }
     else {
-        userfillColors[j] = "darkblue";
+        userfillColors = userfillColors.slice(0, j) + "n" + userfillColors.slice(j + 1);
     }
     localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 

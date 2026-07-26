@@ -1165,7 +1165,7 @@
 						<div id="keyL" class="keyboardKey">L</div>
 					</div>
 					<div id="keyboardRow3" class="keyboardRow">
-						<div id="moreOptions" class="keyboardKey keyboardKeySpecial">MORE</div>
+						<div id="moreOptions"></div>
 						<div id="keyZ" class="keyboardKey">Z</div>
 						<div id="keyX" class="keyboardKey">X</div>
 						<div id="keyC" class="keyboardKey">C</div>
@@ -1174,42 +1174,6 @@
 						<div id="keyN" class="keyboardKey">N</div>
 						<div id="keyM" class="keyboardKey">M</div>
 						<div id="delete" class="keyboardKey keyboardKeySpecial">DEL</div>
-					</div>
-				</div>
-				<div id="keyboardAlt" class="keyboard">
-					<div id="keyboardAltRow1" class="keyboardRow">
-						<div id="key1" class="keyboardKey">1</div>
-						<div id="key2" class="keyboardKey">2</div>
-						<div id="key3" class="keyboardKey">3</div>
-						<div id="key4" class="keyboardKey">4</div>
-						<div id="key5" class="keyboardKey">5</div>
-						<div id="key6" class="keyboardKey">6</div>
-						<div id="key7" class="keyboardKey">7</div>
-						<div id="key8" class="keyboardKey">8</div>
-						<div id="key9" class="keyboardKey">9</div>
-						<div id="key0" class="keyboardKey">0</div>
-					</div>
-					<div id="keyboardAltRow2" class="keyboardRow">
-						<div id="key~" class="keyboardKey">~</div>
-						<div id="key!" class="keyboardKey">!</div>
-						<div id="key@" class="keyboardKey">@</div>
-						<div id="key#" class="keyboardKey">#</div>
-						<div id="key$" class="keyboardKey">$</div>
-						<div id="key%" class="keyboardKey">%</div>
-						<div id="key^" class="keyboardKey">^</div>
-						<div id="key&" class="keyboardKey">&</div>
-						<div id="key*" class="keyboardKey">*</div>
-					</div>
-					<div id="keyboardAltRow3" class="keyboardRow">
-						<div id="moreOptionsAlt" class="keyboardKey keyboardKeySpecial">MORE</div>
-						<div id="key-" class="keyboardKey">-</div>
-						<div id="key+" class="keyboardKey">+</div>
-						<div id="key=" class="keyboardKey">=</div>
-						<div id="key/" class="keyboardKey">/</div>
-						<div id="key?" class="keyboardKey">?</div>
-						<div id="key(" class="keyboardKey">(</div>
-						<div id="key)" class="keyboardKey">)</div>
-						<div id="deleteAlt" class="keyboardKey keyboardKeySpecial">DEL</div>
 					</div>
 				</div>
 			</div>
@@ -1250,7 +1214,6 @@
 				</div>
 			</div>
         </div>
-		<div>test</div>
         <!--Scripts-->
         <script src="xword_gui_functions.js"></script>
         <script>
@@ -1266,9 +1229,9 @@
             var downWordNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 25, 28, 31, 32, 33, 34, 35, 37, 41, 42, 43, 44, 48, 49, 50, 51, 52, 53, 54, 58, 59, 60];
             var downWordIDs = [1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 51, 56, 61, 62, 63, 84, 97, 98, 103, 104, 105, 109, 125, 126, 130, 131, 147, 153, 158, 159, 166, 167, 172, 193, 194, 195];
             var answers = "GOBAG.PDFS.LGBTPROVE.EYRE.IRISSCOOT.PLAN.MEEK...WAYSANDMEANSROTATEIN.SORT..EMILIA..HOLI...HAS.PROSANDCONSANNA..LOL..KNEEBITSANDBOBS.CPA...BLUE..ACTUAL..SEGA.ABWHEELSNUTSANDBOLTS...OBIT.CODA.ITALORENO.EMUS.CEDARIRKS.DELT.KREME";
-			var userfill = ".................................................................................................................................................................................................................................";
-			var userfillColors = ["black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black"];
-
+			var userfill = ".".repeat(n*n);
+			var userfillColors = "b".repeat(n*n);
+			
             // Global variables
             var activeDirection = "across";
             var activeCellID = null;
@@ -1291,6 +1254,12 @@
 			var revealMenuOn = false;
 			var finalTime = null;
 			var puzzleComplete = false;
+
+			// Whitelist formats
+			var letterNumberRegex = /^[a-zA-Z0-9]$/;
+			var timerRegex = /^[0-9_:]+$/;
+			var userfillStoredRegex = /^[a-zA-Z0-9.]+$/;
+			var userfillColorsStoredRegex = /^[rbgn]+$/;
 
             // Buttons and popups
             var newSTStart = document.getElementById("stStart");
@@ -1320,23 +1289,27 @@
             var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
             var newRVReveal = document.getElementById("rvReveal");
             var newRVCancel = document.getElementById("rvCancel");
-
 			var newShowKeyboardButton = document.getElementById("showKeyboardButton");
 			var newAcrossCluesHeader = document.getElementById("acrossCluesHeader");
 			var newDownCluesHeader = document.getElementById("downCluesHeader");
 			var newAcrossClues = document.getElementById("acrossClues");
 			var newDownClues = document.getElementById("downClues");
-			
 			var newNextWord = document.getElementById("nextWord");
 			var newPrevWord = document.getElementById("prevWord");
 			var newActiveClue = document.getElementById("activeClue");
 
             /////////////////////////////////////
 
-			// PART 1: POPULATE PROGRESS (TIMER, USERFILL, USERFILL COLOR)
+			// PART 1: VALIDATE LOCALSTORAGE + POPULATE PROGRESS (TIMER, USERFILL, USERFILL COLOR)
 
 			// Pull saved time from storage
 			timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
+			// Validate timeToSave input
+			if (!timerRegex.test(timeToSave)) {
+				timeToSave = "00:00_0_0_0_0";
+				localStorage.setItem(puzzleTimeID, JSON.stringify(timeToSave));
+			}
+
 			// If saved time exists in local storage, update start time bits and update timer value
 			if (timeToSave !== null) {
 				
@@ -1355,6 +1328,19 @@
 			// Pull saved userfill string + colors from storage, if available (else use defaults)
 			var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
 			var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+			
+			// Validate userfillStored inputs (no special chars, force correct length)
+			if (!userfillStoredRegex.test(userfillStored) || userfillStored.length !== n*n) {
+				userfillStored = ".".repeat(n*n);
+				localStorage.setItem(puzzleUserfillID, JSON.stringify(userfillStored));
+			}
+			// Validate userfillColorsStored
+			if (!userfillColorsStoredRegex.test(userfillColorsStored) || userfillColorsStored.length !== n*n) {
+				userfillColorsStored = "b".repeat(n*n);
+				localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColorsStored));
+			}
+			
+			// Update grid fill and colors based on the localStorage values
 			if (userfillStored !== null && userfillColorsStored !== null) {
 
 				// Pull stored info
@@ -1366,7 +1352,18 @@
 				var userfillColors_i = null;
 				for (let i = 1; i < (n*n)+1; i++) {
 					userfill_i = userfill[i-1];
-					userfillColors_i = userfillColors[i-1];
+					if (userfillColors[i-1] === "r") {
+						userfillColors_i = "red";
+					}
+					else if (userfillColors[i-1] === "n") {
+						userfillColors_i = "darkblue";
+					}
+					else if (userfillColors[i-1] === "g") {
+						userfillColors_i = "gray";
+					}
+					else {
+						userfillColors_i = "black";
+					}
 					if (userfill_i === ".") {
 						document.getElementById("fill_" + i).value = "";
 					}
@@ -1378,20 +1375,39 @@
 			}
 
 			// Pull puzzle completeness status from storage
-			var puzzleCompleteStored = JSON.parse(localStorage.getItem(puzzleCompletenessID));
-			if (puzzleCompleteStored !== null) {
-				puzzleComplete = puzzleCompleteStored;
-				if (puzzleComplete === true) {
-					hideDiv("stPageMainBlur");
-					showDiv("yayPageMainBlur");
-					document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + timeToSaveSplit[0] + "<b>";
-        			document.getElementById("yayView").innerHTML = "See Puzzle";
-				}
+			var puzzleCompleteStored = localStorage.getItem(puzzleCompletenessID);
+			if (puzzleCompleteStored !== "true" && puzzleCompleteStored !== "false") {
+				puzzleComplete = false;
+				localStorage.setItem(puzzleCompletenessID, puzzleComplete);
+			}
+			puzzleCompleteStored = JSON.parse(localStorage.getItem(puzzleCompletenessID));
+			puzzleComplete = puzzleCompleteStored;
+			if (puzzleCompleteStored === true) {
+				hideDiv("stPageMainBlur");
+				showDiv("yayPageMainBlur");
+				document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + timeToSaveSplit[0] + "<b>";
+        		document.getElementById("yayView").innerHTML = "See Puzzle";
 			}
 
 			// Start timer
 			var timerBucket = setInterval(incrementTimer, 1000, puzzleTimeID);
 			incrementTimer(puzzleTimeID);
+
+			// Pause timer if page not visible
+			document.addEventListener("visibilitychange", function() {
+				if (document.hidden) {
+					// Show new popup
+                    showDiv("tmPageMainBlur");
+                    showDiv("tmContinue");
+                    newTMPopupQuestion.textContent = "Timer paused. Want to continue?";
+                    // Hide old popups
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+					hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                    timerPaused = true;
+				}
+			});
 
 			/////////////////////////////////////
 
@@ -1409,7 +1425,6 @@
 
 					// Highlight word
 					handleCellClick(allCell.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					//document.getElementById("fill_" + allCell.id).focus();
 					activeCellID = allCell.id;
 
 				})
@@ -1424,7 +1439,6 @@
 			allClueBoxes.forEach((allClueBox) => {
 				allClueBox.addEventListener("click", function() {
 					activeCellID = handleClueBoxClick(this.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					//document.getElementById("fill_" + activeCellID).focus();
 				});
 			});
 
@@ -1445,7 +1459,6 @@
 						switchActiveDirection();
 						activeCellID = moveLeft(activeCellID);
 					}
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move left
@@ -1458,7 +1471,6 @@
 						switchActiveDirection();
 						activeCellID = moveRight(activeCellID);
 					}
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move up
@@ -1471,7 +1483,6 @@
 						switchActiveDirection();
 						activeCellID = moveDown(activeCellID);
 					}
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// Move down
@@ -1484,7 +1495,6 @@
 						switchActiveDirection();
 						activeCellID = moveUp(activeCellID);
 					}
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 				// If click backspace, clear cell and move back a space
@@ -1499,7 +1509,7 @@
 						localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 						
 						// Update userfill colors
-						userfillColors[i] = "black";
+						userfillColors = userfillColors.slice(0, i) + "b" + userfillColors.slice(i + 1);
 						localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 						
 						// Move back
@@ -1524,7 +1534,7 @@
                 }
 
 				// Fill cell with letter and move on
-				else if (event.key.length === 1 && !event.ctrlKey) {
+				else if (event.key.length === 1 && !event.ctrlKey && letterNumberRegex.test(event.key)) {
 					if (puzzleComplete === false) {
 
 						var k = parseInt(activeCellID) - 1;
@@ -1532,16 +1542,26 @@
 						// Fill cell
 						document.getElementById("fill_" + activeCellID).style.color = fillColor;
 						document.getElementById("fill_" + activeCellID).value = event.key;
-						//document.getElementById("fill_" + activeCellID).focus();
 
 						// Update userfill + colors
 						if (event.key === " ") {
 							userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
-							userfillColors[k] = "black";
+							userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
 						}
 						else {
 							userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
-							userfillColors[k] = fillColor;
+							if (fillColor === "red") {
+								userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+							}
+							else if (fillColor === "darkblue") {
+								userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+							}
+							else if (fillColor === "gray") {
+								userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+							}
+							else {
+								userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+							}
 						}
 						localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 						localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
@@ -1590,7 +1610,6 @@
 				// Highlight first cell
 				firstActiveCellID = document.getElementsByClassName("cell")[0].id;
 				handleCellClick(firstActiveCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-				//document.getElementById("fill_" + firstActiveCellID).focus();
 				activeCellID = firstActiveCellID;
 
             });
@@ -1814,14 +1833,10 @@
 				
 				// If thin screen, update visible clues
 				else {
-
 					// Update active clue header
 					switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					//document.getElementById("fill_" + activeCellID).focus();
-
 				}
 
 			});
@@ -1838,7 +1853,6 @@
 
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 
 			});
@@ -1854,7 +1868,6 @@
 
 					// Highlight word
 					handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-					//document.getElementById("fill_" + activeCellID).focus();
 				}
 				
 			});
@@ -1957,7 +1970,7 @@
 					// If special
 					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
 						// If delete
-						if (allKeyboardKey.id === "delete" || allKeyboardKey.id === "deleteAlt") {
+						if (allKeyboardKey.id === "delete") {
 							if (puzzleComplete === false) {
 								// Fill cell with blank
 								document.getElementById("fill_" + activeCellID).value = "";
@@ -1974,22 +1987,12 @@
 								userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
 							}
 						}
-						// If moreOptions
-						if (allKeyboardKey.id === "moreOptions") {
-							document.getElementById("keyboardMain").style.display = "none";
-							document.getElementById("keyboardAlt").style.display = "flex";
-						}
-						if (allKeyboardKey.id === "moreOptionsAlt") {
-							document.getElementById("keyboardMain").style.display = "flex";
-							document.getElementById("keyboardAlt").style.display = "none";
-						}
 					}
 					// If letter
 					else {
 						if (puzzleComplete === false) {
 							document.getElementById("fill_" + activeCellID).style.color = fillColor;
 							document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
-							//document.getElementById("fill_" + activeCellID).focus();
 							if (activeDirection === "across") {
 								activeCellID = moveRight(activeCellID);
 								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
@@ -2008,7 +2011,18 @@
 					}
 
 					// Update userfill + colors
-					userfillColors[k] = fillColor;
+					if (fillColor === "red") {
+						userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "darkblue") {
+						userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "gray") {
+						userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+					}
+					else {
+						userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+					}
 					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
 					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
 					
@@ -2025,7 +2039,6 @@
 
 				// Highlight word
 				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
-				//document.getElementById("fill_" + activeCellID).focus();
 
 			});
 			// Next word event listener (mobile)

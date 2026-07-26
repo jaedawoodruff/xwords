@@ -33,10 +33,10 @@ input {
 #pageTitle {
     position: relative;
     display: flex;
-    font-family: 'Fjalla One';
+    font-family: 'Fjalla One', 'Times New Roman', serif;
     font-weight: lighter;
     font-size: clamp(10px, 20vw, 70px);
-    background-color: lightpink; /***********************/
+    background-color: white;
 }
 #pageNavBar {
     position: relative;
@@ -56,7 +56,7 @@ input {
     flex-direction: column;
     width: 90%;
     gap: 3px;
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 12px;
     color: grey;
     padding: 10px 0 10px 0;
@@ -240,7 +240,7 @@ input {
 .clueText {
     position: relative;
     width: calc(100% - 30px);
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 14px;
 }
 
@@ -288,7 +288,7 @@ input {
 #stPageMainBlur {
     visibility: visible;
 }
-#yayPageMainBlur { /*****************/
+#yayPageMainBlur {
     visibility: hidden;
 }
 .buttonsBox {
@@ -306,28 +306,36 @@ input {
     flex-direction: column;
     width: 50%;
     max-width: 300px;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    /*
+    width: 50%;
+    max-width: 300px;
     height: 50%;
     max-height: 120px;
     place-items: center;
-    background-color: white;
-    border-radius: 20px;
+    */
 }
 .popupQuestion {
     position: relative;
-    min-height: 60%;
-    padding: 1dvh;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     place-content: center;
+    place-items: center;
+    text-align: center;
+    height: 60%;
+    padding: 2dvh;
 }
 .popupAnswer {
     position: relative;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 40%;
-    padding: 1dvh;
-    place-items: center;
     place-content: center;
+    place-items: center;
+    text-align: center;
+    height: 40%;
+    padding: 2dvh;
     border-radius: 0 0 20px 20px;
     border-top: 1px solid gray;
     font-family: Helvetica, sans-serif;
@@ -370,9 +378,9 @@ input {
     font-family: Arial, Helvetica, sans-serif;
     background-color: whitesmoke;
 }
-#keyboardAlt {
+/*#keyboardAlt {
     display: none;
-}
+}*/
 .keyboardRow {
     position: relative;
     display: flex;
@@ -400,7 +408,18 @@ input {
     font-size: 9px;
     background-color: lightgray;
 }
-#delete:active, #moreOptions:active, .keyboardKey:active {
+#moreOptions {
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    background-color: lightgray;
+    border-radius: 2px;
+}
+#delete:active, /*#moreOptions:active,*/ .keyboardKey:active {
     background-color: lightblue;
 }
 #phoneClueFeature {
@@ -445,7 +464,7 @@ input {
     width: calc(100% - 30px);
     justify-content: left;
     align-content: center;
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 18px;
 }
@@ -489,7 +508,6 @@ input {
     }
     .popupBox {
         max-width: 320px;
-        max-height: 140px;
     }
     .popupAnswer {
         font-size: 22px;
