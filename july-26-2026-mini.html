@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<!-- Head -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+        <meta name="description" content="Play the daily crossword!">
+        <title id="tabTitle">Monday Mini, July 26, 2026</title>
+		<link rel="icon" href="favicon1.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville">
+        <link rel="stylesheet" href="gui.css">
+    </head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-YRJZENQYR4');
+	</script>
+    <!-- Body -->
+    <body>
+        <style>
+            :root {
+                --n: 5;
+            }
+            #grid {
+                grid-template-columns: repeat(var(--n), 1fr);
+                grid-template-rows: repeat(var(--n), 1fr);
+            }
+            .cell {
+                font-size: calc(40cqw / var(--n));
+            }
+        </style>
+        <!--Header and Nav Bars-->
+        <div id="fullPageBlur">Please adjust window size or zoom level to play.</div>
+        <div id="pageHeader">
+            <h1 id="pageTitle">Good Word</h1>
+        </div>
+        <div id="pageNavBar" class="navBar">
+            <a id="minisHomeButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/index.html">Minis</a>
+            <a id="maxisHomeButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/15x15-puzzles.html">15x15</a>
+            <a id="aboutButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/about.html">About</a>
+        </div>
+        <div id="puzzleInfo">
+            <h2 id="puzzleTitle">The Monday Mini</h2>
+            <h3 id="puzzleDate">Monday, July 26, 2026</h3>
+            <h3 id="puzzleAuthor">By Jaeda Woodruff / Edited by Jaeda Woodruff</h3>
+        </div>
+        <div id="puzzleNavBar" class="navBar">
+            <div id="timer" class="button">00:00</div>
+            <div id="puzzleNavBarButtons">
+                <div id="showKeyboardButton" class="fa fa-keyboard button"></div>
+                <div id="pencilButton" class="fa fa-pencil button"></div>
+                <div id="clearButton" class="button textButton">Clear</div>
+                <div id="revealButton" class="button textButton">Reveal
+                    <div id="revealMenu" class="navBarMenu">
+                        <div id="revealLetterButton" class="checkSubButton button">Letter</div>
+                        <div id="revealWordButton" class="checkSubButton button">Word</div>
+                        <div id="revealGridButton" class="checkSubButton button">Grid</div>
+                    </div>
+                </div>
+                <div id="checkButton" class="button textButton">Check
+                    <div id="checkMenu" class="navBarMenu">
+                        <div id="checkLetterButton" class="checkSubButton button">Letter</div>
+                        <div id="checkWordButton" class="checkSubButton button">Word</div>
+                        <div id="checkGridButton" class="checkSubButton button">Grid</div>
+                        <div id="autocheckButton" class="checkSubButton button">Auto</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Grid and Clues-->
+        <div id="pageMain">
+            <div id="desktopBucket">
+                <div id="grid">
+					<div id="1" class="blackCell">
+						<input id="fill_1" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="2" class="cell 1across 1down">1
+						<input id="fill_2" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="3" class="cell 1across 2down">2
+						<input id="fill_3" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="4" class="cell 1across 3down">3
+						<input id="fill_4" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="5" class="cell 1across 4down">4
+						<input id="fill_5" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="6" class="cell 5across 5down">5
+						<input id="fill_6" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="7" class="cell 5across 1down">
+						<input id="fill_7" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="8" class="cell 5across 2down">
+						<input id="fill_8" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="9" class="cell 5across 3down">
+						<input id="fill_9" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="10" class="cell 5across 4down">
+						<input id="fill_10" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="11" class="cell 6across 5down">6
+						<input id="fill_11" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="12" class="cell 6across 1down">
+						<input id="fill_12" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="13" class="cell 6across 2down">
+						<input id="fill_13" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="14" class="cell 6across 3down">
+						<input id="fill_14" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="15" class="cell 6across 4down">
+						<input id="fill_15" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="16" class="cell 7across 5down">7
+						<input id="fill_16" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="17" class="cell 7across 1down">
+						<input id="fill_17" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="18" class="cell 7across 2down">
+						<input id="fill_18" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="19" class="cell 7across 3down">
+						<input id="fill_19" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="20" class="cell 7across 4down">
+						<input id="fill_20" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="21" class="cell 8across 5down">8
+						<input id="fill_21" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="22" class="cell 8across 1down">
+						<input id="fill_22" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="23" class="cell 8across 2down">
+						<input id="fill_23" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="24" class="cell 8across 3down">
+						<input id="fill_24" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="25" class="blackCell">
+						<input id="fill_25" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+                </div>
+                <div id="cluesBucket">
+                    <div id="acrossCluesBucket" class="cluesBucketClass">
+                        <div id="acrossCluesHeader" class="cluesHeader">Across</div>
+                        <div id="acrossClues" class="clues">
+							<div id="1acrossClue" class="clueBox acrossClueBox">
+								<div id="1acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="1acrossClue_NUM" class="clueNum">1</div>
+								<div id="1acrossClue_TEXT" class="clueText">Capital of France?</div>
+							</div>
+							<div id="5acrossClue" class="clueBox acrossClueBox">
+								<div id="5acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="5acrossClue_NUM" class="clueNum">5</div>
+								<div id="5acrossClue_TEXT" class="clueText">Muscle/bone connector</div>
+							</div>
+							<div id="6acrossClue" class="clueBox acrossClueBox">
+								<div id="6acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="6acrossClue_NUM" class="clueNum">6</div>
+								<div id="6acrossClue_TEXT" class="clueText">Café additive</div>
+							</div>
+							<div id="7acrossClue" class="clueBox acrossClueBox">
+								<div id="7acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="7acrossClue_NUM" class="clueNum">7</div>
+								<div id="7acrossClue_TEXT" class="clueText">Like a smooth-running machine</div>
+							</div>
+							<div id="8acrossClue" class="clueBox acrossClueBox">
+								<div id="8acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="8acrossClue_NUM" class="clueNum">8</div>
+								<div id="8acrossClue_TEXT" class="clueText">"Dinosaurs in the Hood," e.g.</div>
+							</div>
+                        </div>
+                    </div>
+                    <div id="downCluesBucket" class="cluesBucketClass">
+                        <div id="downCluesHeader" class="cluesHeader">Down</div>
+                        <div id="downClues" class="clues">
+							<div id="1downClue" class="clueBox downClueBox">
+								<div id="1downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="1downClue_NUM" class="clueNum">1</div>
+								<div id="1downClue_TEXT" class="clueText">MacDonald's jingle?</div>
+							</div>
+							<div id="2downClue" class="clueBox downClueBox">
+								<div id="2downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="2downClue_NUM" class="clueNum">2</div>
+								<div id="2downClue_TEXT" class="clueText">Scar, to Simba</div>
+							</div>
+							<div id="3downClue" class="clueBox downClueBox">
+								<div id="3downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="3downClue_NUM" class="clueNum">3</div>
+								<div id="3downClue_TEXT" class="clueText">Mend a dress, maybe</div>
+							</div>
+							<div id="4downClue" class="clueBox downClueBox">
+								<div id="4downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="4downClue_NUM" class="clueNum">4</div>
+								<div id="4downClue_TEXT" class="clueText">Wasn't square</div>
+							</div>
+							<div id="5downClue" class="clueBox downClueBox">
+								<div id="5downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="5downClue_NUM" class="clueNum">5</div>
+								<div id="5downClue_TEXT" class="clueText">Sty stuff</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="phoneCluesBucket">
+                <div id="phoneClueFeature">
+                    <div id="prevWord" class="fa-solid fa-angle-left button"></div>
+                    <div id="activeClue" class="button">
+                        <div id="activeClueNum">1A</div>
+                        <div id="activeClueText">Capital of France?</div>
+                    </div>
+                    <div id="nextWord" class="fa-solid fa-angle-right button"></div>
+                </div>
+                <div id="keyboardMain" class="keyboard">
+                    <div id="keyboardRow1" class="keyboardRow">
+                        <div id="keyQ" class="keyboardKey">Q</div>
+                        <div id="keyW" class="keyboardKey">W</div>
+                        <div id="keyE" class="keyboardKey">E</div>
+                        <div id="keyR" class="keyboardKey">R</div>
+                        <div id="keyT" class="keyboardKey">T</div>
+                        <div id="keyY" class="keyboardKey">Y</div>
+                        <div id="keyU" class="keyboardKey">U</div>
+                        <div id="keyI" class="keyboardKey">I</div>
+                        <div id="keyO" class="keyboardKey">O</div>
+                        <div id="keyP" class="keyboardKey">P</div>
+                    </div>
+                    <div id="keyboardRow2" class="keyboardRow">
+                        <div id="keyA" class="keyboardKey">A</div>
+                        <div id="keyS" class="keyboardKey">S</div>
+                        <div id="keyD" class="keyboardKey">D</div>
+                        <div id="keyF" class="keyboardKey">F</div>
+                        <div id="keyG" class="keyboardKey">G</div>
+                        <div id="keyH" class="keyboardKey">H</div>
+                        <div id="keyJ" class="keyboardKey">J</div>
+                        <div id="keyK" class="keyboardKey">K</div>
+                        <div id="keyL" class="keyboardKey">L</div>
+                    </div>
+                    <div id="keyboardRow3" class="keyboardRow">
+                        <div id="moreOptions" class="keyboardKey keyboardKeySpecial"></div>
+                        <div id="keyZ" class="keyboardKey">Z</div>
+                        <div id="keyX" class="keyboardKey">X</div>
+                        <div id="keyC" class="keyboardKey">C</div>
+                        <div id="keyV" class="keyboardKey">V</div>
+                        <div id="keyB" class="keyboardKey">B</div>
+                        <div id="keyN" class="keyboardKey">N</div>
+                        <div id="keyM" class="keyboardKey">M</div>
+                        <div id="delete" class="keyboardKey keyboardKeySpecial">DEL</div>
+                    </div>
+                </div>
+            </div>
+            <div id="ccPageMainBlur" class="pageMainBlur">
+                <div id="ccPopupBox" class="popupBox">
+                    <div id="ccPopupQuestion" class="popupQuestion"></div>
+                    <div id="ccButtonsBox" class="buttonsBox">
+                        <div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
+                        <div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+                    </div>
+                </div>
+            </div>
+            <div id="rvPageMainBlur" class="pageMainBlur">
+                <div id="rvPopupBox" class="popupBox">
+                    <div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
+                    <div id="rvButtonsBox" class="buttonsBox">
+                        <div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
+                        <div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+                    </div>
+                </div>
+            </div>
+            <div id="tmPageMainBlur" class="pageMainBlur">
+                <div id="tmPopupBox" class="popupBox">
+                    <div id="tmPopupQuestion" class="popupQuestion"></div>
+                    <div id="tmContinue" class="popupAnswer">Continue</div>
+                </div>
+            </div>
+            <div id="stPageMainBlur" class="pageMainBlur">
+                <div id="stPopupBox" class="popupBox">
+                    <div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
+                    <div id="stStart" class="popupAnswer">Begin</div>
+                </div>
+            </div>
+            <div id="yayPageMainBlur" class="pageMainBlur">
+                <div id="yayPopupBox" class="popupBox">
+                    <div id="yayPopupQuestion" class="popupQuestion"></div>
+                    <div id="yayView" class="popupAnswer"></div>
+                </div>
+            </div>
+        </div>
+        <!--Scripts-->
+        <script src="xword_gui_functions.js"></script>
+        <script>
+
+            // PART 0: GET ELEMENTS
+
+            // Puzzle specific variables
+            const n = 5;
+            const blackCellIDs = [1, 25];
+            const acrossClues = ['Capital of France?', 'Muscle/bone connector', 'Café additive', 'Like a smooth-running machine', '"Dinosaurs in the Hood," e.g.'];
+            const acrossWordNums = [1, 5, 6, 7, 8];
+            const downClues = ["MacDonald's jingle?", 'Scar, to Simba', 'Mend a dress, maybe', "Wasn't square", 'Sty stuff'];
+            const downWordNums = [1, 2, 3, 4, 5];
+            const downWordIDs = [2, 3, 4, 5, 6];
+            const answers = ".EUROSINEWLECHEOILEDPOEM.";
+
+            // Global variables
+            var activeDirection = "across";
+            var activeCellID = null;
+            var firstActiveCellID = null;
+            var autocheckOn = false;
+            var timerPaused = true;
+            var activeRevealSelection = null;
+            var puzzleTimeID = "july-26-2026-mini_time";
+            var puzzleUserfillID = "july-26-2026-mini_userfill";
+            var puzzleUserfillColorsID = "july-26-2026-mini_userfillColors";
+            var puzzleCompletenessID = "july-26-2026-mini_completeness";
+            var timeToSave = null;
+            var timeToSaveSplit = null;
+            var totalSeconds = -1;
+            var totalMinutes = 0;
+            var totalHours = 0;
+            var totalDays = 0;
+            var keyboardOn = false;
+            var checkMenuOn = false;
+            var revealMenuOn = false;
+            var finalTime = null;
+            var puzzleComplete = false;
+            var userfill = ".".repeat(n*n);
+            var userfillColors = "b".repeat(n*n);
+
+            // Pre-set localStorage values IF doesn't exist already
+            if (localStorage.getItem(puzzleTimeID) === null) {
+                localStorage.setItem(puzzleTimeID, JSON.stringify("00:00_0_0_0_0"));
+            }
+            if (localStorage.getItem(puzzleUserfillID) === null) {
+                localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+            }
+            if (localStorage.getItem(puzzleUserfillColorsID) === null) {
+                localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfill));
+            }
+            if (localStorage.getItem(puzzleCompletenessID) === null) {
+                localStorage.setItem(puzzleCompletenessID, JSON.stringify(puzzleComplete));
+            }
+
+            // Whitelist formats
+            var letterNumberRegex = /^[a-zA-Z0-9 ]$/;
+            var timerRegex = /^[0-9_:]+$/;
+            var userfillStoredRegex = /^[a-zA-Z0-9.]+$/;
+            var userfillColorsStoredRegex = /^[rbgn]+$/;
+
+            // Buttons and popups
+            var newSTStart = document.getElementById("stStart");
+            var newTimerButton = document.getElementById("timer");
+            var newTMPopupQuestion = document.getElementById("tmPopupQuestion");
+            var newTMContinue = document.getElementById("tmContinue");
+            var newPencilButton = document.getElementById("pencilButton");
+            var newClearButton = document.getElementById("clearButton");
+            var newCCPopupQuestion = document.getElementById("ccPopupQuestion");
+            var newCCClear = document.getElementById("ccClear");
+            var newCCCancel = document.getElementById("ccCancel");
+            var newYayView = document.getElementById("yayView");
+            var newCheckButton = document.getElementById("checkButton");
+            var newCheckMenu = document.getElementById("checkMenu");
+            var newCheckLetterButton = document.getElementById("checkLetterButton");
+            var newCheckWordButton = document.getElementById("checkWordButton");
+            var newCheckGridButton = document.getElementById("checkGridButton");
+            var newAutoCheckButton = document.getElementById("autocheckButton");
+            var newNextWord = document.getElementById("nextWord");
+            var newPrevWord = document.getElementById("prevWord");
+            var newActiveClue = document.getElementById("activeClue");
+            var newRevealButton = document.getElementById("revealButton");
+            var newRevealMenu = document.getElementById("revealMenu");
+            var newRevealLetterButton = document.getElementById("revealLetterButton");
+            var newRevealWordButton = document.getElementById("revealWordButton");
+            var newRevealGridButton = document.getElementById("revealGridButton");
+            var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
+            var newRVReveal = document.getElementById("rvReveal");
+            var newRVCancel = document.getElementById("rvCancel");
+            var newShowKeyboardButton = document.getElementById("showKeyboardButton");
+            var newAcrossCluesHeader = document.getElementById("acrossCluesHeader");
+            var newDownCluesHeader = document.getElementById("downCluesHeader");
+            var newAcrossClues = document.getElementById("acrossClues");
+            var newDownClues = document.getElementById("downClues");
+            var newNextWord = document.getElementById("nextWord");
+            var newPrevWord = document.getElementById("prevWord");
+            var newActiveClue = document.getElementById("activeClue");
+
+            // PART 1: VALIDATE LOCALSTORAGE + POPULATE PROGRESS (TIMER, USERFILL, USERFILL COLOR)
+
+            // Validate timeToSave input from localStorage
+            timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
+            if (!timerRegex.test(timeToSave)) {
+                timeToSave = "00:00_0_0_0_0";
+                localStorage.setItem(puzzleTimeID, JSON.stringify(timeToSave));
+            }
+
+            // If saved time exists in local storage, update start time bits and update timer value
+            if (timeToSave !== null) {
+                // Break saved time into useful bits
+                timeToSaveSplit = timeToSave.split("_");
+                totalSeconds = parseInt(timeToSaveSplit[1]);
+                totalMinutes = parseInt(timeToSaveSplit[2]);
+                totalHours = parseInt(timeToSaveSplit[3]);
+                totalDays = parseInt(timeToSaveSplit[4]);
+                // Update timer value
+                document.getElementById("timer").textContent = timeToSaveSplit[0];
+            }
+
+            // Pull saved userfill string + colors from storage, if available (else use defaults)
+            var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
+            var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+
+            // Validate userfillStored inputs (no special chars, force correct length)
+            if (!userfillStoredRegex.test(userfillStored) || userfillStored.length !== n*n) {
+                userfillStored = ".".repeat(n*n);
+                localStorage.setItem(puzzleUserfillID, JSON.stringify(userfillStored));
+            }
+            // Validate userfillColorsStored
+            if (!userfillColorsStoredRegex.test(userfillColorsStored) || userfillColorsStored.length !== n*n) {
+                userfillColorsStored = "b".repeat(n*n);
+                localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColorsStored));
+            }
+
+            // Update grid fill and colors based on the localStorage values
+            if (userfillStored !== null && userfillColorsStored !== null) {
+                // Pull stored info
+                userfill = userfillStored;
+                userfillColors = userfillColorsStored;
+                // Fill cells + color using userfill
+                var userfill_i = null;
+                var userfillColors_i = null;
+                for (let i = 1; i < (n*n)+1; i++) {
+                    userfill_i = userfill[i-1];
+                    if (userfillColors[i-1] === "r") {
+                        userfillColors_i = "red";
+                    }
+                    else if (userfillColors[i-1] === "n") {
+                        userfillColors_i = "darkblue";
+                    }
+                    else if (userfillColors[i-1] === "g") {
+                        userfillColors_i = "gray";
+                    }
+                    else {
+                        userfillColors_i = "black";
+                    }
+                    if (userfill_i === ".") {
+                        document.getElementById("fill_" + i).value = "";
+                    }
+                    else {
+                        document.getElementById("fill_" + i).value = userfill_i;
+                    }
+                    document.getElementById("fill_" + i).style.color = userfillColors_i;
+                }
+            }
+
+            // Pull puzzle completeness status from storage
+            var puzzleCompleteStored = localStorage.getItem(puzzleCompletenessID);
+            if (puzzleCompleteStored !== "true" && puzzleCompleteStored !== "false") {
+                puzzleComplete = false;
+                localStorage.setItem(puzzleCompletenessID, puzzleComplete);
+            }
+            puzzleCompleteStored = JSON.parse(localStorage.getItem(puzzleCompletenessID));
+            puzzleComplete = puzzleCompleteStored;
+            if (puzzleCompleteStored === true) {
+                hideDiv("stPageMainBlur");
+                showDiv("yayPageMainBlur");
+                document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + timeToSaveSplit[0] + "<b>";
+                document.getElementById("yayView").innerHTML = "See Puzzle";
+            }
+
+            // Start timer
+            var timerBucket = setInterval(incrementTimer, 1000, puzzleTimeID);
+            incrementTimer(puzzleTimeID);
+
+            // Pause timer if page not visible
+            document.addEventListener("visibilitychange", function() {
+                if (document.hidden) {
+                    // Show new popup
+                    showDiv("tmPageMainBlur");
+                    showDiv("tmContinue");
+                    newTMPopupQuestion.textContent = "Timer paused. Want to continue?";
+                    // Hide old popups
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                    timerPaused = true;
+                }
+            });
+
+            // PART 2: HANDLE CELL CLICKS
+
+            var lastActiveCellID;
+            const allCells = document.querySelectorAll(".cell");
+            allCells.forEach((allCell) => {
+                allCell.addEventListener("click", function(event) {
+                    // Switch direction + show correct clues on double click
+                    if (activeCellID === allCell.id) {
+                        switchActiveDirection();
+                    }
+                    // Highlight word
+                    handleCellClick(allCell.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    activeCellID = allCell.id;
+                })
+            });
+
+            // PART 3: HANDLE CLUEBOX CLICKS
+
+            const allClueBoxes = document.querySelectorAll(".clueBox");
+            allClueBoxes.forEach((allClueBox) => {
+                allClueBox.addEventListener("click", function() {
+                    activeCellID = handleClueBoxClick(this.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                });
+            });
+
+            // PART 4: HANDLE KEYSTROKES
+
+            // Listen for keystrokes (desktop)
+            document.addEventListener("keydown", function(event) {
+
+                // Move right
+                if (event.key === "ArrowRight") {
+                    if (activeDirection === "across") {
+                        activeCellID = moveRight(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveLeft(activeCellID);
+                    }
+                }
+
+                // Move left
+                else if (event.key === "ArrowLeft") {
+                    if (activeDirection === "across") {
+                        activeCellID = moveLeft(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveRight(activeCellID);
+                    }
+                }
+
+                // Move up
+                else if (event.key === "ArrowUp") {
+                    if (activeDirection === "down") {
+                        activeCellID = moveUp(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveDown(activeCellID);
+                    }
+                }
+
+                // Move down
+                else if (event.key === "ArrowDown") {
+                    if (activeDirection === "down") {
+                        activeCellID = moveDown(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveUp(activeCellID);
+                    }
+                }
+
+                // If click backspace, clear cell and move back a space
+                else if (event.key === "Backspace") {
+                    if (puzzleComplete === false) {
+
+                        // Fill cell with blank
+                        document.getElementById("fill_" + activeCellID).value = "";
+
+                        // Update userfill
+                        userfill = userfill.substring(0,parseInt(activeCellID) - 1) + "." + userfill.substring(parseInt(activeCellID));
+                        localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+
+                        // Update userfill colors
+                        userfillColors = userfillColors.slice(0, i) + "b" + userfillColors.slice(i + 1);
+                        localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+                        // Move back
+                        if (activeDirection === "across") {
+                            activeCellID = moveLeft(activeCellID);
+                        }
+                        else {
+                            activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+                        }
+
+                        // Handle cell click
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+
+                    }
+                }
+
+                // If it's enter or tab, move to next word
+                else if (event.key === "Enter" || event.key === "Tab") {
+                    event.preventDefault();
+                    activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+
+                // Fill cell with letter and move on
+                else if (event.key.length === 1 && !event.ctrlKey && letterNumberRegex.test(event.key)) {
+                    if (puzzleComplete === false) {
+
+                        var k = parseInt(activeCellID) - 1;
+
+                        // Fill cell
+                        document.getElementById("fill_" + activeCellID).style.color = fillColor;
+                        document.getElementById("fill_" + activeCellID).value = event.key;
+
+                        // Update userfill + colors
+                        if (event.key === " ") {
+                            userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
+                            userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+                        }
+                        else {
+                            userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
+                            if (fillColor === "red") {
+                                userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+                            }
+                            else if (fillColor === "darkblue") {
+                                userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+                            }
+                            else if (fillColor === "gray") {
+                                userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+                            }
+                            else {
+                                userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+                            }
+                        }
+                        localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+                        localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+                        // Check if congrats are in order?
+                        congrats(answers);
+
+                        // Move on
+                        if (activeDirection === "across") {
+                            activeCellID = moveRight(activeCellID);
+                            handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                        }
+                        else {
+                            activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+                            handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                        }
+
+                        // Autocheck if on!
+                        if (autocheckOn === true) {
+                            checkGrid(answers);
+                        }
+                    }
+                }
+            });
+
+            // Prevent pasting input
+            const allUserFills = document.querySelectorAll(".userFill");
+            allUserFills.forEach((allUserFill) => {
+                allUserFill.addEventListener("input", function(event) {
+                    event.preventDefault();
+                });
+            });
+
+            // PART 5: OTHER EVENT LISTENERS (ALL)
+
+            // Start puzzle popup
+            newSTStart.addEventListener("click", function () {
+                // Set in motion
+                hideDiv("stPageMainBlur");
+                hideDiv("stStart");
+                timerPaused = false;
+                // Highlight first cell
+                firstActiveCellID = document.getElementsByClassName("cell")[0].id;
+                handleCellClick(firstActiveCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                activeCellID = firstActiveCellID;
+            });
+
+            // Timer button
+            newTimerButton.addEventListener("click", function () {
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("tmPageMainBlur");
+                    showDiv("tmContinue");
+                    newTMPopupQuestion.textContent = "Timer paused. Want to continue?";
+                    // Hide old popups
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                    timerPaused = true;
+                }
+                else if (timerPaused === true && puzzleComplete === true) {
+                    showDiv("yayPageMainBlur");
+                }
+            });
+            newTMContinue.addEventListener("click", function () {
+                hideDiv("tmPageMainBlur");
+                hideDiv("tmContinue");
+                timerPaused = false;
+            });
+
+            // Confirm congrats
+            newYayView.addEventListener("click", function () {
+                hideDiv("yayPageMainBlur");
+            });
+
+            // Pencil button
+            newPencilButton.addEventListener("click", function () {
+                togglePencil();
+            });
+
+            // Show keyboard button
+            newShowKeyboardButton.addEventListener("click", function () {
+                toggleKeyboard();
+            });
+
+            // Clear button
+            newClearButton.addEventListener("click", function () {
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("ccPageMainBlur");
+                    showDiv("ccButtonsBox");
+                    newCCPopupQuestion.textContent = "Are you sure?";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                }
+                else if (timerPaused === true && puzzleComplete === true) {
+                    // Show new popup
+                    showDiv("ccPageMainBlur");
+                    showDiv("ccButtonsBox");
+                    newCCPopupQuestion.textContent = "Are you sure? You will lose all progress on this puzzle.";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                }
+            });
+            // Confirm clear
+            newCCClear.addEventListener("click", function () {
+                // Clear grid and hide popup
+                clearGrid(n);
+                hideDiv("ccPageMainBlur");
+                hideDiv("ccButtonsBox");
+                // Reset puzzle completeness vars
+                puzzleComplete = false;
+                localStorage.setItem(puzzleCompletenessID,JSON.stringify(puzzleComplete));
+                timeToSave = null;
+                timeToSaveSplit = null;
+                timerPaused = false;
+                totalSeconds = -1;
+                totalMinutes = 0;
+                totalHours = 0;
+                totalDays = 0;
+            });
+            // Confirm clear cancel
+            newCCCancel.addEventListener("click", function () {
+                hideDiv("ccPageMainBlur");
+                hideDiv("ccButtonsBox");
+            });
+
+            // Check letter
+            newCheckLetterButton.addEventListener("click", function () {
+                checkCell(activeCellID, answers);
+            });
+            // Check word
+            newCheckWordButton.addEventListener("click", function () {
+                checkWord(activeCellID, answers);
+            });
+            // Check grid
+            newCheckGridButton.addEventListener("click", function () {
+                checkGrid(answers);
+            });
+
+            // Autocheck command (click)
+            newAutoCheckButton.addEventListener("click", function () {
+                if (autocheckOn === false) {
+                    autocheckOn = true;
+                    newAutoCheckButton.style.backgroundColor = "lightblue";
+                    checkGrid(answers);
+                }
+                else {
+                    autocheckOn = false;
+                    newAutoCheckButton.style.backgroundColor = "transparent";
+                }
+            });
+
+            // Reveal letter button
+            newRevealLetterButton.addEventListener("click", function () {
+                activeRevealSelection = "Letter";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Letter";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal word button
+            newRevealWordButton.addEventListener("click", function () {
+                activeRevealSelection = "Word";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Word";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal grid button
+            newRevealGridButton.addEventListener("click", function () {
+                activeRevealSelection = "Grid";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Grid";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+
+            // Reveal letter/word/grid
+            newRVReveal.addEventListener("click", function () {
+                if (activeRevealSelection === "Letter") {
+                    [userfill, userfillColors] = revealCell(activeCellID, answers, userfill, puzzleUserfillID);
+                    congrats(answers);
+                }
+                else if (activeRevealSelection === "Word") {
+                    [userfill, userfillColors] = revealWord(activeCellID, answers, userfill, puzzleUserfillID);
+                    congrats(answers);
+                }
+                else if (activeRevealSelection === "Grid") {
+                    [userfill, userfillColors] = revealGrid(answers, puzzleUserfillID);
+                    congrats(answers);
+                }
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+            // Reveal cancel
+            newRVCancel.addEventListener("click", function () {
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+
+            // Check whether to show the default cluebucket on any resize
+            window.addEventListener("resize", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    if (keyboardOn === true) {
+                        document.getElementById("cluesBucket").style.display = "none";
+                    }
+                }
+                else if (!window.matchMedia("(pointer: coarse)").matches) {
+                    document.getElementById("cluesBucket").style.display = "flex";
+                }
+            });
+
+            // PART 6: OTHER EVENT LISTENERS (HOVER AVAILABLE)
+
+            // Update visible clue CSS on resize
+            window.addEventListener("resize", function () {
+
+                // If full screen, all visible with black text
+                if (window.matchMedia("(min-width: 500px)").matches) {
+                    // Update across clue style
+                    newAcrossCluesHeader.style.color = "black";
+                    newAcrossClues.style.display = "block";
+                    newAcrossClues.style.visibility = "visible";
+
+                    // Update down clue style
+                    newDownCluesHeader.style.color = "black";
+                    newDownClues.style.display = "block";
+                    newDownClues.style.visibility = "visible";
+                }
+
+                // If thin screen, update visible clues
+                else {
+                    // Update active clue header
+                    switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+
+            });
+
+            // Switch visible clues on click
+            newAcrossCluesHeader.addEventListener("click", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    // Update activeDirection
+                    activeDirection = "across";
+                    // Update active clue header
+                    updateClueHeaders(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+            });
+            newDownCluesHeader.addEventListener("click", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    // Update activeDirection
+                    activeDirection = "down";
+                    // Update active clue header
+                    updateClueHeaders(newDownCluesHeader, newDownClues, newAcrossCluesHeader, newAcrossClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+            });
+
+            // Add hover event listeners
+            if (window.matchMedia("(hover: hover)").matches) {
+
+                // Check button
+                newCheckButton.addEventListener("mouseenter", function () {
+                    showDiv("checkMenu");
+                });
+                newCheckButton.addEventListener("mouseleave", function () {
+                    hideDiv("checkMenu");
+                });
+                // Check menu
+                newCheckMenu.addEventListener("mouseenter", function () {
+                    showDiv("checkMenu");
+                });
+                newCheckMenu.addEventListener("mouseleave", function () {
+                    hideDiv("checkMenu");
+                });
+
+                // Autocheck command (hover)
+                newAutoCheckButton.addEventListener("mouseenter", function () {
+                    newAutoCheckButton.style.backgroundColor = "lightgray";
+                });
+                newAutoCheckButton.addEventListener("mouseleave", function () {
+                    if (autocheckOn === true) {
+                        newAutoCheckButton.style.backgroundColor = "lightblue";
+                    }
+                    else {
+                        newAutoCheckButton.style.backgroundColor = "transparent";
+                    }
+                });
+
+                // Reveal button
+                newRevealButton.addEventListener("mouseenter", function () {
+                    showDiv("revealMenu");
+                });
+                newRevealButton.addEventListener("mouseleave", function () {
+                    hideDiv("revealMenu");
+                });
+                // Reveal menu
+                newRevealMenu.addEventListener("mouseenter", function () {
+                    showDiv("revealMenu");
+                });
+                newRevealMenu.addEventListener("mouseleave", function () {
+                    hideDiv("revealMenu");
+                });
+
+            }
+
+			// PART 7: MOBILE
+
+			// If touchscreen, turn keyboard on by default
+			if (window.matchMedia("(pointer: coarse)").matches) {
+				toggleKeyboard();
+			}
+
+			// If touchscreen, show check menus via click
+			if (window.matchMedia("(any-pointer: coarse)").matches) {
+
+				// Show check menu
+				newCheckButton.addEventListener("click", function () {
+					if (!checkMenuOn) {
+						checkMenuOn = true;
+						showDiv("checkMenu");
+					}
+					else {
+						checkMenuOn = false;
+						document.getElementById("checkButton").style.backgroundColor = "white";
+						hideDiv("checkMenu");
+					}
+				});
+
+				// Show reveal menu
+				newRevealButton.addEventListener("click", function () {
+					if (!revealMenuOn) {
+						revealMenuOn = true;
+						showDiv("revealMenu");
+					}
+					else {
+						revealMenuOn = false;
+						document.getElementById("revealButton").style.backgroundColor = "white";
+						hideDiv("revealMenu");
+					}
+				});
+
+			}
+
+			// Listen for keystrokes (mobile)
+			const allKeyboardKeys = document.querySelectorAll(".keyboardKey");
+			allKeyboardKeys.forEach((allKeyboardKey) => {
+				allKeyboardKey.addEventListener("click", function() {
+
+					var k = parseInt(activeCellID) - 1;
+
+					// If special
+					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
+						// If delete
+						if (allKeyboardKey.id === "delete") {
+							if (puzzleComplete === false) {
+								// Fill cell with blank
+								document.getElementById("fill_" + activeCellID).value = "";
+								// Move back
+								if (activeDirection === "across") {
+									activeCellID = moveLeft(activeCellID);
+								}
+								else {
+									activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+								}
+								// Handle cell click
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+								// Update userfill
+								userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
+							}
+						}
+					}
+					// If letter
+					else {
+						if (puzzleComplete === false) {
+							document.getElementById("fill_" + activeCellID).style.color = fillColor;
+							document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
+							if (activeDirection === "across") {
+								activeCellID = moveRight(activeCellID);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							else {
+								activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							// Autocheck if on!
+							if (autocheckOn === true) {
+								checkGrid(answers);
+							}
+							// Update userfill
+							userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(k+1);
+						}
+					}
+
+					// Update userfill + colors
+					if (fillColor === "red") {
+						userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "darkblue") {
+						userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "gray") {
+						userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+					}
+					else {
+						userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+					}
+					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+					// Check if congrats are in order?
+					congrats(answers);
+				});
+			});
+
+			// Change direction (mobile)
+			newActiveClue.addEventListener("click", function() {
+				// Switch direction + show correct clues on double click
+				switchActiveDirection();
+				// Highlight word
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+			// Next word event listener (mobile)
+			newNextWord.addEventListener("click", function() {
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+			// Previous word event listener (mobile)
+			newPrevWord.addEventListener("click", function() {
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+
+        </script>
+    </body>
+</html>

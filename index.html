@@ -1,175 +1,120 @@
 <!DOCTYPE html>
 <html lang="en-US">
- <!-- Head -->
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Play the daily crossword!" name="description"/>
-  <title id="tabTitle">
-   Home
-  </title>
-  <link rel="icon" href="favicon1.png">
-  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville" rel="stylesheet"/>
-  <link href="index.css" rel="stylesheet"/>
- </head>
- <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
- 
-   gtag('config', 'G-YRJZENQYR4');
- </script>
- <!-- Body -->
- <body>
-  <!--Header and Nav Bars-->
-  <div id="pageHeader">
-   <h1 id="pageTitle">
-    Good Word
-   </h1>
-  </div>
-  <div id="pageNavBar">
-   <a class="button" href="https://jaedawoodruff.github.io/xwords/index.html" id="puzzleHomeButton">
-    All Puzzles
-   </a>
-   <a class="button" href="https://jaedawoodruff.github.io/xwords/about.html" id="aboutButton">
-    About
-   </a>
-  </div>
-  <!--Main page-->
-  <div id="pageMain">
-   <a href="https://jaedawoodruff.github.io/xwords/may-12-2026.html" id="todayPuzzleMainButton">
-    <div class="button" id="todayPuzzle">
-     <div id="todayPuzzleDate">
-      Tuesday May 12, 2026
-     </div>
-     <div id="todayPuzzleTitle">
-      "Prep Talk"
-     </div>
-     <div id="gridIcon">
-      <div class="blackCell">
-      </div>
-      <div class="cell">
-      </div>
-      <div class="cell">
-      </div>
-      <div class="cell">
-      </div>
-      <div class="blackCell">
-      </div>
-      <div class="cell">
-      </div>
-      <div class="cell">
-      </div>
-      <div class="blackCell">
-      </div>
-      <div class="cell">
-      </div>
-     </div>
-     <div id="todayPuzzleAuthor">
-      By Jaeda Woodruff
-     </div>
+  <!-- Head -->
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport"/>
+    <meta content="Play the daily crossword!" name="description"/>
+    <title id="tabTitle">Mini Puzzles</title>
+    <link href="favicon1.png" rel="icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville" rel="stylesheet"/>
+    <link href="mini-puzzles.css" rel="stylesheet">
+    </link>
+  </head>
+  <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-YRJZENQYR4');
+	</script>
+  <!-- Body -->
+  <body>
+    <!--Header and Nav Bars-->
+    <div id="pageHeader">
+      <h1 id="pageTitle">Good Word</h1>
     </div>
-   </a>
-   <div id="olderPuzzleBucket">
-    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/may-11-2026.html">
-     <div class="puzzleDate">
-      Monday 5/11
-     </div>
-     <div class="puzzleTitle">
-      "Zoobreak"
-     </div>
-     <div class="puzzleAuthor" new_content="By Jaeda Woodruff">
-      By Jaeda Woodruff
-     </div>
-    </a>
-    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/may-10-2026.html">
-     <div class="puzzleDate">
-      Sunday 5/10
-     </div>
-     <div class="puzzleTitle">
-      "Pros and Cons"
-     </div>
-     <div class="puzzleAuthor" new_content="By Jaeda Woodruff">
-      By Jaeda Woodruff
-     </div>
-    </a>
-   </div>
-  </div>
- </body>
+    <div class="navBar" id="pageNavBar">
+      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/index.html" id="minisHomeButton">Minis</a>
+      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/15x15-puzzles.html" id="maxisHomeButton">15x15</a>
+      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/about.html" id="aboutButton">About</a>
+    </div>
+    <!--Main page-->
+    <div id="pageMain">
+      <div id="week3Label" class="weekLabel">This Week</div>
+      <div id="week3" class="currentWeekBucket weekBucket">
+        <a id="w3p3" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-29-2026-mini.html">
+          <div id="w3p3Title" class="title currentWeekTitle">Wednesday</div>
+          <div id="w3p3Date" class="date currentWeekDate">July 29, 2026</div>
+          <div id="w3p3Grid" class="grid">
+            <div id="w3p3c1" class="blackCell"></div>
+            <div id="w3p3c2" class="cell"></div>
+            <div id="w3p3c3" class="cell"></div>
+            <div id="w3p3c4" class="blackCell"></div>
+          </div>
+          <div id="w3p3Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
+        </a>
+        <a id="w3p2" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-28-2026-mini.html">
+          <div id="w3p2Title" class="title currentWeekTitle">Tuesday</div>
+          <div id="w3p2Date" class="date currentWeekDate">July 28, 2026</div>
+          <div id="w3p2Grid" class="grid">
+            <div id="w3p2c1" class="blackCell"></div>
+            <div id="w3p2c2" class="cell"></div>
+            <div id="w3p2c3" class="cell"></div>
+            <div id="w3p2c4" class="blackCell"></div>
+          </div>
+          <div id="w3p2Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
+        </a>
+        <a id="w3p1" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-27-2026-mini.html">
+          <div id="w3p1Title" class="title currentWeekTitle">Monday</div>
+          <div id="w3p1Date" class="date currentWeekDate">July 27, 2026</div>
+          <div id="w3p1Grid" class="grid">
+            <div id="w3p1c1" class="blackCell"></div>
+            <div id="w3p1c2" class="cell"></div>
+            <div id="w3p1c3" class="cell"></div>
+            <div id="w3p1c4" class="blackCell"></div>
+          </div>
+          <div id="w3p1Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
+        </a>
+      </div>
+      <div id="week2Label" class="weekLabel">Week of July 20, 2026</div>
+      <div id="week2" class="weekBucket">
+        <a id="w2p5" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-24-2026-mini.html">
+          <div id="w2p5Title" class="title">Friday</div>
+          <div id="w2p5Date" class="date">July 24, 2026</div>
+        </a>
+        <a id="w2p4" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-23-2026-mini.html">
+          <div id="w2p4Title" class="title">Thursday</div>
+          <div id="w2p4Date" class="date">July 23, 2026</div>
+        </a>
+        <a id="w2p3" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-22-2026-mini.html">
+          <div id="w2p3Title" class="title">Wednesday</div>
+          <div id="w2p3Date" class="date">July 22, 2026</div>
+        </a>
+        <a id="w2p2" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-21-2026-mini.html">
+          <div id="w2p2Title" class="title">Tuesday</div>
+          <div id="w2p2Date" class="date">July 21, 2026</div>
+        </a>
+        <a id="w2p1" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-20-2026-mini.html">
+          <div id="w2p1Title" class="title">Monday</div>
+          <div id="w2p1Date" class="date">July 20, 2026</div>
+        </a>
+      </div>
+      <div id="week1Label" class="weekLabel">Week of July 13, 2026</div>
+      <div id="week1" class="weekBucket">
+        <a id="w1p5" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-17-2026-mini.html">
+          <div id="w1p5Title" class="title">Friday</div>
+          <div id="w1p5Date" class="date">July 17, 2026</div>
+        </a>
+        <a id="w1p4" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-16-2026-mini.html">
+          <div id="w1p4Title" class="title">Thursday</div>
+          <div id="w1p4Date" class="date">July 16, 2026</div>
+        </a>
+        <a id="w1p3" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-15-2026-mini.html">
+          <div id="w1p3Title" class="title">Wednesday</div>
+          <div id="w1p3Date" class="date">July 15, 2026</div>
+        </a>
+        <a id="w1p2" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-14-2026-mini.html">
+          <div id="w1p2Title" class="title">Tuesday</div>
+          <div id="w1p2Date" class="date">July 14, 2026</div>
+        </a>
+        <a id="w1p1" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-13-2026-mini.html">
+          <div id="w1p1Title" class="title">Monday</div>
+          <div id="w1p1Date" class="date">July 13, 2026</div>
+        </a>
+      </div>
+    </div>
+  </body>
 </html>
-
-<!--
-
-// MISSION 18: PERFORMANCE...
-
-// Way to track how many users have visited the site? (e.g. google analytics?)
-
-// Fix performance AOMP: https://dev.to/alexeybashkirov/10-proven-ways-to-improve-javascript-performance-in-the-browser-59p0
-
-// Stress test performance! How much memory is this taking? Can I have other tabs/apps open?
-// Stress test make sure nobody can copy paste code into the input and screw things up! To test this write my own bug and defend against it !!
-
-// Check is user able to manually update their userfill string w malware by going to localStorage?
-// Check does my userdata save even if i shut down + restart my computer? Clear my safari history?
-// Check does userdata save if I update the code in github? (ideally it should...)
-// Check does pasting change the userfill?
-
-// MISSION 19: MINIS
-
-// Sketch layout for minis (maxi vs mini tab? maxi vs mini html structure? no names for minis? rename all puzzles tab to be minis tab? reformat index tab to be rows of 5?)
-// Save desktop only user data 15x15 version of all scripts to github branch
-// Reword LIVE scripts to focus only on minis (html x3, css x2, js, ipynb) (css dynamic to grid size? as opposed to hardcoded? or no?)
-// Test xword_publisher.ipynb with real minis x5! x10! x15!
-// Make sure ipynb script is updated to include the localstorage things + everything else!
-// Now re-upload all my xword_gui files so all the changes transfer to github!
-
-// MISSION 20: FINAL MOBILE TESTS
-
-// Upload to github anew...
-// Revisit zooms (does page look ok at diff zoom levels on ipad? phone? comp?)
-// Touchscreen computer full test??? (zoom, keyboard, buttons, reload userfill, change orientation) >> does keyboard come up automatically? shouldnt
-
-// Make popups box height dynamic so holds all text
-// What are those blue boxes...smh
-// PAUSE timer when exit safari or exit the tab
-
-// MISSION 21: B(R)OWSER TESTS
-
-// DONE: Phone (chrome, duckduckgo)
-// Ipad ()
-// DONE: Computer thin (chrome, edge)
-// DONE: Computer wide (chrome, edge)
-
-// ALL: chrome, safari, edge, firefox, duckduckgo
-// Fix + repeat tests as needed
-// Add warning message? Recommended browsers = xyz. This is not a recommended browser and bugs may be present? But try if you dare...
-
-// MISSION 22: POLISH THEM LOUBITINS
-
-// Use descriptive html instead of just divs (for accessibility)
-// Go back and clean up the z-indexes to the correct layer orders!
-// Clean up /***************************/ lines and red dots
-// Clean up css background-colors (only use AS NEEDED)
-// Clean up css competing refs/redundant lines!
-// Standardize between css and js css commands, ONLY keep in js if absolutely necessary!!
-// Find unused vars, orphaned css descriptors, etc and clean up
-// Renumber code sections
-// Clean up post pitch notes
-
-// Final test on a bunch of browsers
-// Final update ipynb
-
-// Now send to carrie mira ally jeff mom dad >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small?
-// Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
-
-// MISSION 23: NEWFANGLED IPYNB!
-
-// Update ipynb to match the new may-10-2026.html template :)
-// Add warning function + autopause for if the date, puzzle, or filepath has already been published before! So we're not overwriting anything by accident.
-// Add warning for if the clue is really long and will show up weird with the keyboard cluebar (depends on result above >> ok if clue is long the regular cluebox will be fine. but DO need an error if a single word is super long eg supercalifragilisticexpialoidoceious)
-// Now reupload the other test files! And make sure they work!
-// Draft out a github publishing workflow (run xword_publisher.py but through the terminal?) (about.html, index.html will be updated. month-DD-YYYY.html will be new but the old ones will remain as is. css and js files will stay the same.)(source: https://pieriantraining.com/using-github-with-python-a-stepbystep-guide/)
-
--->

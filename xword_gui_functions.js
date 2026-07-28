@@ -20,6 +20,17 @@ var firstLetter = null;
 var tempID = null;
 var fillCount = 0;
 var activeClueBox = null;
+var finalDownWordClass = null;
+var finalDownWordLength = null;
+var finalDownWordFinalLetterID = null;
+var currentDownWordClass = null;
+var currentDownWordLength = null;
+var currentDownWordFinalLetterID = null;
+var nextWordNumIndex = null;
+var nextWordLength = null;
+var lastDownWordClass = null;
+var activeWordNum = null;
+var previousWordLength = null;
 
 ////////////////////////////////////
 
@@ -379,17 +390,27 @@ function moveDown(activeCellID) {
 // Move to next down letter
 function nextDownLetter(activeCellID, downWordNums, downWordIDs) {
 
-    // Get ID of next down cell
-    nextCell = parseInt(activeCellID) + n;
-    if (nextCell === ((n*n) + n)) {
-        nextCell = 1;
-    }
+    finalDownWordClass = document.getElementById(downWordIDs[downWordIDs.length - 1]).classList[2];
+    finalDownWordLength = document.getElementsByClassName(finalDownWordClass).length;
+    finalDownWordFinalLetterID = downWordIDs[downWordIDs.length - 1] + ((finalDownWordLength-1) * n);
 
-    // If it's end of grid OR a black cell, move to start of next sequential down word
-    else if ((nextCell >= ((n*n) + 1)) || (document.getElementById(nextCell.toString()).className === "blackCell")) {
-        activeWordNum = parseInt(document.getElementById(activeCellID).classList[2]);
-        nextWordNumIndex = downWordNums.indexOf(activeWordNum) + 1;
+    currentDownWordClass = document.getElementById(activeCellID).classList[2];
+    currentDownWordLength = document.getElementsByClassName(currentDownWordClass).length;
+    currentDownWordFinalLetterID = document.getElementsByClassName(currentDownWordClass)[document.getElementsByClassName(currentDownWordClass).length - 1].id;
+
+    // If we're on the last letter of the last down word in the grid, find first letter of word of grid
+    if (parseInt(activeCellID) === finalDownWordFinalLetterID) {
+        nextCell = downWordIDs[0];
+    }
+    // If we're on the last letter of any other word, move forward a word
+    else if (parseInt(activeCellID) === parseInt(currentDownWordFinalLetterID)) {
+        nextWordNumIndex = downWordNums.indexOf(parseInt(currentDownWordClass)) + 1;
+        nextWordLength = document.getElementsByClassName(document.getElementById(downWordIDs[nextWordNumIndex]).classList[2]).length;
         nextCell = downWordIDs[nextWordNumIndex];
+    }
+    // Otherwise just move down one cell
+    else {
+        nextCell = moveDown(activeCellID);
     }
 
     return nextCell.toString();
@@ -399,18 +420,21 @@ function nextDownLetter(activeCellID, downWordNums, downWordIDs) {
 // Move to previous down letter
 function previousDownLetter(activeCellID, downWordNums, downWordIDs) {
 
-    // Get ID of cell above
-    nextCell = parseInt(activeCellID) - n;
-    if (nextCell === (1 - n)) {
-        nextCell = (n*n);
+    // If we're on the first letter of the first down word in the grid, find last word of grid
+    if (parseInt(activeCellID) === downWordIDs[0]) {
+        lastDownWordClass = downWordNums[downWordNums.length - 1] + "down";
+        nextCell = document.getElementsByClassName(lastDownWordClass)[document.getElementsByClassName(lastDownWordClass).length - 1].id;
     }
-    
-    // If it's top of grid OR a black cell, move to start of next sequential down word
-    else if ((nextCell <= 0) || (document.getElementById(nextCell.toString()).className === "blackCell")) {
+    // If we're on the first letter of any other word, move back a word
+    else if (downWordIDs.includes(parseInt(activeCellID))) {
         activeWordNum = parseInt(document.getElementById(activeCellID).classList[2]);
         nextWordNumIndex = downWordNums.indexOf(activeWordNum) - 1;
-        var previousWordLength = document.getElementsByClassName(document.getElementById(downWordIDs[nextWordNumIndex]).classList[2]).length;
+        previousWordLength = document.getElementsByClassName(document.getElementById(downWordIDs[nextWordNumIndex]).classList[2]).length;
         nextCell = downWordIDs[nextWordNumIndex] + (n * (previousWordLength - 1));
+    }
+    // Otherwise just move up one cell
+    else {
+        nextCell = moveUp(activeCellID);
     }
 
     return nextCell.toString();

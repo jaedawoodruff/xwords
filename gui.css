@@ -1,4 +1,4 @@
-/*Header + nav bar formatting*/
+/*Global*/
 * {
     margin: 0;
     padding: 0;
@@ -10,25 +10,22 @@ a {
     color: black;
 }
 body {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
     place-items: center;
+    width: 100%;
+    font-size: 12px;
     background-color: white;
 }
-input {
-    -webkit-appearance: none;
-    appearance: none;
-}
+
+/*Page Header*/
 #pageHeader {
     position: relative;
     display: flex;
-    place-items: center;
     place-content: center;
     width: 100%;
-    padding: 8px 0 8px 0;
-    background-color: white;
+    padding: 8px 0;
 }
 #pageTitle {
     position: relative;
@@ -36,19 +33,19 @@ input {
     font-family: 'Fjalla One', 'Times New Roman', serif;
     font-weight: lighter;
     font-size: clamp(10px, 20vw, 70px);
-    background-color: white;
 }
-#pageNavBar {
+.navBar {
     position: relative;
     display: flex;
+    flex-direction: row;
     place-items: center;
     place-content: center;
     height: 50px;
     width: 90%;
     border: solid gray;
-    border-width: 1px 0 1px 0;
+    border-width: 1px 0;
     font-family: Helvetica, sans-serif;
-    background-color: white;
+    font-size: 16px;
 }
 #puzzleInfo {
     position: relative;
@@ -57,26 +54,19 @@ input {
     width: 90%;
     gap: 3px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 12px;
     color: grey;
-    padding: 10px 0 10px 0;
-    background-color: white;
+    padding: 10px 0;
 }
 #puzzleTitle {
     color: black;
     font-size: 20px;
 }
+
+/*Puzzle Nav Bar*/
 #puzzleNavBar {
-    position: relative;
-    display: flex;
-    flex-direction: row;
     height: 40px;
-    width: 90%;
-    border: solid gray;
     border-width: 1px 0 0 0;
-    font-family: Helvetica, sans-serif;
     font-size: 14px;
-    background-color: white;
 }
 #timer {
     position: relative;
@@ -98,19 +88,13 @@ input {
     flex-direction: column;
     top: calc(100% - 1px);
     border: 1px solid gray;
+    right: 0;
+    width: 100%;
     z-index: 3;
     background-color: white;
 }
-#checkMenu {
-    right: 0;
-    width: 100%;
-}
-#revealMenu {
-    right: 0;
-    width: 100%;
-}
 
-/*Main grid formatting*/
+/*Main Grid*/
 #pageMain {
     position: relative;
     display: flex;
@@ -132,6 +116,7 @@ input {
     border: 1px solid black;
     background-color: white;
     z-index: 1;
+    container-type: inline-size;
 }
 .cell {
     position: relative;
@@ -139,9 +124,9 @@ input {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 1vw;
     border: 1px solid black;
     background-color: white;
+    container-type: inline-size;
 }
 .blackCell {
     position: relative;
@@ -152,14 +137,16 @@ input {
     display: grid;
     width: 100%;
     height: 100%;
-    top: 20%;
-    font-size: 2vw;
+    top: 22.5%;
     font-family: Arial, Helvetica, sans-serif;
     place-self: center;
     justify-content: center;
     text-align: center;
+    font-size: 75cqw;
 }
 input {
+    -webkit-appearance: none;
+    appearance: none;
     background-color: rgba(173, 216, 230, 0);
     outline: none;
     border: 0px solid black;
@@ -170,7 +157,7 @@ input {
     caret-color: transparent;
 }
 
-/*Clues formatting*/
+/*Clues*/
 #cluesBucket {
     position: absolute;
     display: flex;
@@ -178,7 +165,6 @@ input {
     width: 50%;
     right: 0;
     aspect-ratio: 1 / 1;
-    background-color: blue;
     z-index: 1;
 }
 .cluesBucketClass {
@@ -187,7 +173,6 @@ input {
     flex-direction: column;
     width: 50%;
     height: 100%;
-    background-color: white;
 }
 .cluesHeader {
     position: absolute;
@@ -244,183 +229,13 @@ input {
     font-size: 14px;
 }
 
-/* Button formatting */
-.button {
-    position: relative;
-    height: 100%;
-    place-content: center;
-    padding: 0 10px;
-    font-weight: 700;
-    background-color: white;
-}
-.button:hover {
-    background-color: lightgray;
-}
-.button:active {
-    background-color: lightblue;
-}
-.textButton {
-    overflow-wrap: anywhere;
-    min-width: 30px;
-}
-.checkSubButton {
-    width: 100%;
-    padding: 10px 0 10px 10px;
-}
-
-/*Popup formatting*/
-#fullPageBlur {
-    display: none;
-}
-.pageMainBlur {
-    visibility: hidden;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    place-content: center;
-    place-items: center;
-    backdrop-filter: blur(8px);
-    background-color: rgba(173, 216, 230, 0.5);
-    z-index: 4;
-}
-#stPageMainBlur {
-    visibility: visible;
-}
-#yayPageMainBlur {
-    visibility: hidden;
-}
-.buttonsBox {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 40%;
-    place-items: center;
-    background-color: white;
-    border-radius: 0 0 20px 20px;
-}
-.popupBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-width: 300px;
-    height: auto;
-    background-color: white;
-    border-radius: 20px;
-    /*
-    width: 50%;
-    max-width: 300px;
-    height: 50%;
-    max-height: 120px;
-    place-items: center;
-    */
-}
-.popupQuestion {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    height: 60%;
-    padding: 2dvh;
-}
-.popupAnswer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    height: 40%;
-    padding: 2dvh;
-    border-radius: 0 0 20px 20px;
-    border-top: 1px solid gray;
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-}
-.leftButton {
-    border-radius: 0 0 0 20px;
-}
-.rightButton {
-    border-radius: 0 0 20px 0;
-}
-.ccButtons {
-    width: 50%;
-    height: 100%;
-    text-align: center;
-}
-.popupAnswer:hover {
-    background-color: lightgray;
-}
-.popupAnswer:active {
-    background-color: lightblue;
-}
-
-/*Keyboard formatting*/
+/*Keyboard*/
 #phoneCluesBucket {
     display: none;
     position: sticky;
     bottom: 0;
     width: 100%;
     z-index: 2;
-}
-.keyboard {
-    position: relative;
-    bottom: 0px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 2px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: whitesmoke;
-}
-/*#keyboardAlt {
-    display: none;
-}*/
-.keyboardRow {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    height: 60px;
-    place-content: center;
-    gap: 2px;
-    padding-bottom: 2px;
-}
-.keyboardKey {
-    position: relative;
-    display: flex;
-    place-content: center;
-    place-items: center;
-    width: 100px;
-    background-color: white;
-    border-radius: 2px;
-}
-.keyboardKeySpecial {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 9px;
-    background-color: lightgray;
-}
-#moreOptions {
-    position: relative;
-    display: flex;
-    place-content: center;
-    place-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100px;
-    background-color: lightgray;
-    border-radius: 2px;
-}
-#delete:active, /*#moreOptions:active,*/ .keyboardKey:active {
-    background-color: lightblue;
 }
 #phoneClueFeature {
     display: none;
@@ -438,6 +253,9 @@ input {
     place-content: center;
     align-items: center;
     background-color: lightgray;
+}
+#nextWord:active, #prevWord:active, #activeClue:active {
+    background-color: lightblue;
 }
 #activeClue {
     position: relative;
@@ -468,22 +286,172 @@ input {
     font-weight: 500;
     font-size: 18px;
 }
-#nextWord:active, #prevWord:active, #activeClue:active {
+.keyboard {
+    position: relative;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+.keyboardRow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    place-content: center;
+    gap: 2px;
+    padding-bottom: 2px;
+}
+.keyboardKey {
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    width: 100px;
+    background-color: white;
+    border-radius: 2px;
+}
+.keyboardKeySpecial {
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 9px;
+    background-color: lightgray;
+}
+.keyboardKey:active {
     background-color: lightblue;
 }
+#moreOptions {
+    background-color: lightgray;
+}
 
-/************************************************************/
+/*Buttons*/
+.button {
+    position: relative;
+    height: 100%;
+    place-content: center;
+    padding: 0 10px;
+    font-weight: 700;
+}
+.button:hover, .popupAnswer:hover {
+    background-color: lightgray;
+}
+.button:active, .popupAnswer:active {
+    background-color: lightblue;
+}
+.textButton {
+    overflow-wrap: anywhere;
+    min-width: 30px;
+}
+.checkSubButton {
+    width: 100%;
+    padding: 10px 0 10px 10px;
+}
+
+/*Popups*/
+.pageMainBlur {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    place-content: center;
+    place-items: center;
+    backdrop-filter: blur(8px);
+    background-color: rgba(173, 216, 230, 0.5);
+    z-index: 4;
+}
+#fullPageBlur {
+    display: none;
+}
+#stPageMainBlur {
+    visibility: visible;
+}
+#yayPageMainBlur {
+    visibility: hidden;
+}
+.popupBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 300px;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.popupQuestion {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    height: 60%;
+    padding: 2dvh;
+}
+.buttonsBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    place-items: center;
+    border-radius: 0 0 20px 20px;
+}
+.popupAnswer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    height: 40%;
+    padding: 2dvh;
+    border-radius: 0 0 20px 20px;
+    border-top: 1px solid gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+.leftButton {
+    border-radius: 0 0 0 20px;
+}
+.rightButton {
+    border-radius: 0 0 20px 0;
+}
+.ccButtons {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+/***********************************************************/
+
+/*Computer full window dynamic sizing*/
+@media only screen and (min-width: 900px) {
+    /*Page Header*/
+    #puzzleInfo, .navBar, #pageMain {
+        width: 80%;
+    }
+}
 
 /*Wide window touch screen layout (e.g. tablet)*/
 @media only screen and (pointer: coarse) and (min-width: 500px) {
-
-    /*Font sizes*/
+    /*Page Header*/
     #pageTitle {
         font-size: clamp(10px, 20vw, 90px);
     }
+    .pageNavBarButtons {
+        font-size: 20px;
+    }
     #puzzleInfo {
         font-size: 18px;
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
     }
     #puzzleTitle {
         font-size: 26px;
@@ -494,28 +462,21 @@ input {
     #puzzleNavBar {
         height: 50px;
     }
-    .cell {
-        font-size: 2vw;
+    /*Main Grid*/
+    #desktopBucket {
+        flex-direction: column;
     }
-    .userFill {
-        font-size: 4vw;
+    #grid {
+        position: relative;
+        width: 100%;
     }
-    .button {
-        font-size: 18px;
+    /*Clues*/
+    .cluesBucketClass, #cluesBucket {
+        display: none;
     }
-    .pageNavBarButtons {
-        font-size: 20px;
-    }
-    .popupBox {
-        max-width: 320px;
-    }
-    .popupAnswer {
-        font-size: 22px;
-    }
-    .popupQuestion {
-        font-size: 24px;
-    }
+    /*Keyboard*/
     #phoneClueFeature {
+        display: flex;
         min-height: 60px;
     }
     #prevWord, #nextWord {
@@ -546,32 +507,28 @@ input {
     .keyboardKeySpecial {
         font-size: 18px;
     }
-
-    /*Permanent*/
-    #desktopBucket {
-        flex-direction: column;
+    /*Buttons*/
+    .button {
+        font-size: 18px;
     }
-    #grid {
-        position: relative;
-        width: 100%;
+    .pageNavBarButtons {
+        font-size: 20px;
     }
-
-    /*Hide wide clues bucket*/
-    .cluesBucketClass, #cluesBucket {
-        display: none;
+    /*Popups*/
+    .popupBox {
+        max-width: 320px;
     }
-    
-    /*Phone clue feature on by default*/
-    #phoneClueFeature {
-        display: flex;
+    .popupQuestion {
+        font-size: 24px;
     }
-
+    .popupAnswer {
+        font-size: 22px;
+    }
 }
 
 /*Thin window layout (desktop or mobile)*/
 @media only screen and (max-width: 500px) {
-
-    /*Permanent*/
+    /*Main Grid*/
     #desktopBucket {
         flex-direction: column;
     }
@@ -579,17 +536,7 @@ input {
         position: relative;
         width: 100%;
     }
-    .cell {
-        font-size: 2vw;
-    }
-    .userFill {
-        font-size: 4vw;
-    }
-    .pageMainBlur {
-        height: 100%;
-    }
-
-    /*Column clues bucket*/
+    /*Clues*/
     #cluesBucket {
         position: sticky;
         width: 100%;
@@ -599,15 +546,6 @@ input {
     .cluesBucketClass {
         position: absolute;
         width: 100%;
-    }
-    .clueIndicator {
-        visibility: hidden;
-    }
-    .cluesHeader {
-        display: flex;
-        flex-direction: row;
-        width: 50%;
-        z-index: 2;
     }
     #acrossCluesHeader {
         left: 0px;
@@ -619,33 +557,36 @@ input {
         justify-content: right;
         color: gray;
     }
+    .cluesHeader {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        z-index: 2;
+    }
     #acrossClues {
         visibility: visible;
     }
     #downClues {
         display: none;
     }
-    
-    /*Phone clue feature on by default*/
+    .clueIndicator {
+        visibility: hidden;
+    }
+    /*Keyboard*/
     #phoneClueFeature {
         display: flex;
     }
-
+    /*Popups*/
+    .pageMainBlur {
+        height: 100%;
+    }
 }
 
 /*Thin window touch screen option (phone)*/
 @media only screen and (pointer: coarse) and (max-width: 500px) {
+    /*Clues*/
     #cluesBucket {
         display: none;
-    }
-}
-
-/************************************************************/
-
-/*Computer full window dynamic sizing*/
-@media only screen and (min-width: 900px) {
-    #pageNavBar, #puzzleInfo, #puzzleNavBar, #pageMain {
-        width: 80%;
     }
 }
 
