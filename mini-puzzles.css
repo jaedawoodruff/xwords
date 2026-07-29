@@ -150,3 +150,13 @@ body {
 .button:active, .olderPuzzle:active {
     background-color: lightblue;
 }
+
+/****************************************************/
+
+/*Computer full window dynamic sizing*/
+@media only screen and (min-width: 900px) {
+    /*Page Header*/
+    #puzzleInfo, .navBar, #pageMain {
+        width: 80%;
+    }
+}
