@@ -174,7 +174,7 @@ function congrats(answers) {
         // Show congrats message
         showDiv("yayPageMainBlur");
         finalTime = document.getElementById("timer").textContent;
-        document.getElementById("yayPopupQuestion").innerHTML = "Yowza!<br>Final Time: <b>" + finalTime + "<b>";
+        document.getElementById("yayPopupQuestion").innerHTML = "Nice!<br>Final Time: <b>" + finalTime + "<b>";
         document.getElementById("yayView").innerHTML = "See Puzzle";
 
         // Mark puzzle as complete
