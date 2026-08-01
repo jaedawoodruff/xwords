@@ -1,4 +1,5 @@
+VERSION 1.0
 device: pc, mobile //
-css: 15x15 supported, nxn functional //
-features: local storage (userfill, userfill colors, timer), reveal buttons, mobile keyboard, validate localStorage //
-usability: usable but the loaded puzzles are for testing only
+css: nxn supported //
+features: local storage, game buttons, mobile keyboard, input validation
+usability: fully functional, loaded puzzles for demo
