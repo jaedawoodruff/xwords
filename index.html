@@ -1,161 +1,200 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <!-- Head -->
-  <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport"/>
-    <meta content="Play the daily crossword!" name="description"/>
-    <title id="tabTitle">Mini Puzzles</title>
-    <link href="favicon1.png" rel="icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville" rel="stylesheet"/>
-    <link href="mini-puzzles.css" rel="stylesheet">
-    </link>
-  </head>
-  <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
+ <!-- Head -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport"/>
+  <meta content="Play the daily crossword!" name="description"/>
+  <title id="tabTitle">
+   Mini Puzzles
+  </title>
+  <link href="favicon1.png" rel="icon"/>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville" rel="stylesheet"/>
+  <link href="puzzle-homepage.css" rel="stylesheet"/>
+ </head>
+ <!-- Google tag (gtag.js) -->
+ <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4">
+ </script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 
 	gtag('config', 'G-YRJZENQYR4');
-	</script>
-  <!-- Body -->
-  <body>
-    <!--Header and Nav Bars-->
-    <div id="pageHeader">
-      <h1 id="pageTitle">Good Word</h1>
-    </div>
-    <div class="navBar" id="pageNavBar">
-      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/index.html" id="minisHomeButton">Minis</a>
-      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/15x15-puzzles.html" id="maxisHomeButton">15x15</a>
-      <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/about.html" id="aboutButton">About</a>
-    </div>
-    <!--Main page-->
-    <div id="pageMain">
-      <div id="week3Label" class="weekLabel">This Week</div>
-      <div id="week3" class="currentWeekBucket weekBucket">
-        <a id="w3p3" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-29-2026-mini.html">
-          <div id="w3p3Title" class="title currentWeekTitle">Wednesday</div>
-          <div id="w3p3Date" class="date currentWeekDate">July 29, 2026</div>
-          <div id="w3p3Grid" class="grid">
-            <div id="w3p3c1" class="blackCell"></div>
-            <div id="w3p3c2" class="cell"></div>
-            <div id="w3p3c3" class="cell"></div>
-            <div id="w3p3c4" class="blackCell"></div>
-          </div>
-          <div id="w3p3Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
-        </a>
-        <a id="w3p2" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-28-2026-mini.html">
-          <div id="w3p2Title" class="title currentWeekTitle">Tuesday</div>
-          <div id="w3p2Date" class="date currentWeekDate">July 28, 2026</div>
-          <div id="w3p2Grid" class="grid">
-            <div id="w3p2c1" class="blackCell"></div>
-            <div id="w3p2c2" class="cell"></div>
-            <div id="w3p2c3" class="cell"></div>
-            <div id="w3p2c4" class="blackCell"></div>
-          </div>
-          <div id="w3p2Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
-        </a>
-        <a id="w3p1" class="currentPuzzleCard puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-27-2026-mini.html">
-          <div id="w3p1Title" class="title currentWeekTitle">Monday</div>
-          <div id="w3p1Date" class="date currentWeekDate">July 27, 2026</div>
-          <div id="w3p1Grid" class="grid">
-            <div id="w3p1c1" class="blackCell"></div>
-            <div id="w3p1c2" class="cell"></div>
-            <div id="w3p1c3" class="cell"></div>
-            <div id="w3p1c4" class="blackCell"></div>
-          </div>
-          <div id="w3p1Author" class="author currentWeekAuthor">By Jaeda Woodruff</div>
-        </a>
+ </script>
+ <!-- Body -->
+ <body>
+  <style>
+   #minisHomeButton {
+      background-color: #d3d3d3;
+    }
+  </style>
+  <!--Header and Nav Bars-->
+  <div id="pageHeader">
+   <h1 id="pageTitle">
+    Good Word
+   </h1>
+  </div>
+  <div class="navBar" id="pageNavBar">
+   <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/index.html" id="minisHomeButton">
+    Minis
+   </a>
+   <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/15x15-puzzles.html" id="maxisHomeButton">
+    15x15
+   </a>
+   <a class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/about.html" id="aboutButton">
+    About
+   </a>
+  </div>
+  <!--Main page-->
+  <div id="pageMain">
+   <a href="https://jaedawoodruff.github.io/xwords/july-31-2026-mini.html" id="todayPuzzleMainButton">
+    <div class="button" id="todayPuzzle">
+     <div id="todayPuzzleDate">
+      Friday
+     </div>
+     <div id="todayPuzzleTitle">
+      July 31, 2026
+     </div>
+     <div id="gridIcon">
+      <div class="blackCell">
       </div>
-      <div id="week2Label" class="weekLabel">Week of July 20, 2026</div>
-      <div id="week2" class="weekBucket">
-        <a id="w2p5" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-24-2026-mini.html">
-          <div id="w2p5Title" class="title">Friday</div>
-          <div id="w2p5Date" class="date">7/24/26</div>
-        </a>
-        <a id="w2p4" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-23-2026-mini.html">
-          <div id="w2p4Title" class="title">Thursday</div>
-          <div id="w2p4Date" class="date">7/23/26</div>
-        </a>
-        <a id="w2p3" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-22-2026-mini.html">
-          <div id="w2p3Title" class="title">Wednesday</div>
-          <div id="w2p3Date" class="date">7/22/26</div>
-        </a>
-        <a id="w2p2" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-21-2026-mini.html">
-          <div id="w2p2Title" class="title">Tuesday</div>
-          <div id="w2p2Date" class="date">7/21/26</div>
-        </a>
-        <a id="w2p1" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-20-2026-mini.html">
-          <div id="w2p1Title" class="title">Monday</div>
-          <div id="w2p1Date" class="date">7/20/26</div>
-        </a>
+      <div class="cell">
       </div>
-      <div id="week1Label" class="weekLabel">Week of July 13, 2026</div>
-      <div id="week1" class="weekBucket">
-        <a id="w1p5" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-17-2026-mini.html">
-          <div id="w1p5Title" class="title">Friday</div>
-          <div id="w1p5Date" class="date">7/17/26</div>
-        </a>
-        <a id="w1p4" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-16-2026-mini.html">
-          <div id="w1p4Title" class="title">Thursday</div>
-          <div id="w1p4Date" class="date">7/16/26</div>
-        </a>
-        <a id="w1p3" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-15-2026-mini.html">
-          <div id="w1p3Title" class="title">Wednesday</div>
-          <div id="w1p3Date" class="date">7/15/26</div>
-        </a>
-        <a id="w1p2" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-14-2026-mini.html">
-          <div id="w1p2Title" class="title">Tuesday</div>
-          <div id="w1p2Date" class="date">7/14/26</div>
-        </a>
-        <a id="w1p1" class="puzzleCard button" href="https://jaedawoodruff.github.io/xwords/july-13-2026-mini.html">
-          <div id="w1p1Title" class="title">Monday</div>
-          <div id="w1p1Date" class="date">7/13/26</div>
-        </a>
+      <div class="cell">
       </div>
+      <div class="cell">
+      </div>
+      <div class="blackCell">
+      </div>
+      <div class="cell">
+      </div>
+      <div class="cell">
+      </div>
+      <div class="blackCell">
+      </div>
+      <div class="cell">
+      </div>
+     </div>
+     <div id="todayPuzzleAuthor">
+      By Jaeda Woodruff
+     </div>
     </div>
-  </body>
+   </a>
+   <div id="olderPuzzleBucket">
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-30-2026-mini.html">
+     <div class="puzzleDate">
+      Thursday 7/30
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-29-2026-mini.html">
+     <div class="puzzleDate">
+      Wednesday 7/29
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-28-2026-mini.html">
+     <div class="puzzleDate">
+      Tuesday 7/28
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-27-2026-mini.html">
+     <div class="puzzleDate">
+      Monday 7/27
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-24-2026-mini.html">
+     <div class="puzzleDate">
+      Friday 7/24
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-23-2026-mini.html">
+     <div class="puzzleDate">
+      Thursday 7/23
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-22-2026-mini.html">
+     <div class="puzzleDate">
+      Wednesday 7/22
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-21-2026-mini.html">
+     <div class="puzzleDate">
+      Tuesday 7/21
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-20-2026-mini.html">
+     <div class="puzzleDate">
+      Monday 7/20
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-17-2026-mini.html">
+     <div class="puzzleDate">
+      Friday 7/17
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-16-2026-mini.html">
+     <div class="puzzleDate">
+      Thursday 7/16
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-15-2026-mini.html">
+     <div class="puzzleDate">
+      Wednesday 7/15
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-14-2026-mini.html">
+     <div class="puzzleDate">
+      Tuesday 7/14
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+    <a class="olderPuzzle" href="https://jaedawoodruff.github.io/xwords/july-13-2026-mini.html">
+     <div class="puzzleDate">
+      Monday 7/13
+     </div>
+     <div class="puzzleAuthor">
+      By Jaeda Woodruff
+     </div>
+    </a>
+   </div>
+  </div>
+ </body>
 </html>
-
-<!--remove dates from archive, remove byline? nah jeffery doesn't mind-->
-<!--too many words-->
-<!--the stacked Week Of and dated cards are too much to look at?-->
-<!--fix the fontsize bc when you turn the screen it gets way too small-->
-
-<!--
-
-// MISSION 20: MINIS + IPYNB
-
-// DONE: Update index.html / index.css by hand to be mini centric!
-// DONE: Update about.html (shortdate in the archived cards)
-// DONE: Incorporate jeff feedback into index.html
-// Update ipynb script to update index.html (minis)
-
-// Now make if statements so you only go through the motions for minis page OR fullsize page, not both
-// Throw ERROR if date, puzzle, or filepath has already been published (so we're not overwriting pages by accident)(can have manual override var)
-// Throw WARNING if clue is super long and will show up weird in the keyboard cluebar (ok if its a long sentence, not ok if it's a long word like supercalifragilisticexpialidocious)
-
-// Bigger fontsize in popup (cqw??) especially for minis "you solved it!"
-
-// Draft out instructions for how to publish as you go (open terminal, call xword_publisher.py and respond to prompts, index.html will be updated and month-DD-YYYY_mini.html etc will be new. any older puzzles and css and js files will stay the same)(source: https://pieriantraining.com/using-github-with-python-a-stepbystep-guide/)
-// Select charcuterie board of minis and maxis to sample. Create all the files
-// Clear old files from github main
-// Fresh upload with my new files (not the ipynb) (minis: x5, x10, x15! / maxis: x3, x5, x7) (filler with one real topper set for each? e.g. write a 5-set of new minis and publish zoobreak/anything else unpublished by the prince?)
-
-// MISSION 21: DEVICE TESTS
-
-// List 0: Pick 3 news orgs to reach out to
-// Draft email + schedule send
-
-// Go through all test envs/browsers and manually clear all localStorages
-// Post mini related files to github, quick check the new index.html pages look ok. Quick check on different browsers (chrome, edge, firefox, safari, duckduckgo) and devices (ipad x2, phone x2, computer wide, computer thin)
-// Test zooms on each device + browser does it look weird for maxis? For minis?
-// Check pause timer when navigate to new tab works for mobile
-// Confirm tab/enter works for minis and fullsize on any device! esp for wraparounds at first or last word
-
-// Now send to carrie mira ally jeff mom dad grammy >> any weird text overflow? buttons not working? can you fill out a whole crossword without running into anything odd or let me know if you do? text too small? can you send a screenshot of how it looks on your device? + if anything weird what browser and what device are you using?
-// Ask jeffery: can you do the whole mini and lmk if anything weird happens eg it deletes your progress randomly or you can't type/backspace isn't working?
-
--->

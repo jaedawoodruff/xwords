@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<!-- Head -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+        <meta name="description" content="Play the daily crossword!">
+        <title id="tabTitle">Sunday Crossword, August 2, 2026</title>
+		<link rel="icon" href="favicon1.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville">
+        <link rel="stylesheet" href="gui.css">
+    </head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRJZENQYR4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-YRJZENQYR4');
+	</script>
+    <!-- Body -->
+    <body>
+        <style>
+            :root {
+                --n: 15;
+            }
+            #grid {
+                grid-template-columns: repeat(var(--n), 1fr);
+                grid-template-rows: repeat(var(--n), 1fr);
+            }
+            .cell {
+                font-size: calc(40cqw / var(--n));
+            }
+        </style>
+        <!--Header and Nav Bars-->
+        <div id="fullPageBlur">Please adjust window size or zoom level to play.</div>
+        <div id="pageHeader">
+            <h1 id="pageTitle">Good Word</h1>
+        </div>
+        <div id="pageNavBar" class="navBar">
+            <a id="minisHomeButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/index.html">Minis</a>
+            <a id="maxisHomeButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/15x15-puzzles.html">15x15</a>
+            <a id="aboutButton" class="button pageNavBarButtons" href="https://jaedawoodruff.github.io/xwords/about.html">About</a>
+        </div>
+        <div id="puzzleInfo">
+            <h2 id="puzzleTitle">Test Puzzle 1</h2>
+            <h3 id="puzzleDate">Sunday Crossword, August 2, 2026</h3>
+            <h3 id="puzzleAuthor">By Jaeda Woodruff / Edited by Jaeda Woodruff</h3>
+        </div>
+        <div id="puzzleNavBar" class="navBar">
+            <div id="timer" class="button">00:00</div>
+            <div id="puzzleNavBarButtons">
+                <div id="showKeyboardButton" class="fa fa-keyboard button"></div>
+                <div id="pencilButton" class="fa fa-pencil button"></div>
+                <div id="clearButton" class="button textButton">Clear</div>
+                <div id="revealButton" class="button textButton">Reveal
+                    <div id="revealMenu" class="navBarMenu">
+                        <div id="revealLetterButton" class="checkSubButton button">Letter</div>
+                        <div id="revealWordButton" class="checkSubButton button">Word</div>
+                        <div id="revealGridButton" class="checkSubButton button">Grid</div>
+                    </div>
+                </div>
+                <div id="checkButton" class="button textButton">Check
+                    <div id="checkMenu" class="navBarMenu">
+                        <div id="checkLetterButton" class="checkSubButton button">Letter</div>
+                        <div id="checkWordButton" class="checkSubButton button">Word</div>
+                        <div id="checkGridButton" class="checkSubButton button">Grid</div>
+                        <div id="autocheckButton" class="checkSubButton button">Auto</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Grid and Clues-->
+        <div id="pageMain">
+            <div id="desktopBucket">
+                <div id="grid">
+					<div id="1" class="cell 1across 1down">1
+						<input id="fill_1" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="2" class="cell 1across 2down">2
+						<input id="fill_2" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="3" class="cell 1across 3down">3
+						<input id="fill_3" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="4" class="cell 1across 4down">4
+						<input id="fill_4" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="5" class="blackCell">
+						<input id="fill_5" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="6" class="cell 5across 5down">5
+						<input id="fill_6" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="7" class="cell 5across 6down">6
+						<input id="fill_7" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="8" class="cell 5across 7down">7
+						<input id="fill_8" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="9" class="cell 5across 8down">8
+						<input id="fill_9" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="10" class="blackCell">
+						<input id="fill_10" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="11" class="cell 9across 9down">9
+						<input id="fill_11" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="12" class="cell 9across 10down">10
+						<input id="fill_12" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="13" class="cell 9across 11down">11
+						<input id="fill_13" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="14" class="cell 9across 12down">12
+						<input id="fill_14" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="15" class="cell 9across 13down">13
+						<input id="fill_15" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="16" class="cell 14across 1down">14
+						<input id="fill_16" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="17" class="cell 14across 2down">
+						<input id="fill_17" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="18" class="cell 14across 3down">
+						<input id="fill_18" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="19" class="cell 14across 4down">
+						<input id="fill_19" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="20" class="blackCell">
+						<input id="fill_20" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="21" class="cell 15across 5down">15
+						<input id="fill_21" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="22" class="cell 15across 6down">
+						<input id="fill_22" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="23" class="cell 15across 7down">
+						<input id="fill_23" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="24" class="cell 15across 8down">
+						<input id="fill_24" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="25" class="blackCell">
+						<input id="fill_25" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="26" class="cell 16across 9down">16
+						<input id="fill_26" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="27" class="cell 16across 10down">
+						<input id="fill_27" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="28" class="cell 16across 11down">
+						<input id="fill_28" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="29" class="cell 16across 12down">
+						<input id="fill_29" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="30" class="cell 16across 13down">
+						<input id="fill_30" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="31" class="cell 17across 1down">17
+						<input id="fill_31" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="32" class="cell 17across 2down">
+						<input id="fill_32" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="33" class="cell 17across 3down">
+						<input id="fill_33" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="34" class="cell 17across 4down">
+						<input id="fill_34" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="35" class="blackCell">
+						<input id="fill_35" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="36" class="cell 18across 5down">18
+						<input id="fill_36" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="37" class="cell 18across 6down">
+						<input id="fill_37" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="38" class="cell 18across 7down">
+						<input id="fill_38" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="39" class="cell 18across 8down">
+						<input id="fill_39" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="40" class="blackCell">
+						<input id="fill_40" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="41" class="cell 19across 9down">19
+						<input id="fill_41" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="42" class="cell 19across 10down">
+						<input id="fill_42" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="43" class="cell 19across 11down">
+						<input id="fill_43" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="44" class="cell 19across 12down">
+						<input id="fill_44" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="45" class="cell 19across 13down">
+						<input id="fill_45" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="46" class="cell 20across 1down">20
+						<input id="fill_46" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="47" class="cell 20across 2down">
+						<input id="fill_47" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="48" class="cell 20across 3down">
+						<input id="fill_48" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="49" class="blackCell">
+						<input id="fill_49" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="50" class="cell 21across 21down">21
+						<input id="fill_50" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="51" class="cell 21across 5down">
+						<input id="fill_51" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="52" class="cell 21across 6down">
+						<input id="fill_52" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="53" class="cell 21across 7down">
+						<input id="fill_53" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="54" class="cell 21across 8down">
+						<input id="fill_54" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="55" class="cell 21across 22down">22
+						<input id="fill_55" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="56" class="cell 21across 9down">
+						<input id="fill_56" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="57" class="cell 21across 10down">
+						<input id="fill_57" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="58" class="cell 21across 11down">
+						<input id="fill_58" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="59" class="cell 21across 12down">
+						<input id="fill_59" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="60" class="cell 21across 13down">
+						<input id="fill_60" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="61" class="cell 23across 1down">23
+						<input id="fill_61" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="62" class="cell 23across 2down">
+						<input id="fill_62" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="63" class="cell 23across 3down">
+						<input id="fill_63" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="64" class="cell 23across 24down">24
+						<input id="fill_64" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="65" class="cell 23across 21down">
+						<input id="fill_65" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="66" class="cell 23across 5down">
+						<input id="fill_66" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="67" class="cell 23across 6down">
+						<input id="fill_67" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="68" class="blackCell">
+						<input id="fill_68" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="69" class="cell 25across 8down">25
+						<input id="fill_69" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="70" class="cell 25across 22down">
+						<input id="fill_70" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="71" class="cell 25across 9down">
+						<input id="fill_71" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="72" class="cell 25across 10down">
+						<input id="fill_72" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="73" class="blackCell">
+						<input id="fill_73" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="74" class="blackCell">
+						<input id="fill_74" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="75" class="blackCell">
+						<input id="fill_75" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="76" class="blackCell">
+						<input id="fill_76" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="77" class="blackCell">
+						<input id="fill_77" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="78" class="cell 26across 3down">26
+						<input id="fill_78" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="79" class="cell 26across 24down">
+						<input id="fill_79" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="80" class="cell 26across 21down">
+						<input id="fill_80" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="81" class="cell 26across 5down">
+						<input id="fill_81" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="82" class="blackCell">
+						<input id="fill_82" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="83" class="cell 27across 27down">27
+						<input id="fill_83" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="84" class="cell 27across 8down">
+						<input id="fill_84" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="85" class="cell 27across 22down">
+						<input id="fill_85" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="86" class="cell 27across 9down">
+						<input id="fill_86" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="87" class="cell 27across 10down">
+						<input id="fill_87" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="88" class="cell 27across 28down">28
+						<input id="fill_88" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="89" class="cell 27across 29down">29
+						<input id="fill_89" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="90" class="cell 27across 30down">30
+						<input id="fill_90" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="91" class="cell 31across 31down">31
+						<input id="fill_91" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="92" class="cell 31across 32down">32
+						<input id="fill_92" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="93" class="cell 31across 3down">
+						<input id="fill_93" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="94" class="cell 31across 24down">
+						<input id="fill_94" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="95" class="cell 31across 21down">
+						<input id="fill_95" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="96" class="blackCell">
+						<input id="fill_96" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="97" class="cell 33across 33down">33
+						<input id="fill_97" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="98" class="cell 33across 27down">
+						<input id="fill_98" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="99" class="cell 33across 8down">
+						<input id="fill_99" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="100" class="cell 33across 22down">
+						<input id="fill_100" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="101" class="cell 33across 9down">
+						<input id="fill_101" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="102" class="cell 33across 10down">
+						<input id="fill_102" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="103" class="cell 33across 28down">
+						<input id="fill_103" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="104" class="cell 33across 29down">
+						<input id="fill_104" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="105" class="cell 33across 30down">
+						<input id="fill_105" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="106" class="cell 34across 31down">34
+						<input id="fill_106" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="107" class="cell 34across 32down">
+						<input id="fill_107" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="108" class="cell 34across 3down">
+						<input id="fill_108" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="109" class="cell 34across 24down">
+						<input id="fill_109" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="110" class="cell 34across 21down">
+						<input id="fill_110" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="111" class="blackCell">
+						<input id="fill_111" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="112" class="cell 35across 33down">35
+						<input id="fill_112" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="113" class="cell 35across 27down">
+						<input id="fill_113" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="114" class="cell 35across 8down">
+						<input id="fill_114" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="115" class="blackCell">
+						<input id="fill_115" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="116" class="cell 36across 9down">36
+						<input id="fill_116" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="117" class="cell 36across 10down">
+						<input id="fill_117" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="118" class="cell 36across 28down">
+						<input id="fill_118" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="119" class="cell 36across 29down">
+						<input id="fill_119" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="120" class="cell 36across 30down">
+						<input id="fill_120" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="121" class="cell 37across 31down">37
+						<input id="fill_121" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="122" class="cell 37across 32down">
+						<input id="fill_122" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="123" class="cell 37across 3down">
+						<input id="fill_123" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="124" class="cell 37across 24down">
+						<input id="fill_124" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="125" class="cell 37across 21down">
+						<input id="fill_125" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="126" class="cell 37across 38down">38
+						<input id="fill_126" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="127" class="cell 37across 33down">
+						<input id="fill_127" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="128" class="cell 37across 27down">
+						<input id="fill_128" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="129" class="cell 37across 8down">
+						<input id="fill_129" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="130" class="blackCell">
+						<input id="fill_130" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="131" class="cell 39across 9down">39
+						<input id="fill_131" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="132" class="cell 39across 10down">
+						<input id="fill_132" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="133" class="cell 39across 28down">
+						<input id="fill_133" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="134" class="cell 39across 29down">
+						<input id="fill_134" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="135" class="cell 39across 30down">
+						<input id="fill_135" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="136" class="cell 40across 31down">40
+						<input id="fill_136" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="137" class="cell 40across 32down">
+						<input id="fill_137" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="138" class="cell 40across 3down">
+						<input id="fill_138" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="139" class="cell 40across 24down">
+						<input id="fill_139" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="140" class="cell 40across 21down">
+						<input id="fill_140" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="141" class="cell 40across 38down">
+						<input id="fill_141" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="142" class="cell 40across 33down">
+						<input id="fill_142" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="143" class="cell 40across 27down">
+						<input id="fill_143" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="144" class="blackCell">
+						<input id="fill_144" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="145" class="cell 41across 41down">41
+						<input id="fill_145" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="146" class="cell 41across 9down">
+						<input id="fill_146" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="147" class="cell 41across 10down">
+						<input id="fill_147" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="148" class="cell 41across 28down">
+						<input id="fill_148" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="149" class="blackCell">
+						<input id="fill_149" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="150" class="blackCell">
+						<input id="fill_150" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="151" class="blackCell">
+						<input id="fill_151" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="152" class="blackCell">
+						<input id="fill_152" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="153" class="blackCell">
+						<input id="fill_153" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="154" class="cell 42across 24down">42
+						<input id="fill_154" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="155" class="cell 42across 21down">
+						<input id="fill_155" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="156" class="cell 42across 38down">
+						<input id="fill_156" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="157" class="cell 42across 33down">
+						<input id="fill_157" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="158" class="blackCell">
+						<input id="fill_158" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="159" class="cell 43across 43down">43
+						<input id="fill_159" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="160" class="cell 43across 41down">
+						<input id="fill_160" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="161" class="cell 43across 9down">
+						<input id="fill_161" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="162" class="cell 43across 10down">
+						<input id="fill_162" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="163" class="cell 43across 28down">
+						<input id="fill_163" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="164" class="cell 43across 44down">44
+						<input id="fill_164" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="165" class="cell 43across 45down">45
+						<input id="fill_165" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="166" class="cell 46across 46down">46
+						<input id="fill_166" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="167" class="cell 46across 47down">47
+						<input id="fill_167" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="168" class="cell 46across 48down">48
+						<input id="fill_168" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="169" class="cell 46across 24down">
+						<input id="fill_169" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="170" class="cell 46across 21down">
+						<input id="fill_170" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="171" class="cell 46across 38down">
+						<input id="fill_171" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="172" class="cell 46across 33down">
+						<input id="fill_172" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="173" class="cell 46across 49down">49
+						<input id="fill_173" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="174" class="cell 46across 43down">
+						<input id="fill_174" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="175" class="cell 46across 41down">
+						<input id="fill_175" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="176" class="cell 46across 9down">
+						<input id="fill_176" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="177" class="blackCell">
+						<input id="fill_177" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="178" class="cell 50across 28down">50
+						<input id="fill_178" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="179" class="cell 50across 44down">
+						<input id="fill_179" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="180" class="cell 50across 45down">
+						<input id="fill_180" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="181" class="cell 51across 46down">51
+						<input id="fill_181" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="182" class="cell 51across 47down">
+						<input id="fill_182" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="183" class="cell 51across 48down">
+						<input id="fill_183" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="184" class="cell 51across 24down">
+						<input id="fill_184" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="185" class="cell 51across 21down">
+						<input id="fill_185" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="186" class="blackCell">
+						<input id="fill_186" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="187" class="cell 52across 33down">52
+						<input id="fill_187" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="188" class="cell 52across 49down">
+						<input id="fill_188" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="189" class="cell 52across 43down">
+						<input id="fill_189" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="190" class="cell 52across 41down">
+						<input id="fill_190" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="191" class="blackCell">
+						<input id="fill_191" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="192" class="cell 53across 53down">53
+						<input id="fill_192" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="193" class="cell 53across 28down">
+						<input id="fill_193" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="194" class="cell 53across 44down">
+						<input id="fill_194" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="195" class="cell 53across 45down">
+						<input id="fill_195" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="196" class="cell 54across 46down">54
+						<input id="fill_196" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="197" class="cell 54across 47down">
+						<input id="fill_197" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="198" class="cell 54across 48down">
+						<input id="fill_198" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="199" class="cell 54across 24down">
+						<input id="fill_199" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="200" class="cell 54across 21down">
+						<input id="fill_200" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="201" class="blackCell">
+						<input id="fill_201" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="202" class="cell 55across 33down">55
+						<input id="fill_202" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="203" class="cell 55across 49down">
+						<input id="fill_203" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="204" class="cell 55across 43down">
+						<input id="fill_204" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="205" class="cell 55across 41down">
+						<input id="fill_205" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="206" class="blackCell">
+						<input id="fill_206" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="207" class="cell 56across 53down">56
+						<input id="fill_207" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="208" class="cell 56across 28down">
+						<input id="fill_208" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="209" class="cell 56across 44down">
+						<input id="fill_209" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="210" class="cell 56across 45down">
+						<input id="fill_210" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="211" class="cell 57across 46down">57
+						<input id="fill_211" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="212" class="cell 57across 47down">
+						<input id="fill_212" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="213" class="cell 57across 48down">
+						<input id="fill_213" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="214" class="cell 57across 24down">
+						<input id="fill_214" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="215" class="cell 57across 21down">
+						<input id="fill_215" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="216" class="blackCell">
+						<input id="fill_216" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="217" class="cell 58across 33down">58
+						<input id="fill_217" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="218" class="cell 58across 49down">
+						<input id="fill_218" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="219" class="cell 58across 43down">
+						<input id="fill_219" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="220" class="cell 58across 41down">
+						<input id="fill_220" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="221" class="blackCell">
+						<input id="fill_221" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="222" class="cell 59across 53down">59
+						<input id="fill_222" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="223" class="cell 59across 28down">
+						<input id="fill_223" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="224" class="cell 59across 44down">
+						<input id="fill_224" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+					<div id="225" class="cell 59across 45down">
+						<input id="fill_225" class="userFill" maxlength="1" readonly="readonly" autocomplete="off"/>
+					</div>
+                </div>
+                <div id="cluesBucket">
+                    <div id="acrossCluesBucket" class="cluesBucketClass">
+                        <div id="acrossCluesHeader" class="cluesHeader">Across</div>
+                        <div id="acrossClues" class="clues">
+							<div id="1acrossClue" class="clueBox acrossClueBox">
+								<div id="1acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="1acrossClue_NUM" class="clueNum">1</div>
+								<div id="1acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="5acrossClue" class="clueBox acrossClueBox">
+								<div id="5acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="5acrossClue_NUM" class="clueNum">5</div>
+								<div id="5acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="9acrossClue" class="clueBox acrossClueBox">
+								<div id="9acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="9acrossClue_NUM" class="clueNum">9</div>
+								<div id="9acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="14acrossClue" class="clueBox acrossClueBox">
+								<div id="14acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="14acrossClue_NUM" class="clueNum">14</div>
+								<div id="14acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="15acrossClue" class="clueBox acrossClueBox">
+								<div id="15acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="15acrossClue_NUM" class="clueNum">15</div>
+								<div id="15acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="16acrossClue" class="clueBox acrossClueBox">
+								<div id="16acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="16acrossClue_NUM" class="clueNum">16</div>
+								<div id="16acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="17acrossClue" class="clueBox acrossClueBox">
+								<div id="17acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="17acrossClue_NUM" class="clueNum">17</div>
+								<div id="17acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="18acrossClue" class="clueBox acrossClueBox">
+								<div id="18acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="18acrossClue_NUM" class="clueNum">18</div>
+								<div id="18acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="19acrossClue" class="clueBox acrossClueBox">
+								<div id="19acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="19acrossClue_NUM" class="clueNum">19</div>
+								<div id="19acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="20acrossClue" class="clueBox acrossClueBox">
+								<div id="20acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="20acrossClue_NUM" class="clueNum">20</div>
+								<div id="20acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="21acrossClue" class="clueBox acrossClueBox">
+								<div id="21acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="21acrossClue_NUM" class="clueNum">21</div>
+								<div id="21acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="23acrossClue" class="clueBox acrossClueBox">
+								<div id="23acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="23acrossClue_NUM" class="clueNum">23</div>
+								<div id="23acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="25acrossClue" class="clueBox acrossClueBox">
+								<div id="25acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="25acrossClue_NUM" class="clueNum">25</div>
+								<div id="25acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="26acrossClue" class="clueBox acrossClueBox">
+								<div id="26acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="26acrossClue_NUM" class="clueNum">26</div>
+								<div id="26acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="27acrossClue" class="clueBox acrossClueBox">
+								<div id="27acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="27acrossClue_NUM" class="clueNum">27</div>
+								<div id="27acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="31acrossClue" class="clueBox acrossClueBox">
+								<div id="31acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="31acrossClue_NUM" class="clueNum">31</div>
+								<div id="31acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="33acrossClue" class="clueBox acrossClueBox">
+								<div id="33acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="33acrossClue_NUM" class="clueNum">33</div>
+								<div id="33acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="34acrossClue" class="clueBox acrossClueBox">
+								<div id="34acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="34acrossClue_NUM" class="clueNum">34</div>
+								<div id="34acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="35acrossClue" class="clueBox acrossClueBox">
+								<div id="35acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="35acrossClue_NUM" class="clueNum">35</div>
+								<div id="35acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="36acrossClue" class="clueBox acrossClueBox">
+								<div id="36acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="36acrossClue_NUM" class="clueNum">36</div>
+								<div id="36acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="37acrossClue" class="clueBox acrossClueBox">
+								<div id="37acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="37acrossClue_NUM" class="clueNum">37</div>
+								<div id="37acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="39acrossClue" class="clueBox acrossClueBox">
+								<div id="39acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="39acrossClue_NUM" class="clueNum">39</div>
+								<div id="39acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="40acrossClue" class="clueBox acrossClueBox">
+								<div id="40acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="40acrossClue_NUM" class="clueNum">40</div>
+								<div id="40acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="41acrossClue" class="clueBox acrossClueBox">
+								<div id="41acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="41acrossClue_NUM" class="clueNum">41</div>
+								<div id="41acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="42acrossClue" class="clueBox acrossClueBox">
+								<div id="42acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="42acrossClue_NUM" class="clueNum">42</div>
+								<div id="42acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="43acrossClue" class="clueBox acrossClueBox">
+								<div id="43acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="43acrossClue_NUM" class="clueNum">43</div>
+								<div id="43acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="46acrossClue" class="clueBox acrossClueBox">
+								<div id="46acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="46acrossClue_NUM" class="clueNum">46</div>
+								<div id="46acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="50acrossClue" class="clueBox acrossClueBox">
+								<div id="50acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="50acrossClue_NUM" class="clueNum">50</div>
+								<div id="50acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="51acrossClue" class="clueBox acrossClueBox">
+								<div id="51acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="51acrossClue_NUM" class="clueNum">51</div>
+								<div id="51acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="52acrossClue" class="clueBox acrossClueBox">
+								<div id="52acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="52acrossClue_NUM" class="clueNum">52</div>
+								<div id="52acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="53acrossClue" class="clueBox acrossClueBox">
+								<div id="53acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="53acrossClue_NUM" class="clueNum">53</div>
+								<div id="53acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="54acrossClue" class="clueBox acrossClueBox">
+								<div id="54acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="54acrossClue_NUM" class="clueNum">54</div>
+								<div id="54acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="55acrossClue" class="clueBox acrossClueBox">
+								<div id="55acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="55acrossClue_NUM" class="clueNum">55</div>
+								<div id="55acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="56acrossClue" class="clueBox acrossClueBox">
+								<div id="56acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="56acrossClue_NUM" class="clueNum">56</div>
+								<div id="56acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="57acrossClue" class="clueBox acrossClueBox">
+								<div id="57acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="57acrossClue_NUM" class="clueNum">57</div>
+								<div id="57acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="58acrossClue" class="clueBox acrossClueBox">
+								<div id="58acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="58acrossClue_NUM" class="clueNum">58</div>
+								<div id="58acrossClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="59acrossClue" class="clueBox acrossClueBox">
+								<div id="59acrossClue_INDICATOR" class="clueIndicator"></div>
+								<div id="59acrossClue_NUM" class="clueNum">59</div>
+								<div id="59acrossClue_TEXT" class="clueText">test</div>
+							</div>
+                        </div>
+                    </div>
+                    <div id="downCluesBucket" class="cluesBucketClass">
+                        <div id="downCluesHeader" class="cluesHeader">Down</div>
+                        <div id="downClues" class="clues">
+							<div id="1downClue" class="clueBox downClueBox">
+								<div id="1downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="1downClue_NUM" class="clueNum">1</div>
+								<div id="1downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="2downClue" class="clueBox downClueBox">
+								<div id="2downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="2downClue_NUM" class="clueNum">2</div>
+								<div id="2downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="3downClue" class="clueBox downClueBox">
+								<div id="3downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="3downClue_NUM" class="clueNum">3</div>
+								<div id="3downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="4downClue" class="clueBox downClueBox">
+								<div id="4downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="4downClue_NUM" class="clueNum">4</div>
+								<div id="4downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="5downClue" class="clueBox downClueBox">
+								<div id="5downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="5downClue_NUM" class="clueNum">5</div>
+								<div id="5downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="6downClue" class="clueBox downClueBox">
+								<div id="6downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="6downClue_NUM" class="clueNum">6</div>
+								<div id="6downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="7downClue" class="clueBox downClueBox">
+								<div id="7downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="7downClue_NUM" class="clueNum">7</div>
+								<div id="7downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="8downClue" class="clueBox downClueBox">
+								<div id="8downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="8downClue_NUM" class="clueNum">8</div>
+								<div id="8downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="9downClue" class="clueBox downClueBox">
+								<div id="9downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="9downClue_NUM" class="clueNum">9</div>
+								<div id="9downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="10downClue" class="clueBox downClueBox">
+								<div id="10downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="10downClue_NUM" class="clueNum">10</div>
+								<div id="10downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="11downClue" class="clueBox downClueBox">
+								<div id="11downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="11downClue_NUM" class="clueNum">11</div>
+								<div id="11downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="12downClue" class="clueBox downClueBox">
+								<div id="12downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="12downClue_NUM" class="clueNum">12</div>
+								<div id="12downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="13downClue" class="clueBox downClueBox">
+								<div id="13downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="13downClue_NUM" class="clueNum">13</div>
+								<div id="13downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="21downClue" class="clueBox downClueBox">
+								<div id="21downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="21downClue_NUM" class="clueNum">21</div>
+								<div id="21downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="22downClue" class="clueBox downClueBox">
+								<div id="22downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="22downClue_NUM" class="clueNum">22</div>
+								<div id="22downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="24downClue" class="clueBox downClueBox">
+								<div id="24downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="24downClue_NUM" class="clueNum">24</div>
+								<div id="24downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="27downClue" class="clueBox downClueBox">
+								<div id="27downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="27downClue_NUM" class="clueNum">27</div>
+								<div id="27downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="28downClue" class="clueBox downClueBox">
+								<div id="28downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="28downClue_NUM" class="clueNum">28</div>
+								<div id="28downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="29downClue" class="clueBox downClueBox">
+								<div id="29downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="29downClue_NUM" class="clueNum">29</div>
+								<div id="29downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="30downClue" class="clueBox downClueBox">
+								<div id="30downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="30downClue_NUM" class="clueNum">30</div>
+								<div id="30downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="31downClue" class="clueBox downClueBox">
+								<div id="31downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="31downClue_NUM" class="clueNum">31</div>
+								<div id="31downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="32downClue" class="clueBox downClueBox">
+								<div id="32downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="32downClue_NUM" class="clueNum">32</div>
+								<div id="32downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="33downClue" class="clueBox downClueBox">
+								<div id="33downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="33downClue_NUM" class="clueNum">33</div>
+								<div id="33downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="38downClue" class="clueBox downClueBox">
+								<div id="38downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="38downClue_NUM" class="clueNum">38</div>
+								<div id="38downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="41downClue" class="clueBox downClueBox">
+								<div id="41downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="41downClue_NUM" class="clueNum">41</div>
+								<div id="41downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="43downClue" class="clueBox downClueBox">
+								<div id="43downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="43downClue_NUM" class="clueNum">43</div>
+								<div id="43downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="44downClue" class="clueBox downClueBox">
+								<div id="44downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="44downClue_NUM" class="clueNum">44</div>
+								<div id="44downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="45downClue" class="clueBox downClueBox">
+								<div id="45downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="45downClue_NUM" class="clueNum">45</div>
+								<div id="45downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="46downClue" class="clueBox downClueBox">
+								<div id="46downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="46downClue_NUM" class="clueNum">46</div>
+								<div id="46downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="47downClue" class="clueBox downClueBox">
+								<div id="47downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="47downClue_NUM" class="clueNum">47</div>
+								<div id="47downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="48downClue" class="clueBox downClueBox">
+								<div id="48downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="48downClue_NUM" class="clueNum">48</div>
+								<div id="48downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="49downClue" class="clueBox downClueBox">
+								<div id="49downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="49downClue_NUM" class="clueNum">49</div>
+								<div id="49downClue_TEXT" class="clueText">test</div>
+							</div>
+							<div id="53downClue" class="clueBox downClueBox">
+								<div id="53downClue_INDICATOR" class="clueIndicator"></div>
+								<div id="53downClue_NUM" class="clueNum">53</div>
+								<div id="53downClue_TEXT" class="clueText">test</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="phoneCluesBucket">
+                <div id="phoneClueFeature">
+                    <div id="prevWord" class="fa-solid fa-angle-left button"></div>
+                    <div id="activeClue" class="button">
+                        <div id="activeClueNum">1A</div>
+                        <div id="activeClueText">test</div>
+                    </div>
+                    <div id="nextWord" class="fa-solid fa-angle-right button"></div>
+                </div>
+                <div id="keyboardMain" class="keyboard">
+                    <div id="keyboardRow1" class="keyboardRow">
+                        <div id="keyQ" class="keyboardKey">Q</div>
+                        <div id="keyW" class="keyboardKey">W</div>
+                        <div id="keyE" class="keyboardKey">E</div>
+                        <div id="keyR" class="keyboardKey">R</div>
+                        <div id="keyT" class="keyboardKey">T</div>
+                        <div id="keyY" class="keyboardKey">Y</div>
+                        <div id="keyU" class="keyboardKey">U</div>
+                        <div id="keyI" class="keyboardKey">I</div>
+                        <div id="keyO" class="keyboardKey">O</div>
+                        <div id="keyP" class="keyboardKey">P</div>
+                    </div>
+                    <div id="keyboardRow2" class="keyboardRow">
+                        <div id="keyA" class="keyboardKey">A</div>
+                        <div id="keyS" class="keyboardKey">S</div>
+                        <div id="keyD" class="keyboardKey">D</div>
+                        <div id="keyF" class="keyboardKey">F</div>
+                        <div id="keyG" class="keyboardKey">G</div>
+                        <div id="keyH" class="keyboardKey">H</div>
+                        <div id="keyJ" class="keyboardKey">J</div>
+                        <div id="keyK" class="keyboardKey">K</div>
+                        <div id="keyL" class="keyboardKey">L</div>
+                    </div>
+                    <div id="keyboardRow3" class="keyboardRow">
+                        <div id="moreOptions" class="keyboardKey keyboardKeySpecial"></div>
+                        <div id="keyZ" class="keyboardKey">Z</div>
+                        <div id="keyX" class="keyboardKey">X</div>
+                        <div id="keyC" class="keyboardKey">C</div>
+                        <div id="keyV" class="keyboardKey">V</div>
+                        <div id="keyB" class="keyboardKey">B</div>
+                        <div id="keyN" class="keyboardKey">N</div>
+                        <div id="keyM" class="keyboardKey">M</div>
+                        <div id="delete" class="keyboardKey keyboardKeySpecial">DEL</div>
+                    </div>
+                </div>
+            </div>
+            <div id="ccPageMainBlur" class="pageMainBlur">
+                <div id="ccPopupBox" class="popupBox">
+                    <div id="ccPopupQuestion" class="popupQuestion"></div>
+                    <div id="ccButtonsBox" class="buttonsBox">
+                        <div id="ccClear" class="ccButtons popupAnswer leftButton">Clear Puzzle</div>
+                        <div id="ccCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+                    </div>
+                </div>
+            </div>
+            <div id="rvPageMainBlur" class="pageMainBlur">
+                <div id="rvPopupBox" class="popupBox">
+                    <div id="rvPopupQuestion" class="popupQuestion">Are you sure?</div>
+                    <div id="rvButtonsBox" class="buttonsBox">
+                        <div id="rvReveal" class="ccButtons popupAnswer leftButton">Reveal</div>
+                        <div id="rvCancel" class="ccButtons popupAnswer rightButton">Cancel</div>
+                    </div>
+                </div>
+            </div>
+            <div id="tmPageMainBlur" class="pageMainBlur">
+                <div id="tmPopupBox" class="popupBox">
+                    <div id="tmPopupQuestion" class="popupQuestion"></div>
+                    <div id="tmContinue" class="popupAnswer">Continue</div>
+                </div>
+            </div>
+            <div id="stPageMainBlur" class="pageMainBlur">
+                <div id="stPopupBox" class="popupBox">
+                    <div id="stPopupQuestion" class="popupQuestion">Ready to play?</div>
+                    <div id="stStart" class="popupAnswer">Begin</div>
+                </div>
+            </div>
+            <div id="yayPageMainBlur" class="pageMainBlur">
+                <div id="yayPopupBox" class="popupBox">
+                    <div id="yayPopupQuestion" class="popupQuestion"></div>
+                    <div id="yayView" class="popupAnswer"></div>
+                </div>
+            </div>
+        </div>
+        <!--Scripts-->
+        <script src="xword_gui_functions.js"></script>
+        <script>
+
+            // PART 0: GET ELEMENTS
+
+            // Puzzle specific variables
+            const n = 15;
+            const blackCellIDs = [5, 10, 20, 25, 35, 40, 49, 68, 73, 74, 75, 76, 77, 82, 96, 111, 115, 130, 144, 149, 150, 151, 152, 153, 158, 177, 186, 191, 201, 206, 216, 221];
+            const acrossClues = ['test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'];
+            const acrossWordNums = [1, 5, 9, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 46, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59];
+            const downClues = ['test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'];
+            const downWordNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 21, 22, 24, 27, 28, 29, 30, 31, 32, 33, 38, 41, 43, 44, 45, 46, 47, 48, 49, 53];
+            const downWordIDs = [1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 15, 50, 55, 64, 83, 88, 89, 90, 91, 92, 97, 126, 145, 159, 164, 165, 166, 167, 168, 173, 192];
+            const answers = "AAAA.AAAA.AAAAAAAAA.AAAA.AAAAAAAAA.AAAA.AAAAAAAA.AAAAAAAAAAAAAAAAAA.AAAA.....AAAA.AAAAAAAAAAAAA.AAAAAAAAAAAAAA.AAA.AAAAAAAAAAAAAA.AAAAAAAAAAAAA.AAAA.....AAAA.AAAAAAAAAAAAAAAAAA.AAAAAAAA.AAAA.AAAAAAAAA.AAAA.AAAAAAAAA.AAAA.AAAA";
+
+            // Global variables
+            var activeDirection = "across";
+            var activeCellID = null;
+            var firstActiveCellID = null;
+            var autocheckOn = false;
+            var timerPaused = true;
+            var activeRevealSelection = null;
+            var puzzleTimeID = "august-2-2026-full_time";
+            var puzzleUserfillID = "august-2-2026-full_userfill";
+            var puzzleUserfillColorsID = "august-2-2026-full_userfillColors";
+            var puzzleCompletenessID = "august-2-2026-full_completeness";
+            var timeToSave = null;
+            var timeToSaveSplit = null;
+            var totalSeconds = -1;
+            var totalMinutes = 0;
+            var totalHours = 0;
+            var totalDays = 0;
+            var keyboardOn = false;
+            var checkMenuOn = false;
+            var revealMenuOn = false;
+            var finalTime = null;
+            var puzzleComplete = false;
+            var userfill = ".".repeat(n*n);
+            var userfillColors = "b".repeat(n*n);
+
+            // Pre-set localStorage values IF doesn't exist already
+            if (localStorage.getItem(puzzleTimeID) === null) {
+                localStorage.setItem(puzzleTimeID, JSON.stringify("00:00_0_0_0_0"));
+            }
+            if (localStorage.getItem(puzzleUserfillID) === null) {
+                localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+            }
+            if (localStorage.getItem(puzzleUserfillColorsID) === null) {
+                localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfill));
+            }
+            if (localStorage.getItem(puzzleCompletenessID) === null) {
+                localStorage.setItem(puzzleCompletenessID, JSON.stringify(puzzleComplete));
+            }
+
+            // Whitelist formats
+            var letterNumberRegex = /^[a-zA-Z0-9 ]$/;
+            var timerRegex = /^[0-9_:]+$/;
+            var userfillStoredRegex = /^[a-zA-Z0-9.]+$/;
+            var userfillColorsStoredRegex = /^[rbgn]+$/;
+
+            // Buttons and popups
+            var newSTStart = document.getElementById("stStart");
+            var newTimerButton = document.getElementById("timer");
+            var newTMPopupQuestion = document.getElementById("tmPopupQuestion");
+            var newTMContinue = document.getElementById("tmContinue");
+            var newPencilButton = document.getElementById("pencilButton");
+            var newClearButton = document.getElementById("clearButton");
+            var newCCPopupQuestion = document.getElementById("ccPopupQuestion");
+            var newCCClear = document.getElementById("ccClear");
+            var newCCCancel = document.getElementById("ccCancel");
+            var newYayView = document.getElementById("yayView");
+            var newCheckButton = document.getElementById("checkButton");
+            var newCheckMenu = document.getElementById("checkMenu");
+            var newCheckLetterButton = document.getElementById("checkLetterButton");
+            var newCheckWordButton = document.getElementById("checkWordButton");
+            var newCheckGridButton = document.getElementById("checkGridButton");
+            var newAutoCheckButton = document.getElementById("autocheckButton");
+            var newNextWord = document.getElementById("nextWord");
+            var newPrevWord = document.getElementById("prevWord");
+            var newActiveClue = document.getElementById("activeClue");
+            var newRevealButton = document.getElementById("revealButton");
+            var newRevealMenu = document.getElementById("revealMenu");
+            var newRevealLetterButton = document.getElementById("revealLetterButton");
+            var newRevealWordButton = document.getElementById("revealWordButton");
+            var newRevealGridButton = document.getElementById("revealGridButton");
+            var newRVPopupQuestion = document.getElementById("rvPopupQuestion");
+            var newRVReveal = document.getElementById("rvReveal");
+            var newRVCancel = document.getElementById("rvCancel");
+            var newShowKeyboardButton = document.getElementById("showKeyboardButton");
+            var newAcrossCluesHeader = document.getElementById("acrossCluesHeader");
+            var newDownCluesHeader = document.getElementById("downCluesHeader");
+            var newAcrossClues = document.getElementById("acrossClues");
+            var newDownClues = document.getElementById("downClues");
+            var newNextWord = document.getElementById("nextWord");
+            var newPrevWord = document.getElementById("prevWord");
+            var newActiveClue = document.getElementById("activeClue");
+
+            // PART 1: VALIDATE LOCALSTORAGE + POPULATE PROGRESS (TIMER, USERFILL, USERFILL COLOR)
+
+            // Validate timeToSave input from localStorage
+            timeToSave = JSON.parse(localStorage.getItem(puzzleTimeID));
+            if (!timerRegex.test(timeToSave)) {
+                timeToSave = "00:00_0_0_0_0";
+                localStorage.setItem(puzzleTimeID, JSON.stringify(timeToSave));
+            }
+
+            // If saved time exists in local storage, update start time bits and update timer value
+            if (timeToSave !== null) {
+                // Break saved time into useful bits
+                timeToSaveSplit = timeToSave.split("_");
+                totalSeconds = parseInt(timeToSaveSplit[1]);
+                totalMinutes = parseInt(timeToSaveSplit[2]);
+                totalHours = parseInt(timeToSaveSplit[3]);
+                totalDays = parseInt(timeToSaveSplit[4]);
+                // Update timer value
+                document.getElementById("timer").textContent = timeToSaveSplit[0];
+            }
+
+            // Pull saved userfill string + colors from storage, if available (else use defaults)
+            var userfillStored = JSON.parse(localStorage.getItem(puzzleUserfillID));
+            var userfillColorsStored = JSON.parse(localStorage.getItem(puzzleUserfillColorsID));
+
+            // Validate userfillStored inputs (no special chars, force correct length)
+            if (!userfillStoredRegex.test(userfillStored) || userfillStored.length !== n*n) {
+                userfillStored = ".".repeat(n*n);
+                localStorage.setItem(puzzleUserfillID, JSON.stringify(userfillStored));
+            }
+            // Validate userfillColorsStored
+            if (!userfillColorsStoredRegex.test(userfillColorsStored) || userfillColorsStored.length !== n*n) {
+                userfillColorsStored = "b".repeat(n*n);
+                localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColorsStored));
+            }
+
+            // Update grid fill and colors based on the localStorage values
+            if (userfillStored !== null && userfillColorsStored !== null) {
+                // Pull stored info
+                userfill = userfillStored;
+                userfillColors = userfillColorsStored;
+                // Fill cells + color using userfill
+                var userfill_i = null;
+                var userfillColors_i = null;
+                for (let i = 1; i < (n*n)+1; i++) {
+                    userfill_i = userfill[i-1];
+                    if (userfillColors[i-1] === "r") {
+                        userfillColors_i = "red";
+                    }
+                    else if (userfillColors[i-1] === "n") {
+                        userfillColors_i = "darkblue";
+                    }
+                    else if (userfillColors[i-1] === "g") {
+                        userfillColors_i = "gray";
+                    }
+                    else {
+                        userfillColors_i = "black";
+                    }
+                    if (userfill_i === ".") {
+                        document.getElementById("fill_" + i).value = "";
+                    }
+                    else {
+                        document.getElementById("fill_" + i).value = userfill_i;
+                    }
+                    document.getElementById("fill_" + i).style.color = userfillColors_i;
+                }
+            }
+
+            // Pull puzzle completeness status from storage
+            var puzzleCompleteStored = localStorage.getItem(puzzleCompletenessID);
+            if (puzzleCompleteStored !== "true" && puzzleCompleteStored !== "false") {
+                puzzleComplete = false;
+                localStorage.setItem(puzzleCompletenessID, puzzleComplete);
+            }
+            puzzleCompleteStored = JSON.parse(localStorage.getItem(puzzleCompletenessID));
+            puzzleComplete = puzzleCompleteStored;
+            if (puzzleCompleteStored === true) {
+                hideDiv("stPageMainBlur");
+                showDiv("yayPageMainBlur");
+                document.getElementById("yayPopupQuestion").innerHTML = "Nice!<br>Final Time: <b>" + timeToSaveSplit[0] + "<b>";
+                document.getElementById("yayView").innerHTML = "See Puzzle";
+            }
+
+            // Start timer
+            var timerBucket = setInterval(incrementTimer, 1000, puzzleTimeID);
+            incrementTimer(puzzleTimeID);
+
+            // Pause timer if page not visible
+            document.addEventListener("visibilitychange", function() {
+                if (document.hidden) {
+                    // Show new popup
+                    showDiv("tmPageMainBlur");
+                    showDiv("tmContinue");
+                    newTMPopupQuestion.textContent = "Timer paused. Want to continue?";
+                    // Hide old popups
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                    timerPaused = true;
+                }
+            });
+
+            // PART 2: HANDLE CELL CLICKS
+
+            var lastActiveCellID;
+            const allCells = document.querySelectorAll(".cell");
+            allCells.forEach((allCell) => {
+                allCell.addEventListener("click", function(event) {
+                    // Switch direction + show correct clues on double click
+                    if (activeCellID === allCell.id) {
+                        switchActiveDirection();
+                    }
+                    // Highlight word
+                    handleCellClick(allCell.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    activeCellID = allCell.id;
+                })
+            });
+
+            // PART 3: HANDLE CLUEBOX CLICKS
+
+            const allClueBoxes = document.querySelectorAll(".clueBox");
+            allClueBoxes.forEach((allClueBox) => {
+                allClueBox.addEventListener("click", function() {
+                    activeCellID = handleClueBoxClick(this.id, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                });
+            });
+
+            // PART 4: HANDLE KEYSTROKES
+
+            // Listen for keystrokes (desktop)
+            document.addEventListener("keydown", function(event) {
+
+                // Move right
+                if (event.key === "ArrowRight") {
+                    if (activeDirection === "across") {
+                        activeCellID = moveRight(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveLeft(activeCellID);
+                    }
+                }
+
+                // Move left
+                else if (event.key === "ArrowLeft") {
+                    if (activeDirection === "across") {
+                        activeCellID = moveLeft(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveRight(activeCellID);
+                    }
+                }
+
+                // Move up
+                else if (event.key === "ArrowUp") {
+                    if (activeDirection === "down") {
+                        activeCellID = moveUp(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveDown(activeCellID);
+                    }
+                }
+
+                // Move down
+                else if (event.key === "ArrowDown") {
+                    if (activeDirection === "down") {
+                        activeCellID = moveDown(activeCellID);
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    }
+                    else {
+                        switchActiveDirection();
+                        activeCellID = moveUp(activeCellID);
+                    }
+                }
+
+                // If click backspace, clear cell and move back a space
+                else if (event.key === "Backspace") {
+                    if (puzzleComplete === false) {
+
+                        // Fill cell with blank
+                        document.getElementById("fill_" + activeCellID).value = "";
+
+                        // Update userfill
+                        userfill = userfill.substring(0,parseInt(activeCellID) - 1) + "." + userfill.substring(parseInt(activeCellID));
+                        localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+
+                        // Update userfill colors
+                        userfillColors = userfillColors.slice(0, i) + "b" + userfillColors.slice(i + 1);
+                        localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+                        // Move back
+                        if (activeDirection === "across") {
+                            activeCellID = moveLeft(activeCellID);
+                        }
+                        else {
+                            activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+                        }
+
+                        // Handle cell click
+                        handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+
+                    }
+                }
+
+                // If it's enter or tab, move to next word
+                else if (event.key === "Enter" || event.key === "Tab") {
+                    event.preventDefault();
+                    activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+
+                // Fill cell with letter and move on
+                else if (event.key.length === 1 && !event.ctrlKey && letterNumberRegex.test(event.key)) {
+                    if (puzzleComplete === false) {
+
+                        var k = parseInt(activeCellID) - 1;
+
+                        // Fill cell
+                        document.getElementById("fill_" + activeCellID).style.color = fillColor;
+                        document.getElementById("fill_" + activeCellID).value = event.key;
+
+                        // Update userfill + colors
+                        if (event.key === " ") {
+                            userfill = userfill.substring(0,k) + "." + userfill.substring(parseInt(activeCellID));
+                            userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+                        }
+                        else {
+                            userfill = userfill.substring(0,k) + event.key.toUpperCase() + userfill.substring(parseInt(activeCellID));
+                            if (fillColor === "red") {
+                                userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+                            }
+                            else if (fillColor === "darkblue") {
+                                userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+                            }
+                            else if (fillColor === "gray") {
+                                userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+                            }
+                            else {
+                                userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+                            }
+                        }
+                        localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+                        localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+                        // Check if congrats are in order?
+                        congrats(answers);
+
+                        // Move on
+                        if (activeDirection === "across") {
+                            activeCellID = moveRight(activeCellID);
+                            handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                        }
+                        else {
+                            activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+                            handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                        }
+
+                        // Autocheck if on!
+                        if (autocheckOn === true) {
+                            checkGrid(answers);
+                        }
+                    }
+                }
+            });
+
+            // Prevent pasting input
+            const allUserFills = document.querySelectorAll(".userFill");
+            allUserFills.forEach((allUserFill) => {
+                allUserFill.addEventListener("input", function(event) {
+                    event.preventDefault();
+                });
+            });
+
+            // PART 5: OTHER EVENT LISTENERS (ALL)
+
+            // Start puzzle popup
+            newSTStart.addEventListener("click", function () {
+                // Set in motion
+                hideDiv("stPageMainBlur");
+                hideDiv("stStart");
+                timerPaused = false;
+                // Highlight first cell
+                firstActiveCellID = document.getElementsByClassName("cell")[0].id;
+                handleCellClick(firstActiveCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                activeCellID = firstActiveCellID;
+            });
+
+            // Timer button
+            newTimerButton.addEventListener("click", function () {
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("tmPageMainBlur");
+                    showDiv("tmContinue");
+                    newTMPopupQuestion.textContent = "Timer paused. Want to continue?";
+                    // Hide old popups
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                    timerPaused = true;
+                }
+                else if (timerPaused === true && puzzleComplete === true) {
+                    showDiv("yayPageMainBlur");
+                }
+            });
+            newTMContinue.addEventListener("click", function () {
+                hideDiv("tmPageMainBlur");
+                hideDiv("tmContinue");
+                timerPaused = false;
+            });
+
+            // Confirm congrats
+            newYayView.addEventListener("click", function () {
+                hideDiv("yayPageMainBlur");
+            });
+
+            // Pencil button
+            newPencilButton.addEventListener("click", function () {
+                togglePencil();
+            });
+
+            // Show keyboard button
+            newShowKeyboardButton.addEventListener("click", function () {
+                toggleKeyboard();
+            });
+
+            // Clear button
+            newClearButton.addEventListener("click", function () {
+                if (timerPaused === false) {
+                    // Show new popup
+                    showDiv("ccPageMainBlur");
+                    showDiv("ccButtonsBox");
+                    newCCPopupQuestion.textContent = "Are you sure?";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                }
+                else if (timerPaused === true && puzzleComplete === true) {
+                    // Show new popup
+                    showDiv("ccPageMainBlur");
+                    showDiv("ccButtonsBox");
+                    newCCPopupQuestion.textContent = "Are you sure? You will lose all progress on this puzzle.";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("rvPageMainBlur");
+                    hideDiv("rvButtonsBox");
+                }
+            });
+            // Confirm clear
+            newCCClear.addEventListener("click", function () {
+                // Clear grid and hide popup
+                clearGrid(n);
+                hideDiv("ccPageMainBlur");
+                hideDiv("ccButtonsBox");
+                // Reset puzzle completeness vars
+                puzzleComplete = false;
+                localStorage.setItem(puzzleCompletenessID,JSON.stringify(puzzleComplete));
+                timeToSave = null;
+                timeToSaveSplit = null;
+                timerPaused = false;
+                totalSeconds = -1;
+                totalMinutes = 0;
+                totalHours = 0;
+                totalDays = 0;
+            });
+            // Confirm clear cancel
+            newCCCancel.addEventListener("click", function () {
+                hideDiv("ccPageMainBlur");
+                hideDiv("ccButtonsBox");
+            });
+
+            // Check letter
+            newCheckLetterButton.addEventListener("click", function () {
+                checkCell(activeCellID, answers);
+            });
+            // Check word
+            newCheckWordButton.addEventListener("click", function () {
+                checkWord(activeCellID, answers);
+            });
+            // Check grid
+            newCheckGridButton.addEventListener("click", function () {
+                checkGrid(answers);
+            });
+
+            // Autocheck command (click)
+            newAutoCheckButton.addEventListener("click", function () {
+                if (autocheckOn === false) {
+                    autocheckOn = true;
+                    newAutoCheckButton.style.backgroundColor = "lightblue";
+                    checkGrid(answers);
+                }
+                else {
+                    autocheckOn = false;
+                    newAutoCheckButton.style.backgroundColor = "transparent";
+                }
+            });
+
+            // Reveal letter button
+            newRevealLetterButton.addEventListener("click", function () {
+                activeRevealSelection = "Letter";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Letter";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal word button
+            newRevealWordButton.addEventListener("click", function () {
+                activeRevealSelection = "Word";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Word";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+            // Reveal grid button
+            newRevealGridButton.addEventListener("click", function () {
+                activeRevealSelection = "Grid";
+                if (timerPaused === false || (timerPaused === true && puzzleComplete === true)) {
+                    // Show new popup
+                    showDiv("rvPageMainBlur");
+                    showDiv("rvButtonsBox");
+                    newRVReveal.textContent = "Reveal Grid";
+                    // Hide old popups
+                    hideDiv("tmPageMainBlur");
+                    hideDiv("tmContinue");
+                    hideDiv("ccPageMainBlur");
+                    hideDiv("ccButtonsBox");
+                }
+            });
+
+            // Reveal letter/word/grid
+            newRVReveal.addEventListener("click", function () {
+                if (activeRevealSelection === "Letter") {
+                    [userfill, userfillColors] = revealCell(activeCellID, answers, userfill, puzzleUserfillID);
+                    congrats(answers);
+                }
+                else if (activeRevealSelection === "Word") {
+                    [userfill, userfillColors] = revealWord(activeCellID, answers, userfill, puzzleUserfillID);
+                    congrats(answers);
+                }
+                else if (activeRevealSelection === "Grid") {
+                    [userfill, userfillColors] = revealGrid(answers, puzzleUserfillID);
+                    congrats(answers);
+                }
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+            // Reveal cancel
+            newRVCancel.addEventListener("click", function () {
+                hideDiv("rvPageMainBlur");
+                hideDiv("rvButtonsBox");
+            });
+
+            // Check whether to show the default cluebucket on any resize
+            window.addEventListener("resize", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    if (keyboardOn === true) {
+                        document.getElementById("cluesBucket").style.display = "none";
+                    }
+                }
+                else if (!window.matchMedia("(pointer: coarse)").matches) {
+                    document.getElementById("cluesBucket").style.display = "flex";
+                }
+            });
+
+            // PART 6: OTHER EVENT LISTENERS (HOVER AVAILABLE)
+
+            // Update visible clue CSS on resize
+            window.addEventListener("resize", function () {
+
+                // If full screen, all visible with black text
+                if (window.matchMedia("(min-width: 500px)").matches) {
+                    // Update across clue style
+                    newAcrossCluesHeader.style.color = "black";
+                    newAcrossClues.style.display = "block";
+                    newAcrossClues.style.visibility = "visible";
+
+                    // Update down clue style
+                    newDownCluesHeader.style.color = "black";
+                    newDownClues.style.display = "block";
+                    newDownClues.style.visibility = "visible";
+                }
+
+                // If thin screen, update visible clues
+                else {
+                    // Update active clue header
+                    switchVisibleClues(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+
+            });
+
+            // Switch visible clues on click
+            newAcrossCluesHeader.addEventListener("click", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    // Update activeDirection
+                    activeDirection = "across";
+                    // Update active clue header
+                    updateClueHeaders(newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+            });
+            newDownCluesHeader.addEventListener("click", function () {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    // Update activeDirection
+                    activeDirection = "down";
+                    // Update active clue header
+                    updateClueHeaders(newDownCluesHeader, newDownClues, newAcrossCluesHeader, newAcrossClues);
+                    // Highlight word
+                    handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+                }
+            });
+
+            // Add hover event listeners
+            if (window.matchMedia("(hover: hover)").matches) {
+
+                // Check button
+                newCheckButton.addEventListener("mouseenter", function () {
+                    showDiv("checkMenu");
+                });
+                newCheckButton.addEventListener("mouseleave", function () {
+                    hideDiv("checkMenu");
+                });
+                // Check menu
+                newCheckMenu.addEventListener("mouseenter", function () {
+                    showDiv("checkMenu");
+                });
+                newCheckMenu.addEventListener("mouseleave", function () {
+                    hideDiv("checkMenu");
+                });
+
+                // Autocheck command (hover)
+                newAutoCheckButton.addEventListener("mouseenter", function () {
+                    newAutoCheckButton.style.backgroundColor = "lightgray";
+                });
+                newAutoCheckButton.addEventListener("mouseleave", function () {
+                    if (autocheckOn === true) {
+                        newAutoCheckButton.style.backgroundColor = "lightblue";
+                    }
+                    else {
+                        newAutoCheckButton.style.backgroundColor = "transparent";
+                    }
+                });
+
+                // Reveal button
+                newRevealButton.addEventListener("mouseenter", function () {
+                    showDiv("revealMenu");
+                });
+                newRevealButton.addEventListener("mouseleave", function () {
+                    hideDiv("revealMenu");
+                });
+                // Reveal menu
+                newRevealMenu.addEventListener("mouseenter", function () {
+                    showDiv("revealMenu");
+                });
+                newRevealMenu.addEventListener("mouseleave", function () {
+                    hideDiv("revealMenu");
+                });
+
+            }
+
+			// PART 7: MOBILE
+
+			// If touchscreen, turn keyboard on by default
+			if (window.matchMedia("(pointer: coarse)").matches) {
+				toggleKeyboard();
+			}
+
+			// If touchscreen, show check menus via click
+			if (window.matchMedia("(any-pointer: coarse)").matches) {
+
+				// Show check menu
+				newCheckButton.addEventListener("click", function () {
+					if (!checkMenuOn) {
+						checkMenuOn = true;
+						showDiv("checkMenu");
+					}
+					else {
+						checkMenuOn = false;
+						document.getElementById("checkButton").style.backgroundColor = "white";
+						hideDiv("checkMenu");
+					}
+				});
+
+				// Show reveal menu
+				newRevealButton.addEventListener("click", function () {
+					if (!revealMenuOn) {
+						revealMenuOn = true;
+						showDiv("revealMenu");
+					}
+					else {
+						revealMenuOn = false;
+						document.getElementById("revealButton").style.backgroundColor = "white";
+						hideDiv("revealMenu");
+					}
+				});
+
+			}
+
+			// Listen for keystrokes (mobile)
+			const allKeyboardKeys = document.querySelectorAll(".keyboardKey");
+			allKeyboardKeys.forEach((allKeyboardKey) => {
+				allKeyboardKey.addEventListener("click", function() {
+
+					var k = parseInt(activeCellID) - 1;
+
+					// If special
+					if (allKeyboardKey.classList[1] === "keyboardKeySpecial") {
+						// If delete
+						if (allKeyboardKey.id === "delete") {
+							if (puzzleComplete === false) {
+								// Fill cell with blank
+								document.getElementById("fill_" + activeCellID).value = "";
+								// Move back
+								if (activeDirection === "across") {
+									activeCellID = moveLeft(activeCellID);
+								}
+								else {
+									activeCellID = previousDownLetter(activeCellID, downWordNums, downWordIDs);
+								}
+								// Handle cell click
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+								// Update userfill
+								userfill = userfill.substring(0,k) + "." + userfill.substring(k+1);
+							}
+						}
+					}
+					// If letter
+					else {
+						if (puzzleComplete === false) {
+							document.getElementById("fill_" + activeCellID).style.color = fillColor;
+							document.getElementById("fill_" + activeCellID).value = allKeyboardKey.textContent;
+							if (activeDirection === "across") {
+								activeCellID = moveRight(activeCellID);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							else {
+								activeCellID = nextDownLetter(activeCellID, downWordNums, downWordIDs);
+								handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+							}
+							// Autocheck if on!
+							if (autocheckOn === true) {
+								checkGrid(answers);
+							}
+							// Update userfill
+							userfill = userfill.substring(0,k) + allKeyboardKey.textContent.toUpperCase() + userfill.substring(k+1);
+						}
+					}
+
+					// Update userfill + colors
+					if (fillColor === "red") {
+						userfillColors = userfillColors.slice(0, k) + "r" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "darkblue") {
+						userfillColors = userfillColors.slice(0, k) + "n" + userfillColors.slice(k + 1);
+					}
+					else if (fillColor === "gray") {
+						userfillColors = userfillColors.slice(0, k) + "g" + userfillColors.slice(k + 1);
+					}
+					else {
+						userfillColors = userfillColors.slice(0, k) + "b" + userfillColors.slice(k + 1);
+					}
+					localStorage.setItem(puzzleUserfillID, JSON.stringify(userfill));
+					localStorage.setItem(puzzleUserfillColorsID, JSON.stringify(userfillColors));
+
+					// Check if congrats are in order?
+					congrats(answers);
+				});
+			});
+
+			// Change direction (mobile)
+			newActiveClue.addEventListener("click", function() {
+				// Switch direction + show correct clues on double click
+				switchActiveDirection();
+				// Highlight word
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+			// Next word event listener (mobile)
+			newNextWord.addEventListener("click", function() {
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+			// Previous word event listener (mobile)
+			newPrevWord.addEventListener("click", function() {
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = previousWord(activeCellID, downWordNums, downWordIDs);
+				activeCellID = nextWord(activeCellID, downWordNums, downWordIDs);
+				handleCellClick(activeCellID, newAcrossCluesHeader, newAcrossClues, newDownCluesHeader, newDownClues);
+			});
+
+        </script>
+    </body>
+</html>

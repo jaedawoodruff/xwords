@@ -143,6 +143,7 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 75cqw;
+    pointer-events: none;
 }
 input {
     -webkit-appearance: none;
@@ -301,6 +302,7 @@ input {
     display: flex;
     flex-direction: row;
     height: 60px;
+    max-height: 15vh;
     place-content: center;
     gap: 2px;
     padding-bottom: 2px;
@@ -313,12 +315,13 @@ input {
     width: 100px;
     background-color: white;
     border-radius: 2px;
+    font-size: 18px;
 }
 .keyboardKeySpecial {
     width: 100px;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 9px;
+    font-size: 14px;
     background-color: lightgray;
 }
 .keyboardKey:active {
@@ -383,7 +386,7 @@ input {
     height: auto;
     background-color: white;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
 }
 .popupQuestion {
     position: relative;
@@ -415,7 +418,7 @@ input {
     border-radius: 0 0 20px 20px;
     border-top: 1px solid gray;
     font-family: Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 .leftButton {
@@ -502,10 +505,10 @@ input {
         padding-bottom: 3px;
     }
     .keyboardKey {
-        font-size: 20px;
+        font-size: 26px;
     }
     .keyboardKeySpecial {
-        font-size: 18px;
+        font-size: 20px;
     }
     /*Buttons*/
     .button {
