@@ -52,34 +52,25 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 50vw;
+    place-content: center;
     width: 90%;
-    max-height: 85vh;
+    height: 50vw;
     min-height: 60vh;
+    max-height: 85vh;
     top: 10px;
     background-color: whitesmoke;
 }
-#todayPuzzle {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 50vw;
-    width: 50vw;
-    max-height: 85vh;
-    min-height: 60vh;
-    border-width: 0 1px 0 0;
-    border-color: gray;
-    border-style: solid;
+#todayPuzzleMainButton {
+    width: 50%;
+    height: 100%;
 }
 #olderPuzzleBucket {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 50vw;
-    width: 50vw;
+    width: 50%;
+    height: 100%;
     overflow-y: scroll;
-    max-height: 85vh;
-    min-height: 60vh;
 }
 .olderPuzzle {
     position: relative;
@@ -103,38 +94,40 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    border-width: 0 1px 0 0;
+    border-color: gray;
+    border-style: solid;
     place-items: center;
     place-content: center;
     font-family: Georgia, Times, 'Times New Roman', serif;
     color: black;
     font-size: 16px;
 }
-#todayPuzzleDate {
+#todayPuzzleDate, #todayPuzzleTitle, #todayPuzzleAuthor {
     position: relative;
     display: flex;
     place-content: center;
     text-align: center;
-    width: 80%;
-    font-size: 26px;
+    place-items: center;
+    width: 90%;
     font-weight: bold;
-    padding: 5px;
+}
+#todayPuzzleDate {
+    height: 20%;
+    align-items: end;
+    font-size: clamp(22px, 5cqw, 28px);
 }
 #todayPuzzleTitle {
-    position: relative;
-    display: flex;
-    place-content: center;
-    text-align: center;
-    width: 80%;
-    padding: 5px;
-    padding: 5px 0 15px 0;
+    padding-bottom: 4%;
+    padding-top: 1%;
+    align-items: end;
+    font-size: clamp(16px, 2.5cqw, 20px);
 }
 #todayPuzzleAuthor {
-    position: relative;
-    display: flex;
-    place-content: center;
-    text-align: center;
-    width: 80%;
-    padding: 15px 0;
+    height: 25%;
+    align-items: start;
+    padding-top: 4%;
+    font-size: clamp(16px, 2.5cqw, 20px);
 }
 #gridIcon {
     position: relative;
@@ -142,6 +135,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 50%;
+    max-width: 80%;
     border: 1px solid black;
     aspect-ratio: 1 / 1;
 }
