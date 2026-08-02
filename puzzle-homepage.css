@@ -104,7 +104,8 @@ body {
     font-family: Georgia, Times, 'Times New Roman', serif;
     color: black;
     font-size: 16px;
-    overflow: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 #todayPuzzleDate, #todayPuzzleTitle, #todayPuzzleAuthor {
     position: relative;
